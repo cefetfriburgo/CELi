@@ -1,0 +1,261 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sogo_accessibility\n"
+"POT-Creation-Date: 2016-03-09 09:58+0200\n"
+"PO-Revision-Date: 2016-06-23 10:59+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-sogo_accessibility-admin.php:111
+#: admin/class-sogo_accessibility-admin.php:112
+msgid "Sogo Accessibility"
+msgstr "Accesibilidad por SOGO"
+
+#: admin/class-sogo_accessibility-admin.php:145
+#: admin/settings/class-settings-definition.php:69
+msgid "Settings"
+msgstr "Configurar"
+
+#: admin/settings/class-callback-helper.php:61
+#, php-format
+msgid "The callback function used for <strong>%s</strong> setting is missing."
+msgstr "Falta configurar %s"
+
+#: admin/settings/class-callback-helper.php:113
+#, php-format
+msgid "Options for <strong>%s</strong> multicheck is missing."
+msgstr ""
+
+#: admin/settings/class-callback-helper.php:156
+#, php-format
+msgid "Options for <strong>%s</strong> radio is missing."
+msgstr ""
+
+#: admin/settings/class-callback-helper.php:399
+msgid "Upload File"
+msgstr "Subir el archivo"
+
+#: admin/settings/class-sanitization-helper.php:95
+msgid "Settings updated."
+msgstr "Configuracion guardada "
+
+#: admin/settings/class-settings-definition.php:70
+msgid "CSS"
+msgstr ""
+
+#: admin/settings/class-settings-definition.php:91
+msgid "Button Text when close"
+msgstr "Texto en el boton de cerrar"
+
+#: admin/settings/class-settings-definition.php:95
+msgid "Button location"
+msgstr "Lugar del boton de accesibilidad"
+
+#: admin/settings/class-settings-definition.php:98
+msgid "Top left"
+msgstr "Arriba a la izquierda"
+
+#: admin/settings/class-settings-definition.php:99
+msgid "Top right"
+msgstr "Arriba a la derecha"
+
+#: admin/settings/class-settings-definition.php:100
+msgid "middle left"
+msgstr "Izquierda en el medio"
+
+#: admin/settings/class-settings-definition.php:101
+msgid "middle right"
+msgstr "Derecha en el medio"
+
+#: admin/settings/class-settings-definition.php:102
+msgid "bottom left"
+msgstr "Abajo a la izquierda"
+
+#: admin/settings/class-settings-definition.php:103
+msgid "bottom right"
+msgstr "Abajo a la derecha"
+
+#: admin/settings/class-settings-definition.php:107
+msgid "Button Text When open"
+msgstr "Texto en el boton cuando esta abierto"
+
+#: admin/settings/class-settings-definition.php:111
+#: admin/settings/class-settings-definition.php:124
+#: public/public-display.php:115
+msgid "Readable Font"
+msgstr "Tipografía clara"
+
+#: admin/settings/class-settings-definition.php:117
+msgid "Disable options"
+msgstr "Anular opciones"
+
+#: admin/settings/class-settings-definition.php:118
+msgid "Select to disable this for the user"
+msgstr "Desabilitar para usuarios"
+
+#: admin/settings/class-settings-definition.php:120
+msgid "Blank & White option"
+msgstr "Tonos de gris"
+
+#: admin/settings/class-settings-definition.php:121
+msgid "Contrast Dark option"
+msgstr "Contraste oscuro"
+
+#: admin/settings/class-settings-definition.php:122
+msgid "Contrast White option"
+msgstr "Contraste claro"
+
+#: admin/settings/class-settings-definition.php:123
+msgid "Hide Movements"
+msgstr "Detener movimientos"
+
+#: admin/settings/class-settings-definition.php:125
+msgid "Underline links"
+msgstr "Subrayar enlaces"
+
+#: admin/settings/class-settings-definition.php:130
+msgid "Font size increase 2nd level"
+msgstr "Agrandar textos 2do nivel"
+
+#: admin/settings/class-settings-definition.php:145
+msgid "Font size increase 3rd level"
+msgstr "Agrandar textos 3do nivel"
+
+#: admin/settings/class-settings-definition.php:158
+msgid "Do not show Accessibility for screen resolution"
+msgstr "No mostrar Accesibilidad en pantallas con resolucion"
+
+#: admin/settings/class-settings-definition.php:162
+msgid "Mobile"
+msgstr "Mobiles"
+
+#: admin/settings/class-settings-definition.php:163
+msgid "Mobile + Tablet"
+msgstr "Mobiles + Tabletas"
+
+#: admin/settings/class-settings-definition.php:167
+#: public/public-display.php:139 public/public-display.php:141
+msgid "Accessibility Statement"
+msgstr "Declaración de Accesibilidad"
+
+#: admin/settings/class-settings-definition.php:168
+msgid "Rich Editor save as HTML markups"
+msgstr "Editor guarda como marcas HTML"
+
+#: admin/settings/class-settings-definition.php:176
+msgid "Button open background color"
+msgstr "Color de fondo con Accesibilidad abierta"
+
+#: admin/settings/class-settings-definition.php:180
+msgid "Button close background color"
+msgstr "Color de fondo con Accesibilidad cerrada"
+
+#: admin/settings/class-settings-definition.php:184
+msgid "Button open Text color"
+msgstr "Color de texto con Accesibilidad abierta"
+
+#: admin/settings/class-settings-definition.php:188
+msgid "Button close Text color"
+msgstr "Color de texto con Accesibilidad cerrada"
+
+#: admin/settings/class-settings-definition.php:193
+msgid "Enter full CSS code."
+msgstr "Ingresar codigo CSS completo"
+
+#: public/class-sogo_accessibility-public.php:108
+msgid "Search"
+msgstr "Buscar"
+
+#: public/class-sogo_accessibility-public.php:109
+msgid "Name"
+msgstr "Nombre"
+
+#: public/class-sogo_accessibility-public.php:110
+msgid "Email"
+msgstr "Mail"
+
+#: public/class-sogo_accessibility-public.php:111
+msgid "Website"
+msgstr "Sitio web"
+
+#: public/class-sogo_accessibility-public.php:112
+msgid "Comment"
+msgstr "Comentarios"
+
+#: public/public-display.php:27 public/public-display.php:28
+msgid "Accessibility"
+msgstr "Accesibilidad"
+
+#: public/public-display.php:81
+msgid "Press \"Alt + A\" to open\\close the accessibility menu"
+msgstr "Pulsar \"Alt +A\" para abrir/cerrar menu de accesibilidad"
+
+#: public/public-display.php:91
+msgid "B&C"
+msgstr "Blanco y Negro"
+
+#: public/public-display.php:98
+msgid "Contrasts Dark"
+msgstr "Contraste Oscuro"
+
+#: public/public-display.php:105
+msgid "Contrasts White"
+msgstr "Contraste Blanco"
+
+#: public/public-display.php:110
+msgid "Stop Movement"
+msgstr "Detener movimientos"
+
+#: public/public-display.php:120
+msgid "Underline Links"
+msgstr "Subrayar Enlaces"
+
+#: public/public-display.php:127 public/public-display.php:129
+#: public/public-display.php:131
+msgid "A"
+msgstr "A"
+
+#: public/public-display.php:135 public/public-display.php:136
+msgid "cancel accessibility"
+msgstr "Desabilitar Accesibilidad"
+
+#: public/public-display.php:163
+msgid "Provided by:"
+msgstr "Creado por:"
+
+#~ msgid "Show options"
+#~ msgstr "הצג אפשרויות"
+
+#~ msgid "Select to enable this for the user"
+#~ msgstr "בחר בכדי לאפשר את זה למשתמש"
+
+#~ msgid "Close"
+#~ msgstr "סגור"
+
+#~ msgid "Contrasts"
+#~ msgstr "בהירות"
+
+#~ msgid "Provided by"
+#~ msgstr "בוצע ע\"י "
+
+#~ msgid "Toggle ACC."
+#~ msgstr "הפעל \\ הפסק נגישות"
+
+#~ msgid "contrasts"
+#~ msgstr "בהירות"
+
+#~ msgid "a"
+#~ msgstr "א"
+
+#~ msgid "info accessibility"
+#~ msgstr "הצהרת נגישות"

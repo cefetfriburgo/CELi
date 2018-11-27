@@ -1,0 +1,340 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sogo_accessibility\n"
+"POT-Creation-Date: 2018-03-18 10:59+0200\n"
+"PO-Revision-Date: 2018-03-18 10:59+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-sogo_accessibility-admin.php:113
+#: admin/class-sogo_accessibility-admin.php:114
+msgid "Sogo Accessibility"
+msgstr "נגישות מ - SOGO"
+
+#: admin/class-sogo_accessibility-admin.php:147
+#: admin/settings/class-settings-definition.php:46
+msgid "Settings"
+msgstr "הגדרות נגישות"
+
+#: admin/settings/class-callback-helper.php:48
+#, php-format
+msgid "The callback function used for <strong>%s</strong> setting is missing."
+msgstr "הגדרות חסרות %s"
+
+#: admin/settings/class-callback-helper.php:123
+#, php-format
+msgid "Options for <strong>%s</strong> multicheck is missing."
+msgstr ""
+
+#: admin/settings/class-callback-helper.php:167
+#, php-format
+msgid "Options for <strong>%s</strong> radio is missing."
+msgstr ""
+
+#: admin/settings/class-callback-helper.php:427
+msgid "Upload File"
+msgstr "טען קובץ"
+
+#: admin/settings/class-sanitization-helper.php:95
+msgid "Settings updated."
+msgstr "הגדרות נשמרו."
+
+#: admin/settings/class-settings-definition.php:47
+msgid "CSS"
+msgstr ""
+
+#: admin/settings/class-settings-definition.php:48
+msgid "Premium"
+msgstr ""
+
+#: admin/settings/class-settings-definition.php:69
+msgid "Button icon"
+msgstr "מיקום כפתור נגישות"
+
+#: admin/settings/class-settings-definition.php:72
+msgid "Universal Accessibility"
+msgstr "נגישות כללי"
+
+#: admin/settings/class-settings-definition.php:73
+msgid "wheelchair"
+msgstr ""
+
+#: admin/settings/class-settings-definition.php:74
+msgid "Wheelchair alt"
+msgstr ""
+
+#: admin/settings/class-settings-definition.php:75
+msgid "Do not use Icon"
+msgstr ""
+
+#: admin/settings/class-settings-definition.php:80
+msgid "Button Text when close"
+msgstr "טקסט - כפתור נגישות סגור"
+
+#: admin/settings/class-settings-definition.php:84
+msgid "Button location"
+msgstr "מיקום כפתור נגישות"
+
+#: admin/settings/class-settings-definition.php:87
+msgid "Top left"
+msgstr "שמאל למעלה"
+
+#: admin/settings/class-settings-definition.php:88
+msgid "Top right"
+msgstr "ימין למעלה"
+
+#: admin/settings/class-settings-definition.php:89
+msgid "middle left"
+msgstr "שמאל אמצע"
+
+#: admin/settings/class-settings-definition.php:90
+msgid "middle right"
+msgstr "ימין אמצע"
+
+#: admin/settings/class-settings-definition.php:91
+msgid "bottom left"
+msgstr "שמאל למטה"
+
+#: admin/settings/class-settings-definition.php:92
+msgid "bottom right"
+msgstr "ימין למטה"
+
+#: admin/settings/class-settings-definition.php:96
+msgid "Button Text When open"
+msgstr "טקסט - כפתור נגישות פתוח"
+
+#: admin/settings/class-settings-definition.php:100
+#: admin/settings/class-settings-definition.php:113
+#: public/public-display.php:129
+msgid "Readable Font"
+msgstr "פונט קריא"
+
+#: admin/settings/class-settings-definition.php:106
+msgid "Disable options"
+msgstr "בטל אפשרות"
+
+#: admin/settings/class-settings-definition.php:107
+msgid "Select to disable this for the user"
+msgstr "בחר בכדי לבטל אפשרות זו (לא יופיע באתר)"
+
+#: admin/settings/class-settings-definition.php:109
+msgid "Blank & White option"
+msgstr "גווני אפור"
+
+#: admin/settings/class-settings-definition.php:110
+msgid "Contrast Dark option"
+msgstr "חדות כהה"
+
+#: admin/settings/class-settings-definition.php:111
+msgid "Contrast White option"
+msgstr "חדות בהירה"
+
+#: admin/settings/class-settings-definition.php:112
+msgid "Hide Movements"
+msgstr "הפסק הבהובים"
+
+#: admin/settings/class-settings-definition.php:114
+msgid "Underline links"
+msgstr "הדגש קישורים"
+
+#: admin/settings/class-settings-definition.php:119
+msgid "Font size increase 2nd level"
+msgstr "הגדל גודל פונט אפשרות 2"
+
+#: admin/settings/class-settings-definition.php:134
+msgid "Font size increase 3rd level"
+msgstr "הגדלת פונט אפשרות 3"
+
+#: admin/settings/class-settings-definition.php:147
+msgid "Do not show Accessibility for screen resolution"
+msgstr "על תציג את כפתור הנגישות במסכים:"
+
+#: admin/settings/class-settings-definition.php:151
+msgid "Mobile"
+msgstr "מובייל"
+
+#: admin/settings/class-settings-definition.php:152
+msgid "Mobile + Tablet"
+msgstr "מובייל  + טאבלט"
+
+#: admin/settings/class-settings-definition.php:156
+msgid "Accessibility Statement Page"
+msgstr "הצהרת נגישות"
+
+#: admin/settings/class-settings-definition.php:157
+msgid ""
+"You can use link to the Accessibility Statement or use the text editor below "
+"to enable a pop up window"
+msgstr ""
+
+#: admin/settings/class-settings-definition.php:162
+#: public/public-display.php:160 public/public-display.php:176
+msgid "Accessibility Statement"
+msgstr "הצהרת נגישות"
+
+#: admin/settings/class-settings-definition.php:163
+msgid "Rich Editor save as HTML markups"
+msgstr "עורך טקסט - התוכן ישמר כ HTML"
+
+#: admin/settings/class-settings-definition.php:171
+msgid "Button open background color"
+msgstr "צבע רקע - כפתור נגישות פתוח"
+
+#: admin/settings/class-settings-definition.php:175
+msgid "Button close background color"
+msgstr "צבע רקע - כפתור נגישות סגור"
+
+#: admin/settings/class-settings-definition.php:179
+msgid "Button open Text color"
+msgstr "צבע טקסט - כפתור נגישות פתוח"
+
+#: admin/settings/class-settings-definition.php:183
+msgid "Button close Text color"
+msgstr "צבע טקסט - כפתור נגישות סגור"
+
+#: admin/settings/class-settings-definition.php:188
+msgid "Enter full CSS code."
+msgstr "הכנס קוד CSS מלא"
+
+#: admin/settings/class-settings-definition.php:188
+msgid "Please activate your license to use this option"
+msgstr ""
+
+#: admin/settings/class-settings-definition.php:195
+msgid "License"
+msgstr ""
+
+#: admin/settings/class-settings-definition.php:197
+msgid "Please activate your license to use below options"
+msgstr ""
+
+#: admin/settings/class-settings-definition.php:200
+msgid "Where to buy?"
+msgstr "אפה קונים?"
+
+#: admin/settings/class-settings-definition.php:205
+msgid "Hide Sogo Logo"
+msgstr "הסתר לוגו של סוגו"
+
+#: admin/settings/class-settings-definition.php:209
+msgid "Logo"
+msgstr "לוגו"
+
+#: admin/settings/class-settings-definition.php:213
+msgid "Logo Text"
+msgstr "טקסט הלוגו"
+
+#: admin/settings/class-settings-definition.php:217
+msgid "Logo URL"
+msgstr "כתובת הלוגו"
+
+#: public/class-sogo_accessibility-public.php:119
+msgid "Search"
+msgstr "חיפוש"
+
+#: public/class-sogo_accessibility-public.php:120
+msgid "Name"
+msgstr "שם פרטי"
+
+#: public/class-sogo_accessibility-public.php:121
+msgid "Email"
+msgstr "אימייל"
+
+#: public/class-sogo_accessibility-public.php:122
+msgid "Website"
+msgstr "אתר"
+
+#: public/class-sogo_accessibility-public.php:123
+msgid "Comment"
+msgstr "הערות"
+
+#: public/public-display.php:20 public/public-display.php:23
+msgid "Accessibility"
+msgstr "נגישות"
+
+#: public/public-display.php:93
+msgid "Press \"Alt + A\" to open\\close the accessibility menu"
+msgstr "לחץ \"ALT+A\" בכדי לפתוח \\ לסגור את תפריט הנגישות"
+
+#: public/public-display.php:105
+msgid "B&C"
+msgstr "שחור לבן"
+
+#: public/public-display.php:112
+msgid "Contrasts Dark"
+msgstr "חדות כהה"
+
+#: public/public-display.php:119
+msgid "Contrasts White"
+msgstr "חדות בהירה"
+
+#: public/public-display.php:124
+msgid "Stop Movement"
+msgstr "הפסק הבהובים"
+
+#: public/public-display.php:134
+msgid "Underline Links"
+msgstr "הדגש קישורים"
+
+#: public/public-display.php:141 public/public-display.php:143
+#: public/public-display.php:145
+msgid "Press to increase font size"
+msgstr "לחץ להגדלת הטקסט"
+
+#: public/public-display.php:141 public/public-display.php:143
+#: public/public-display.php:145
+msgid "A"
+msgstr "א"
+
+#: public/public-display.php:150
+msgid "cancel accessibility"
+msgstr "הפסק נגישות"
+
+#: public/public-display.php:158
+msgid "Open in new Tab"
+msgstr ""
+
+#: public/public-display.php:174
+msgid "Link will open in new tab"
+msgstr "קישור יפתח טאב חדש"
+
+#: public/public-display.php:209
+msgid "Provided by:"
+msgstr "מסופק ע\"י: "
+
+#~ msgid "Show options"
+#~ msgstr "הצג אפשרויות"
+
+#~ msgid "Select to enable this for the user"
+#~ msgstr "בחר בכדי לאפשר את זה למשתמש"
+
+#~ msgid "Close"
+#~ msgstr "סגור"
+
+#~ msgid "Contrasts"
+#~ msgstr "בהירות"
+
+#~ msgid "Provided by"
+#~ msgstr "בוצע ע\"י "
+
+#~ msgid "Toggle ACC."
+#~ msgstr "הפעל \\ הפסק נגישות"
+
+#~ msgid "contrasts"
+#~ msgstr "בהירות"
+
+#~ msgid "a"
+#~ msgstr "א"
+
+#~ msgid "info accessibility"
+#~ msgstr "הצהרת נגישות"

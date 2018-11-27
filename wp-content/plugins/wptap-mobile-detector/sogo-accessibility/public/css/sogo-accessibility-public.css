@@ -1,0 +1,442 @@
+/* sogo-accessibility.less  */
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+div#sogo_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  opacity: 0.7;
+  cursor: pointer;
+  background-color: #777777;
+  bottom: 0;
+  right: 0;
+  display: none;
+  border: none;
+}
+button#close_sogo_access_statement {
+  padding: 0;
+  text-align: center;
+}
+#sogo_access_statement {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  top: 10%;
+  left: 25%;
+  width: 50%;
+  height: 60%;
+}
+#sogo_access_statement #close_sogo_access_statement {
+  width: auto;
+  display: inline-block;
+  z-index: 9999999999;
+  position: absolute;
+  left: -109px;
+  top: -41px;
+  border: none;
+}
+#sogo_access_statement .accessibility-info-inner {
+  background: #fff;
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+#open_sogoacc {
+  position: fixed;
+  width: auto;
+  background: #ebebeb;
+  font-weight: bold;
+  z-index: 99999999;
+  text-align: center;
+  text-transform: uppercase;
+  display: inline-block;
+  font-size: 14px;
+  color: #3f3f3f;
+  line-height: 1.2;
+  padding: 10px;
+  cursor: pointer;
+}
+#open_sogoacc.topleft {
+  left: 0;
+  top: 0;
+}
+#open_sogoacc.topright {
+  right: 0;
+  top: 0;
+}
+#open_sogoacc.middleleft {
+  left: 0;
+  top: 50%;
+}
+#open_sogoacc.middleright {
+  right: 0;
+  top: 50%;
+}
+#open_sogoacc.bottomleft {
+  left: 0;
+  bottom: 0;
+}
+#open_sogoacc.bottomright {
+  right: 0;
+  bottom: 0;
+}
+#close_sogoacc {
+  cursor: pointer;
+  font-size: 16px;
+  background: #2BB673;
+  font-weight: bold;
+  z-index: 99999999;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  #close_sogoacc {
+    line-height: 50px;
+  }
+}
+#sogoacc {
+  display: none;
+  position: fixed;
+  padding: 0;
+  width: 300px;
+  height: auto;
+  background: #fff;
+  z-index: 99999999;
+  color: #000;
+  border-radius: 0;
+  box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.35);
+}
+#sogoacc.topleft {
+  left: 0;
+  top: 0;
+}
+#sogoacc.topright {
+  right: 0;
+  top: 0;
+}
+#sogoacc.middleleft {
+  left: 0;
+  top: 20%;
+}
+#sogoacc.middleright {
+  right: 0;
+  top: 20%;
+}
+#sogoacc.bottomleft {
+  left: 0;
+  bottom: 0;
+}
+#sogoacc.bottomright {
+  right: 0;
+  bottom: 0;
+}
+#sogoacc a {
+  color: #4d4d4d;
+}
+#sogoacc h1,
+#sogoacc h2,
+#sogoacc h3,
+#sogoacc h4,
+#sogoacc h5,
+#sogoacc h6 {
+  color: #000;
+}
+#sogoacc .accessibility-info > div {
+  display: inline-block;
+}
+#sogoacc .sogo-btn-toolbar {
+  margin-left: 0;
+  padding: 0 10px;
+}
+#sogoacc .btn {
+  border-radius: 0;
+  width: 100%;
+  font-weight: normal;
+  color: #333333;
+  border-bottom: 1px solid #000;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  margin: 0 auto;
+  line-height: 40px;
+  padding-left: 80px;
+  text-align: left;
+  display: block;
+  background: transparent ;
+  position: relative;
+}
+@media (min-width: 768px) {
+  #sogoacc .btn {
+    line-height: 50px;
+    font-size: 15px;
+  }
+}
+#sogoacc div#sogo_font_a button {
+  display: inline-block !important;
+  width: auto;
+  float: left;
+  color: #2DB575;
+  text-align: center;
+  padding: 0 14px;
+}
+#sogoacc div#sogo_font_a {
+  padding-left: 25px;
+  margin: 1px;
+  box-sizing: border-box;
+}
+#sogoacc .accessibility-info {
+  padding: 10px 0;
+  border-top: 1px solid #333333;
+}
+#sogoacc .sogo_access_statement h1 {
+  color: #000;
+}
+#sogoacc .accessibility-info {
+  color: #333333;
+  font-size: 12px;
+  font-weight: normal;
+}
+#sogoacc button#sogo_a1 {
+  font-size: 26px;
+  border-bottom: none;
+}
+#sogoacc button#sogo_a2 {
+  font-size: 32px;
+  border-bottom: none;
+}
+#sogoacc button#sogo_a3 {
+  font-size: 42px;
+  border-bottom: none;
+}
+#sogoacc .accessibility-info div i {
+  padding: 0 5px;
+}
+#sogoacc .accessibility-info div {
+  padding: 0 8px;
+}
+#sogoacc .accessibility-info div:last-child i {
+  margin: 0 3px;
+}
+#sogoacc .sogo-btn-toolbar .sogo-btn-group,
+#sogoacc .sogo-btn-toolbar .input-group {
+  float: none;
+  width: 100%;
+}
+#sogoacc .sogo-logo {
+  background: #EBEBEB;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  line-height: 39px;
+}
+#sogoacc .sogo-logo a {
+  font-size: 12px;
+  color: #333333;
+  display: block;
+  font-weight: normal;
+}
+#sogoacc .sogo-logo img {
+  padding: 5px 0;
+}
+#sogoacc .sogo-logo span {
+  vertical-align: top;
+  margin: 0 10px;
+  display: inline-block;
+}
+#sogoacc .green {
+  color: #2DB575;
+}
+#sogoacc .red {
+  color: #EF454E;
+}
+#sogoacc .sogo-btn-group span {
+  position: absolute;
+  left: 10px;
+  z-index: 1;
+  font-size: 35px;
+}
+@media (min-width: 768px) {
+  #sogoacc .sogo-btn-group span {
+    font-size: 48px;
+  }
+}
+#sogoacc .sprite {
+  background-image: url(spritesheet.png);
+  background-repeat: no-repeat;
+  display: block;
+}
+#sogoacc .sprite-icon-1 {
+  width: 44px;
+  height: 44px;
+  background-position: -5px -5px;
+}
+#sogoacc .sprite-icon-2 {
+  width: 44px;
+  height: 44px;
+  background-position: -59px -5px;
+}
+#sogoacc .sprite-icon-3 {
+  width: 44px;
+  height: 44px;
+  background-position: -5px -59px;
+}
+#sogoacc .sprite-icon-4 {
+  width: 44px;
+  height: 44px;
+  background-position: -59px -59px;
+}
+#sogoacc .sprite-icon-5 {
+  width: 44px;
+  height: 44px;
+  background-position: -113px -5px;
+}
+.sogo_animation_off * {
+  animation: none !important;
+  transition: none !important;
+}
+.accessibility-info {
+  padding: 30px;
+}
+.accessibility-info h1 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  padding: 0;
+}
+.accessibility-info h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.accessibility-info p {
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+body.sogo_blank_white {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -webkit-filter: grayscale(1);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: gray;
+}
+body.sogo_a1 #open_sogoacc * {
+  font-size: auto !important;
+}
+.rtl #sogoacc .sogo-btn-group span {
+  left: auto;
+  right: 10px;
+}
+.rtl #sogoacc .btn {
+  padding-right: 80px;
+  text-align: right;
+}
+.rtl #sogoacc div#sogo_font_a button {
+  float: right;
+}
+.rtl #sogoacc div#sogo_font_a {
+  padding-right: 25px;
+}
+@font-face {
+  font-family: 'sogo-icomoon';
+  src: url('fonts/icomoon.eot?5p079g');
+  src: url('fonts/icomoon.eot?5p079g#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?5p079g') format('truetype'), url('fonts/icomoon.woff?5p079g') format('woff'), url('fonts/icomoon.svg?5p079g#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+#sogoacc {
+  box-sizing: border-box;
+}
+#sogoacc [class^="sogo-icon-"],
+#sogoacc [class*=" sogo-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'sogo-icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.sogo-icon-black:before {
+  content: "\e900";
+}
+.sogo-icon-black_and_white:before {
+  content: "\e901";
+}
+.sogo-icon-flash:before {
+  content: "\e902";
+}
+.sogo-icon-font:before {
+  content: "\e903";
+}
+.sogo-icon-link:before {
+  content: "\e904";
+}
+.sogo-icon-white:before {
+  content: "\e905";
+}
+body.sogo_blank_white #b_n_c,
+body.sogo_contrasts #contrasts,
+body.sogo_contrasts_white #contrasts_white,
+body.sogo_animation_off #animation_off,
+body.sogo_readable_font #readable_font,
+body.sogo_underline_links #underline_links,
+body.sogo_font_2 #sogo_a2,
+body.sogo_font_3 #sogo_a3 {
+  background-color: red !important;
+  color: #fff !important;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+.clearfix {
+  display: block;
+  width: 100%;
+}
+html[xmlns] .clearfix {
+  display: block;
+}
+* html .clearfix {
+  height: 1%;
+  overflow: visible;
+}
+a.skip-main {
+  left: -999px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+}
+a.skip-main:focus,
+a.skip-main:active {
+  color: #fff;
+  background-color: #000;
+  left: auto;
+  top: auto;
+  width: 30%;
+  height: auto;
+  overflow: auto;
+  margin: 10px 35%;
+  padding: 5px;
+  border-radius: 15px;
+  border: 4px solid yellow;
+  text-align: center;
+  font-size: 1.2em;
+  z-index: 999;
+}

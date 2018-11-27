@@ -1,0 +1,94 @@
+#######################################################
+## Este arquivo define os caminhos de cada página do ##
+## sistema com URLs amigáveis. Ao renomear, incluir  ##
+## ou adicionar uma nova página, verifique sempre    ##
+## este arquivo.                                     ##
+#######################################################
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#Inscrição
+RewriteRule ^concursos$ concurso/html/inscricao.php
+RewriteRule ^concursos/confirmar$ concurso/html/confirmaInscricao.php
+RewriteRule ^concursos/confirmado$ concurso/html/inscricaoConfirmada.php
+RewriteRule ^concursos/enviar$ concurso/control/extrairvalidar.php
+RewriteRule ^admin/$ admin/inicio/html/inicio.php
+
+#Login
+RewriteRule ^admin/login/$ admin/login/html/loginAdmin.php
+RewriteRule ^admin/autenticar$ admin/login/control/loginAdmin.php
+RewriteRule ^admin/sair$ arquivosfixos/pdao/logoff.php
+
+#Edital
+RewriteRule ^admin/edital/$ admin/edital/html/edital.php
+RewriteRule ^admin/edital/adicionar$ admin/edital/html/edital.php
+RewriteRule ^admin/edital/editar$ admin/edital/html/editarEdital.php
+RewriteRule ^admin/edital/lista$ admin/edital/html/listaDeEditais.php
+RewriteRule ^admin/edital/editar/([0-9]*)$ admin/edital/html/editar.php?idEdital=$1
+RewriteRule ^admin/edital/excluir/([0-9]*)$ admin/edital/html/excluir.php?edital=$1
+RewriteRule ^admin/edital/invalido$ admin/edital/html/invalido.php
+RewriteRule ^admin/edital/registrado$ admin/edital/html/registrado.php
+RewriteRule ^admin/edital/excluido$ admin/edital/html/excluido.php
+RewriteRule ^admin/edital/alterado$ admin/edital/html/alterado.php
+RewriteRule ^admin/edital/erro$ admin/edital/html/naoinseriu.php
+
+#Curso
+RewriteRule ^admin/curso/$ admin/curso/html/cadastrarcurso.php
+RewriteRule ^admin/curso/adicionar$ admin/curso/html/cadastrarcurso.php
+RewriteRule ^admin/curso/editar/([0-9]*)$ admin/curso/html/editar.php?curso=$1
+RewriteRule ^admin/curso/excluir/([0-9]*)$ admin/curso/html/excluir.php?curso=$1
+RewriteRule ^admin/curso/lista$ admin/curso/html/listarCurso.php
+RewriteRule ^admin/curso/invalido$ admin/curso/html/invalido.php
+RewriteRule ^admin/curso/registrado$ admin/curso/html/registrado.php
+RewriteRule ^admin/curso/editado$ admin/curso/html/editado.php
+RewriteRule ^admin/curso/excluido$ admin/curso/html/excluido.php
+RewriteRule ^admin/curso/erro$ admin/curso/html/naoInseriu.php
+
+#Turma
+RewriteRule ^admin/turma/$ admin/turma/html/turma.php
+RewriteRule ^admin/turma/adicionar$ admin/turma/html/turma.php
+RewriteRule ^admin/turma/lista$ admin/turma/html/listarturma.php
+RewriteRule ^admin/turma/registrado$ admin/turma/html/registrado.php
+RewriteRule ^admin/turma/excluir/([0-9]*)$ admin/turma/html/excluirturma.php?turma=$1
+RewriteRule ^admin/turma/editar/([0-9]*)$ admin/turma/html/editarturma.php?idturma=$1
+RewriteRule ^admin/turma/invalido$ admin/turma/html/invalido.php
+RewriteRule ^admin/turma/excluido$ admin/turma/html/excluido.php
+RewriteRule ^admin/turma/editado$ admin/turma/html/editado.php
+RewriteRule ^admin/turma/erro$ admin/turma/html/naoinseriu.php
+RewriteRule ^admin/turma/registrado$ admin/turma/html/registrado.php
+
+
+#Alunos
+RewriteRule ^admin/aluno/$ admin/aluno/html/aluno.php
+RewriteRule ^admin/aluno/adicionar$ admin/aluno/html/aluno.php
+RewriteRule ^admin/aluno/lista$ admin/aluno/html/listadealunos.php
+RewriteRule ^admin/aluno/editar/([0-9]*)$ admin/aluno/html/editaralunos.php?aluno=$1
+RewriteRule ^admin/aluno/excluir/([0-9]*)$ admin/aluno/html/excluiraluno.php?aluno=$1
+RewriteRule ^admin/aluno/registrado$ admin/aluno/html/registrado.php
+RewriteRule ^admin/aluno/editado$ admin/aluno/html/editado.php
+RewriteRule ^admin/aluno/invalido$ admin/aluno/html/invalido.php
+RewriteRule ^admin/aluno/excluido$ admin/aluno/html/excluido.php
+RewriteRule ^admin/aluno/erro$ admin/aluno/html/error.php
+
+#Sorteio
+RewriteRule ^admin/sorteio/$ admin/sorteio/html/sorteioedital.php
+RewriteRule ^admin/sorteio/edital$ admin/sorteio/html/sorteioedital.php
+RewriteRule ^admin/sorteio/curso$ admin/sorteio/html/sorteiocurso.php
+
+</IfModule>
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
