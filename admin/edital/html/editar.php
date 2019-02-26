@@ -1,12 +1,12 @@
 <?php
-
+	
 	$idEdital = $_GET['idEdital'];
-
+	$tagTitle = "Alterar Edital";
 	if(!isset($idEdital) OR $idEdital == NULL){
 	    header('location: ./listaDeEditais.php');
 	}
 
-	$conexao = mysqli_connect("localhost", "celi", "celi123#", "celi_sistema");
+	$conexao = mysqli_connect("localhost", "root", "", "celi_sistema");
 	mysqli_set_charset($conexao, "utf8");
 	
 	if (!$conexao){
@@ -48,6 +48,7 @@
 
 
 	require_once "../../../arquivosfixos/headerFooter/header.php";
+	
 ?>
 <main id="main">
 	<div class="main-content">
@@ -91,32 +92,26 @@
 					</td>
 				</tr>
 			</table>
-			<table class="main-form-content-curso">
-				<tr class="main-form-cursoTitle">
-					<td class="main-form-checkLabel">
-						<span class="main-form-checkLabel-ctt"> </span>
-					</td>
-					<td class="main-form-cursoLabel">
-						<p class="main-form-label">Cursos</p>
-					</td>
-					<td class="main-form-vagasLabel">
-						<p class="main-form-label">Vagas internas</p>
-					</td>
-					<td class="main-form-vagasLabel">
-						<p class="main-form-label">Vagas externas</p>
-					</td>
-				</tr>
+			<div class="main-form-cursoTable">
+				<label class="main-form-cursoLabel-ctt main-form-checkLabel-ctt"></label>
+				<label class="main-form-cursoLabel-ctt main-form-textLabel-ctt">Cursos</label>
+				<p class="main-form-cursoLabel-ctt main-form-vagasLabel-ctt">Vagas internas</p>
+				<p class="main-form-cursoLabel-ctt main-form-vagasLabel-ctt">Vagas externas</p>
+				
+					</div>
 				<?php
 					$j = 0;
 				     while ($curso = mysqli_fetch_array($sql)) { ?>
-				<tr class="main-form-cursoLine">
+				<div class="main-form-cursoTable">
 					<?php 
 						$query = "SELECT COUNT(idcurso) FROM curso";
 						$query = mysqli_query($conexao, $query) or die(mysqli_error($conexao));
 						for($i=0; $i < mysqli_fetch_assoc($query); $i++){
 						    if(isset($arrayDaConsulta2IdCurso[$j])){
 						        if($curso['idcurso'] == $arrayDaConsulta2IdCurso[$j]){
-					?>		   
+					?>	
+
+					
 							<td class="main-form-cursoLine-checkbox">
 								<input class="main-form-cursoLine-checkbox-element" type="checkbox" name="idCurso[]" value="<?php echo $curso['idcurso']; ?>" checked>
 							</td>
@@ -124,10 +119,12 @@
 								<p class="main-form-cursoLine-nome-text"><?php echo $curso['nome']; ?></p>
 							</td>
 							<td class="main-form-cursoLine-vagas vagas-interno">
-								<input class="main-form-cursoLine-vagas-interno" type="number" name="intCurso[]" min="0" value=<?php echo $arrayDaConsulta2VagasInt[$j]?>>
+							<?php // Continuar daqui! ?>
+								<input id="interno-1" class="main-form-cursoCTT main-form-cursoLine-vagas-interno main-form-input" type="number" name="intCurso[]" min="0" placeholder="Interno" value=<?php echo $arrayDaConsulta2VagasInt[$j]?>>
 							</td>
 							<td class="main-form-cursoLine-vagas vagas-externo">
-								<input class="main-form-cursoLine-vagas-externo" type="number" name="extCurso[]" min="0" value=<?php echo $arrayDaConsulta2VagasExt[$j]?>>
+								
+								<input id="externo-1" class="main-form-cursoCTT main-form-cursoLine-vagas-externo main-form-input" type="number" name="extCurso[]" placeholder="Externo" min="0" value=<?php echo $arrayDaConsulta2VagasExt[$j]?>>
 							</td>
 					<?php 
 					         $j++;
@@ -152,7 +149,7 @@
 					    }
 					}
 					?>
-				</tr>
+				</div>
 				<?php
 				}
 				?>	
@@ -165,7 +162,7 @@
 				</tr>
 				<tr class="main-form-condicaoInput">
 					<td class="main-form-condicaoInput-ctt" colspan="4">
-						<textarea class="main-form-condicaoInput-ctt-element" type="text"
+						<textarea class="main-form-condicaoInput-ctt-element main-form-input" type="text"
 						name="condicao"><?php echo $arrayDaConsulta[5]; ?></textarea>
 					</td>
 				</tr>
@@ -186,4 +183,6 @@
 		</div>
 	</body>
 </html>
+
+
 
