@@ -1,9 +1,11 @@
 <?php
 	
-	$idEdital = $_GET['idEdital'];
-	$tagTitle = "Alterar Edital";
+	$idEdital = $_POST['idEdital'];
+	
+
+	$tagTitle = "Editar Edital";
 	if(!isset($idEdital) OR $idEdital == NULL){
-	    header('location: ./listaDeEditais.php');
+	    //header('location: ./listaDeEditais.php');
 	}
 
 	$conexao = mysqli_connect("localhost", "root", "", "celi_sistema");
@@ -52,7 +54,7 @@
 ?>
 <main id="main">
 	<div class="main-content">
-		<h1 class="main-title">Alterar edital</h1>
+		<h1 class="main-title">Editar edital</h1>
 		<form class="main-form" action="../control/updateeditalbd.php" method="post">
 			<table class="main-form-content-dataHora">
 				<tr class="main-form-dataLabel">
@@ -171,7 +173,7 @@
 			<input type="hidden" name="idEdital" value="<?php echo $idEdital ?>"/>
 
 			<button class="main-form-inputButton" type="submit" >
-						<p class="main-form-textButton">Alterar</p>
+						<p class="main-form-textButton">Editar</p>
 						<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
 			</button>
 		</form>
@@ -183,6 +185,9 @@
 		</div>
 	</body>
 </html>
+
+
+
 
 
 
