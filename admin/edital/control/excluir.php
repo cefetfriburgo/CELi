@@ -1,6 +1,10 @@
 <?php
 
-$conexao = mysqli_connect("localhost", "celi", "celi123#", "celi_sistema");
+if(isset($_POST['excluirCurso'])){
+$edital = $_POST['excluirCurso'];
+}
+
+$conexao = mysqli_connect("localhost", "root", "", "celi_sistema");
 mysqli_set_charset($conexao,"utf8");
 if (!$conexao){
     echo "ERROR! failure to connect to the database.";
