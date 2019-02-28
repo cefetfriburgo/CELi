@@ -1,4 +1,4 @@
-﻿@import url('../reset.css');
+@import url('../reset.css');
 
 /*
  *	Layout
@@ -130,6 +130,9 @@
 	margin: auto;
 	padding: 50px;
 }
+.main-btn{
+	text-align: center;
+}
 .main-title{
 	display: block;
 	width: 100%;
@@ -210,6 +213,7 @@ input[disabled=disabled]{
     letter-spacing: 1px;
     background-color: transparent;
     cursor: pointer;
+
 }
 .main-form-label{
 	width: 100%;
@@ -438,11 +442,12 @@ input[disabled=disabled]{
 	grid-template-rows: 30px;
 	grid-column-gap: 20px;
 }
-.table-edital .main-table-itemBTN a{
+.table-edital .main-table-itemBTN button{
 	text-decoration: none;
 	color: #fff;
 	font-size: 15px;
 	transition: .2s;
+	border:0;
 }
 .table-edital .btn-excluir{
 	background-color: #d1553e;
@@ -1158,6 +1163,22 @@ li{
 .form-btns{
 	margin-top:50px;
 	
+}
+.btn-ex{
+	    font-size: 17px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: #222;
+    border: 1px solid #222;
+    padding: 10px 30px;
+    letter-spacing: 1px;
+    background-color: transparent;
+    cursor: pointer;
+   
+}
+.btn-ex:hover{
+	 background-color: #de2d2d; 
+	 transition: .3s;
 }
 
 
