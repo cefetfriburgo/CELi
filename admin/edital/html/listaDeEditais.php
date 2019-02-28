@@ -4,6 +4,8 @@
 	require "../control/listarEdital.php";
 	$tagTitle = "Lista de Editais";
 	require_once "../../../arquivosfixos/headerFooter/header.php";
+
+
 ?>
 <main id="main">
 	<div class="main-content">
@@ -11,7 +13,7 @@
 		<?php 
 			if($conta3->num_rows !=0) {
 		?>
-		<form class="form-buscar" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
+		<form class="form-buscar" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
 			<div class="form-buscar-ctt">
 				<input type="text" name="busca">
 				<button type="submit">Buscar</button>
@@ -30,8 +32,15 @@
 				<p class="main-table-item"><?php echo $edital['inicio'] . " às " . $edital['hora_inicio']; ?></p>
 				<p class="main-table-item"><?php echo $edital['fim'] . " às " . $edital['hora_final']; ?></p>
 				<div class="main-table-item main-table-itemBTN">
-					<a class="btn-alterar" href="/admin/edital/editar/<?php echo $edital['idedital']; ?>">alterar</a>
-					<a class="btn-excluir" href="/admin/edital/excluir/<?php echo $edital['idedital']; ?>">excluir</a>
+					<form action="/admin/edital/editar/" class="main-table-itemBTN" method="POST"> 
+						<input type="hidden" name=idEdital value="<?php echo $edital['idedital'];?>"/>
+						<button type="submit" class="btn-alterar" >Editar</button>
+					</form>
+
+					<form action="/admin/edital/excluir/" class="main-table-itemBTN "method="POST"> 
+						<input type="hidden"  name=idEdital value="<?php echo $edital['idedital'];?>"/>
+						<button type="submit" class="btn-excluir">Excluir</button>
+					</form>
 				</div>
             	</div>
 			<?php 
