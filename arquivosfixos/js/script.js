@@ -323,19 +323,21 @@ $(function(){
 	// Disabled/enabled dos inputs pelo checkbox ao carregar a página
 	$(document).ready(function(){
 		var elements = $(".cursoInput-checkbox");
+		var element = $(".main-form-cursoLine-checkbox-element-img");
 		$.each(elements, function(i, obj){
 			var id = $(obj).attr("value");
 			if($(obj).is(':checked')){
-				var vagasInt = $(obj).parent().find("#interno-"+id);
-				var vagasExt = $(obj).parent().find("#externo-"+id);
-				vagasInt.removeAttr("disabled");
-				vagasExt.removeAttr("disabled");
+				var vagasInt = $(obj).parent().find(".interno-"+id);
+				var vagasExt = $(obj).parent().find(".externo-"+id);
+				
+				
+				
 			}
 			else{
-				var vagasInt = $(obj).parent().find("#interno-"+id);
-				var vagasExt = $(obj).parent().find("#externo-"+id);
-				vagasInt.attr("disabled", "disabled");
-				vagasExt.attr("disabled", "disabled");
+				var vagasInt = $(obj).parent().find(".interno-"+id);
+				var vagasExt = $(obj).parent().find(".externo-"+id);
+				
+				
 			}
 		});
 	});
@@ -343,14 +345,14 @@ $(function(){
 	$(".cursoInput-checkbox").change(function(){
 		var id = $(this).attr("value");
 		if($(this).is(':checked')){
-			var vagasInt = $(".cursoInput-checkbox").parent().find("#interno-"+id);
-			var vagasExt = $(".cursoInput-checkbox").parent().find("#externo-"+id);
+			var vagasInt = $(".cursoInput-checkbox").parent().find(".interno-"+id);
+			var vagasExt = $(".cursoInput-checkbox").parent().find(".externo-"+id);
 			vagasInt.removeAttr("disabled");
 			vagasExt.removeAttr("disabled");
 		}
 		else{
-			var vagasInt = $(".cursoInput-checkbox").parent().find("#interno-"+id);
-			var vagasExt = $(".cursoInput-checkbox").parent().find("#externo-"+id);
+			var vagasInt = $(".cursoInput-checkbox").parent().find(".interno-"+id);
+			var vagasExt = $(".cursoInput-checkbox").parent().find(".externo-"+id);
 			vagasInt.attr("disabled", "disabled");
 			vagasExt.attr("disabled", "disabled");
 		}
