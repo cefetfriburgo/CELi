@@ -2,7 +2,7 @@
 //$tagTitle = ' Inscrição';
 //requre_once "../../arquivosfixos/headerFooter/header.php";
 //recaptcha
-error_reporting(0);
+
 foreach ($_POST as $key => $value) {
     echo '<p><strong>' . $key.':</strong> '.$value.'</p>';
 }
@@ -29,7 +29,7 @@ foreach ($_POST as $key => $value) {
 					<form class="main-form" name="formulario" method="POST" action="/concursos/enviar">
 					<h1 class="main-title">Inscrição do CELi</h1>
 					<?php
-					$conexao = mysqli_connect("localhost", "", "", "");
+					$conexao = mysqli_connect("localhost", "root", "", "celi_sistema");
 								mysqli_set_charset($conexao,"utf8");
 								if (!$conexao){
 									echo "ERROR! failure to connect to the database.";
@@ -39,7 +39,9 @@ foreach ($_POST as $key => $value) {
 								}
 								$sql1 = "SELECT idedital FROM edital WHERE data_ini < now() and data_fim > now() ORDER BY idedital DESC LIMIT 1";
 								$query1 = mysqli_query($conexao, $sql1);
+
 								$idEdital = mysqli_fetch_assoc($query1);
+
 								if($query1->num_rows != 0){
 					?>
 						<div class="main-form-box">
@@ -122,8 +124,18 @@ foreach ($_POST as $key => $value) {
 							<label  class="main-form-label main-form-labelComplemento">Complemento</label>
 							<input  class="main-form-input main-form-inputComplemento" type="text" name="complemento" placeholder="Digite o complemento">
 						</div>
-						<div class="main-form-box">
-							<label class="main-form-label main-form-situation-label">Situação</label>
+						 <div class="noticia-checkbox-personalizado main-form-box">
+                            <label class="main-form-label main-form-situation-label">Situação</label>
+
+                            <div class="cadastro">
+                            <input checked="checked" class="main-form-inputRadio" type="radio" name="radio" value="i" id="tipo-cadastro1">
+                            <label for="tipo-cadastro1">Interno</label>
+                            <input class="main-form-inputRadio" type="radio" value="e" name="radio" id="tipo-cadastro2">
+                            <label for="tipo-cadastro2">Externo</label>
+                            </div>
+                        </div>
+						
+							<?php /*
 							<div class="main-form-radioBox main-form-situacao-radioBox">
 								<div class="main-form-radioBox-first situacao-interno">
 									<p>interno</p>
@@ -134,7 +146,8 @@ foreach ($_POST as $key => $value) {
 									<p>externo</p>
 								</div>
 							</div>
-						</div>
+						*/ ?>
+
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelCurso">Cursos</label>
 							<select class="main-form-input main-form-selectCurso" name="course">
@@ -150,9 +163,12 @@ foreach ($_POST as $key => $value) {
 							?>
 							</select>
 						</div>
+
+						<?php /*
 						<div class="main-form-box">
 							<label class="main-form-label main-form-dificiencia-label">Deficiência?</label>
 							<div class="main-form-deficiencia-box">
+
 								<div class="main-form-radioBox main-form-deficiencia-radioBox">
 									<div class="main-form-radioBox-first deficiencia-sim">
 										<p>sim</p>
@@ -165,9 +181,25 @@ foreach ($_POST as $key => $value) {
 								</div>
 							</div>
 						</div>
+						*/ ?>
+						
+						  <div class="checkbox main-form-box">
+                            <label class="main-form-label main-form-dificiencia-label">Deficiência?</label>
+                            <div class="cadastro1 main-form-radioBoxx ">
+							<div class="deficiencia-sim">
+                            <input class="main-form-inputRadio" checked="checked" type="radio" value="s" name="radioDeficiencia" id="tipo-cadastroo1">
+                            <label for="tipo-cadastroo1">Sim</label>
+                            </div>
+                            <div class="deficiencia-nao">
+                            <input class="main-form-inputRadio" checked type="radio" value="n" name="radioDeficiencia" id="tipo-cadastroo2">
+                            <label for="tipo-cadastroo2">Não</label>
+                            </div>
+                            </div>
+                        </div>
+                   		
 						<div class="div-textareaDef">
 							<label class="main-form-label main-form-dificienciaTex-label">Descrição</label>
-							<textarea id="descricaoDeficiencia" name="descricaoDeficiencia" placeholder = "Nos informe aqui a sua necessidade..."></textarea>
+							<textarea disabled="disabled" style="background-color: rgb(204, 204, 204);" id="descricaoDeficiencia" name="descricaoDeficiencia" placeholder = "Nos informe aqui a sua necessidade..."></textarea>
 						</div>
 						
 						<div class="main-form-submit">
