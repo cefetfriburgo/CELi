@@ -2,6 +2,7 @@
 //$tagTitle = ' Inscrição';
 //requre_once "../../arquivosfixos/headerFooter/header.php";
 //recaptcha
+error_reporting(0);
 foreach ($_POST as $key => $value) {
     echo '<p><strong>' . $key.':</strong> '.$value.'</p>';
 }
@@ -186,7 +187,10 @@ foreach ($_POST as $key => $value) {
 				</div>
 			</main>
 			</body>
+
+
+
 </html>
 			<?php
-				//require_once "../../arquivosfixos/headerFooter/footer.php";
+				require_once "../../arquivosfixos/headerFooter/footer.php";
 			?>
