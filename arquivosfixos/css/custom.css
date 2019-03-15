@@ -12,7 +12,6 @@
 html{
 background-color: #eaeaea;
 }
-
 /* HEADER */
 #header{
 	display: flex;
@@ -1328,7 +1327,7 @@ li{
 	-webkit-transform:none
 }
 .noticia-checkbox-personalizado .cadastro{
-	width:400px; 
+	width:505px; 
 	float:left;
 }
 .noticia-checkbox-personalizado .cadastro input[type=radio]{
@@ -1435,7 +1434,7 @@ li{
 	-webkit-transform:none
 }
 .checkbox .cadastro1{
-	width:400px; 
+	width:505px; 
 	float:left;
 }
 .checkbox .cadastro1 input[type=radio]{
@@ -1484,5 +1483,16 @@ li{
 	color: #000000;
 	font-size: 18px;
 }
+.a-select{
+	text-decoration: none;
+	color: #000000;
+	font-size: 16px;
+}
+.img-select{
+	width: 18px;
+	height: 18px;
 
-  
+    margin-left: 11px;
+
+
+}
