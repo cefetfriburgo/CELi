@@ -21,8 +21,8 @@
 			<input type="hidden" name="excluirCurso" value="<?php echo $edital; ?>">
 
 		<div class="main-btn">
-			<a class="main-form-back btn-vol" href="javascript:history.back();">Voltar</a>
-			<input class="main-form-send btn-ex" type="submit" value="Excluir">
+			<a class="btn-back" href="javascript:history.back();">Voltar</a>
+			<input class="btn-ex" type="submit" value="Excluir">
 			
 		</div>
 		</form>

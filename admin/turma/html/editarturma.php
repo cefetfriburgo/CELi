@@ -6,7 +6,7 @@ if (! isset($turma) or $turma == NULL) {
 }
 
 require '../../../arquivosfixos/pdao/pdaoscript.php';
-$conexao = conexaobd ();
+$conexao = conexaobd();
 $selecionar = "SELECT titulo FROM turma WHERE idturma=" . $turma;
 $query = mysqli_query($conexao, $selecionar);
 $titulo = mysqli_fetch_assoc($query);
@@ -14,6 +14,7 @@ $titulo = mysqli_fetch_assoc($query);
 $selecionar = "SELECT modulo FROM turma WHERE idturma=" . $turma;
 $query = mysqli_query($conexao, $selecionar);
 $modulo = mysqli_fetch_assoc($query);
+
 /*
  * $arrayModulos=Array();
  * while ($row = mysqli_fetch_assoc($query)) {
@@ -58,7 +59,9 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 		<?php 
 		  $verifica= "SELECT idaluno FROM matricula WHERE idturma=$turma";
 		  $query1=mysqli_query($conexao, $verifica);
+
 		  $verifica2 = mysqli_num_rows($query1);
+
 		  if($verifica2==0){
 		?> 
 			<p class="msg-defaut"> Não há alunos matriculados nessa turma.</p>
@@ -73,7 +76,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 				</tr>
 				<?php 
 			
-				    $sql="SELECT aluno.idaluno, aluno.nome, nota.medesc, nota.medoral FROM matricula JOIN aluno ON matricula.idaluno=aluno.idaluno JOIN turma ON matricula.idturma=turma.idturma JOIN nota ON aluno.idaluno = nota.idaluno WHERE turma.idturma=$turma";
+				    $sql="SELECT aluno.idaluno, aluno.nome, nota.medesc, nota.medoral FROM matricula JOIN aluno ON matricula.idaluno=aluno.idaluno JOIN nota ON matricula.idaluno = nota.idaluno and matricula.idturma = nota.idturma WHERE matricula.idturma='$turma'";
                     $query = mysqli_query($conexao, $sql);
 				    
                     $i = 0;
@@ -82,8 +85,8 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 				    ?>
 					<tr class="editarTurma-table-titles">
 						<td class="editarTurma-table-title"> <?php echo $result['nome']?> </td>
-    					<td class="editarTurma-table-title"><input type="text" name="medesc<?php echo $i; ?>" value=<?php echo $result['medesc'] ?>></td> 
-    					<td class="editarTurma-table-title"><input type="text" name="medoral<?php echo $i; ?>" value=<?php echo $result['medoral'] ?>></td>
+    					<td class=""><input class="main-form-input main-form-cursoCTT" type="decimal" max=10 min=0 name="medesc<?php echo $i; ?>" value=<?php echo $result['medesc'] ?>></td> 
+    					<td class=""><input class="main-form-input main-form-cursoCTT" type="decimal" max=10 min=0 name="medoral<?php echo $i; ?>" value=<?php echo $result['medoral'] ?>></td>
     					<input type="hidden" name="idaluno<?php echo $i; ?>" value=<?php echo $result['idaluno'] ?>>
 					<?php 
 					$i++;
@@ -105,8 +108,9 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 				<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
 			</button>
 			<a class="voltar" href="/admin/turma/lista">
-				<p class="main-form-textButton">Voltar</p>
-				<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
+				<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaEsquerda-icon.png" />
+				<p style="margin-top: 15px;"class="main-form-textButton">Voltar</p>
+				
 			</a>
 			<a class="registrar" href="../../matricula/html/matricular.php?turma=<?php echo $turma?>">
 				<p class="main-form-textButton">Matricular alunos</p>

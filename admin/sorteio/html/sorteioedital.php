@@ -14,11 +14,12 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 ?>
 <main id="main">
 <div class="main-content">
-  <h1 class="main-title-escolher">Escolher Edital</h1>
+  <h1 class="main-title">Escolher Edital</h1>
   <?php $selectEdital = selectEdital("idedital, data_ini, hora_ini, data_fim, hora_fim", NULL);
   if($selectEdital->num_rows != 0){?>
   <form method="post" action="/admin/sorteio/curso" name="sorteio">
-    <select class="edital" name="edital">
+    <center> 
+      <select class="edital" name="edital">
               <?php
         
       
@@ -28,9 +29,14 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
               <?php
         }
         ?>
-            </select>
-    <button class="button-proximo main-form-inputButton-proximo"
-      type="submit" class="main-form-send">Próximo</button>
+      </select>
+    </center>
+
+      <button class="main-form-inputButton main-form-send button-proximo main-form-inputButton main-form-inputButton-proximo" type="submit">
+        <p class="main-form-textButton">Próximo</p>
+        <img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
+      </button>
+
   </form>
   <?php }else{ ?>
               <p class="main-form-legend">Não existem editais, favor registrar um.</p>

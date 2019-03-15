@@ -35,6 +35,7 @@
 				<p class="main-form-cursoLabel-ctt main-form-vagasLabel-ctt">Vagas internas</p>
 				<p class="main-form-cursoLabel-ctt main-form-vagasLabel-ctt">Vagas externas</p>
 				<?php
+				//---------------------------------------------------------------
     					while ($curso = mysqli_fetch_array($sql)) {
         			?>
 				<input id="checkboxCurso-<?php echo $curso['idcurso']; ?>" class="main-form-cursoCTT cursoInput-checkbox" type="checkbox" name="curso[]" value="<?php echo $curso['idcurso']; ?>">
@@ -42,8 +43,8 @@
 					<img class="main-form-cursoLine-checkbox-element-img" src="../../../arquivosfixos/midia/check-icon.png">
 				</label>
 				<label class="main-form-cursoCTT main-form-cursoLine-nome-text" for="checkboxCurso-<?php echo $curso['idcurso']; ?>"> <?php echo $curso['nome']; ?></label>
-				<input id="interno-<?php echo $curso['idcurso']; ?>" class="main-form-cursoCTT main-form-cursoLine-vagas-interno main-form-input" type="number" name="interno_<?php echo $curso['idcurso']; ?>" min="0" placeholder="Interno" disabled="disabled">
-				<input id="externo-<?php echo $curso['idcurso']; ?>" class="main-form-cursoCTT main-form-cursoLine-vagas-externo main-form-input" type="number" name="externo_<?php echo $curso['idcurso']; ?>" min="0" placeholder="Externo" disabled="disabled">
+				<input class="interno-<?php echo $curso['idcurso']; ?> main-form-cursoCTT main-form-cursoLine-vagas-interno main-form-input" type="number" name="interno_<?php echo $curso['idcurso']; ?>" min="0" placeholder="Interno" disabled="disabled">
+				<input class="externo-<?php echo $curso['idcurso']; ?> main-form-cursoCTT main-form-cursoLine-vagas-externo main-form-input" type="number" name="externo_<?php echo $curso['idcurso']; ?>" min="0" placeholder="Externo" disabled="disabled">
 				<?php
     					}
     				?>

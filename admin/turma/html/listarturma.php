@@ -66,7 +66,9 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 	</div>
         			<?php }else{ ?>
 					<p class="main-form-legend">Não há turmas registradas.</p>
-	<a class="main-form-back" href="/admin/turma/adicionar">Registrar</a>
+	<a class="main-form-back btn-save" href="/admin/turma/adicionar">Registrar 
+		<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
+	</a>
 					<?php }?>
 				</div>
 </main>

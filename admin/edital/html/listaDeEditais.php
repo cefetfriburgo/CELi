@@ -81,8 +81,10 @@
 			}
 			else{
 		?>
-		<p class="main-form-legend">Não há editais Registrados.</p>
-		<a class="main-form-back" href="/admin/edital/adicionar">Registrar</a> 
+		<p class="main-form-legend">Não há editais registrados.</p>
+		<a class="btn-save" href="/admin/edital/adicionar">Registrar
+		<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
+		</a> 
 		<?php 
 			}
 		?>

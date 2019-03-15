@@ -19,10 +19,9 @@ $tagTitle='Excluir turma';
 					<form class="main-form" method="post" action="">
            				<p class="main-form-legend"> Tem certeza que você deseja excluir definitivamente a turma <?php echo $nome['titulo']; ?>?</p>
 						<input type="hidden" name="excluirCurso" value="<?php echo $turma; ?>">
-            			<a class="main-form-back" href="javascript:history.back();">Voltar</a>
-                        <button class="main-form-inputButton" type="submit" >
+            			<a class="main-form-back btn-back" href="javascript:history.back();">Voltar</a>
+                        <button class="btn-ex" type="submit" >
                 			<p class="main-form-textButton">Excluir</p>
-                			<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
                 		</button>
 					</form>
 				</div>

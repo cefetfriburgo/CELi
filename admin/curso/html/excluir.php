@@ -13,12 +13,10 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 	<form class="main-form" method="post" action="">
 		<p class="main-form-legend"> Tem certeza que você deseja excluir definitivamente o curso de <?php echo $nome['nome']; ?>?</p>
 		<input type="hidden" name="excluirCurso" value="<?php echo $curso; ?>">
-		<button class="main-form-inputButton" type="submit">
-			<p class="main-form-textButton">Excluir</p>
-			<img class="main-form-iconButton"
-				src="../../../arquivosfixos/midia/setaDireita-icon.png" />
-		</button>
-		<a class="main-form-back" href="javascript:history.back();"> Voltar </a> 
+		<div class="main-btn">
+			<a class="main-form-back btn-back" href="javascript:history.back();">Voltar</a>
+			<input class="main-form-send btn-ex" type="submit" value="Excluir">
+		</div>
 	</form>
 </div>
 </main>

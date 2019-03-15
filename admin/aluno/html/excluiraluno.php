@@ -18,10 +18,10 @@ require "../control/excluiraluno.php";
 					<form class="main-form" method="post" action="">
                     	<p class="main-form-legend"> Tem certeza que você deseja excluir definitivamente o aluno <?php echo $aluno['nome'] ; ?>?</p>
         				<input type="hidden" name="excluirAluno" value="<?php echo $idaluno; ?>">
-                    	<a class="main-form-back" href="javascript:history.back();">Voltar</a>
-                    	<button class="main-form-inputButton" type="submit" >
+                    	<a class="btn-back" href="javascript:history.back();">Voltar</a>
+                    	<button class="btn-ex" type="submit" >
         					<p class="main-form-textButton">Excluir</p>
-        					<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
+        					
         				</button>						
 					</form>
 				</div>

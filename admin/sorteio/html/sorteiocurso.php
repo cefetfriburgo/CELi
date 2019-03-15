@@ -21,12 +21,13 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 ?>
 <main id="main">
 <div class="main-content">
-  <h1 class="main-title-escolher">Escolher Curso</h1>
+  <h1 class="main-title">Escolher Curso</h1>
   <?php  $selectEditalCurso = selectEditalCurso("idedital, idcurso, vagainterna, vagaexterna", "WHERE idedital = $idEdital AND sorteioRealizado = 0");
   if($selectEditalCurso->num_rows != 0){?>
-  <form method="get" action="mostraSorteio.php" name="sorteio">
-    <input type="hidden" name="edital" value="<?php echo $idEdital ?>"> <select
-      class="curso" name="curso">
+  <form method="get" action="./html/mostraSorteio.php" name="sorteio">
+    <input type="hidden" name="edital" value="<?php echo $idEdital ?>"> 
+    <center>
+      <select class="curso" name="curso">
               <?php
        
         while ($row1 = mysqli_fetch_array($selectEditalCurso)) {
@@ -38,11 +39,16 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
             }
         }
         ?>
-            </select>
-    <button class="button-proximo main-form-inputButton-proximo"
-      type="submit" class="main-form-send">Próximo</button>
+      </select>
+    </center>
+    <button class="button-proximo btn-alt"
+      type="submit" class="main-form-send">Próximo
+      
+      <img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png">
+
+    </button>
   </form>
-  <a class="main-form-back" href="javascript:history.back();">Voltar</a>
+  <a class="btn-back" href="javascript:history.back();">Voltar</a>
   
   <?php }else{ ?>
               <p class="main-form-legend">Os cursos desse edital já foram sorteados.</p>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+error_reporting(0);
 if(!isset($_SESSION['usuario']) && !isset($_SESSION['senha'])){
     header('location: /admin');
 }
@@ -49,26 +49,26 @@ if(isset($_POST['alunoid']) && isset($_POST['alunonome'])){
 				<div class="main-content">
 					<h1 class="main-title">Matricular aluno</h1>
 					<table class="main-table">
+						<tr class="table-info">
+							<td class="table-info-title">Curso:</td>
+							<td class="table-info-cel"><?php echo $turma['nome']; ?></td>
+						</tr class="table-info">
 						<tr>
-							<th class="tabela-informacoes-celula" >Curso:</th>
-							<td class="tabela-informacoes-celula"><?php echo $turma['nome']; ?></td>
+							<td class="table-info-title">Turma:</td>
+							<td class="table-info-cel"><?php echo $turma['titulo']; ?></td>
 						</tr>
-						<tr>
-							<th class="tabela-informacoes-celula">Turma:</th>
-							<td class="tabela-informacoes-celula"><?php echo $turma['titulo']; ?></td>
-						</tr>
-						<tr>
-							<th class="tabela-informacoes-celula">Módulo:</th>
-							<td class="tabela-informacoes-celula"><?php echo $turma['modulo']; ?></td>
+						<tr class="table-info">
+							<td class="table-info-title">Módulo: </td>
+							<td class="table-info-cel"><?php echo $turma['modulo']; ?></td>
 						</tr>
 					</table>
 					
 					<h2>Selecionar Aluno</h2>
-					<button value="buscar" class="main-content-form-content-send"><a href="./buscaAluno.php?turma=<?php echo $idturma;?>">Buscar</button>
-
-						<table class="main-table" style="border:solid 1px">
+					
+                        <a href="./buscaAluno.php?turma=<?php echo $idturma;?>">Buscar</a>
+						<table class="main-table">
         					<tr class="table-title">
-        						<th>Alunos Selecionados </th>
+        						<td class="select"> Alunos Selecionados </td>
         					</tr>
         					<?php 
         					if(isset($_SESSION['alunos'])){
@@ -81,7 +81,9 @@ if(isset($_POST['alunoid']) && isset($_POST['alunonome'])){
         					    		<form action = "../control/excluiraluno.php" method="post">
         					    			<input type="hidden" name="idExcluir" value="<?php echo $alunoSelecionado[0];?>"/>
         					    			<input type="hidden" name="idturma" value = "<?php echo $idturma;?>"/>
-         					    			<button type="submit">Excluir</button>
+         					    			<button class="btn-remove" type="submit">
+                                                 <img class="remove" src="../../../arquivosfixos/midia/lixeira.png"/>                 
+                                            </button>
         					    		</form>
         					    	</td>        					    </tr> 
         					<?php     
@@ -91,7 +93,10 @@ if(isset($_POST['alunoid']) && isset($_POST['alunonome'])){
     					</table>
     				<form action="../control/enviarMatricula.php" method="post">
         				<input type="hidden" name="idturma" value="<?php echo $idturma;?>"/>
-        				<button type="submit">Matricular</button>
+        				<button class="btn-save" type="submit">Matricular
+                            <img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
+                        </button>
+
     				</form>
     					
 				</div>

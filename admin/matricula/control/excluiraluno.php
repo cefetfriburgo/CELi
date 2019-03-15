@@ -9,5 +9,5 @@ foreach($alunos as $key=>$aluno){
     }
 }
 $_SESSION['alunos'] = $alunos;
-header('Location:../html/matricular.php?turma=.'$idturma.');
+header('Location:../html/matricular.php?turma='.$idturma);
 ?>

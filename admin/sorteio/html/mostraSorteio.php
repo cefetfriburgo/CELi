@@ -30,17 +30,7 @@ $row1 = $row['ideditalcurso'];
 
 function selecionarqtd($row1)
 {
-    $conexao = conexaobd();
 
-    $campos1 = "ideditalcurso, sorteioRealizado";
-    $tabela1 = "editalcurso";
-    $condicao1 = "WHERE idedital = $idEdital  AND idcurso = $idCurso";
-    
-    $selecionaEditalCurso = selecionarbd($campos1, $tabela1, $condicao1);
-    $row = mysqli_fetch_array($selecionaEditalCurso);
-    $row1 = $row['ideditalcurso'] ;
-    
-    function selecionarqtd ($row1){
         $conexao = conexaobd();
         if($conexao){
             $sql = "SELECT idcandidatocurso FROM candidatocurso WHERE ideditalcurso = $row1";
@@ -52,8 +42,7 @@ function selecionarqtd($row1)
             echo "Conexão com o BD não estabelecida!";
             return FALSE;
         }
-        
-}
+    }
 $selectQtdAluno = selecionarqtd($row1);
 
 $sorteioRealizado = $row['sorteioRealizado'];
@@ -149,9 +138,7 @@ if ($sorteioRealizado == 0) {
         <?php
       }
        
-} else {
-    header("location: ./sorteiojarealizado.php");
-}
+
 ?>
     <input id="imprimir" class="main-form-inputButton" type="button"
 		value="Imprimir" />

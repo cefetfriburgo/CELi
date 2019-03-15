@@ -106,38 +106,25 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
                     class="main-form-input" type="text" name="cepaluno"> <input
                     type="hidden" name="cep">
             </div>
-            <div class="main-form-box">
-                <label class="main-form-label main-form-situation-label">Situação</label>
-                <div class="main-form-radioBox main-form-situacao-radioBox">
-                    <div class="main-form-radioBox-first situacao-interno">
-                        <p>interno</p>
-                        <input class="main-form-inputRadio inputButtonInterno"
-                            type="radio" name="radio" value="i">
-                    </div>
-                    <div class="main-form-radioBox-second situacao-externo">
-                        <input class="main-form-inputRadio inputButtonExterno"
-                            type="radio" name="radio" value="e">
-                        <p>externo</p>
-                    </div>
-                </div>
-            </div>
-            <div class="main-form-box">
-                <label class="main-form-label main-form-dificiencia-label">Deficiência?</label>
-                <div class="main-form-deficiencia-box">
-                    <div class="main-form-radioBox main-form-deficiencia-radioBox">
-                        <div class="main-form-radioBox-first deficiencia-sim">
-                            <p>sim</p>
-                            <input class="main-form-inputRadio inputButtonSim" type="radio"
-                                name="radioDeficiencia" value="s">
+                        <div class="noticia-checkbox-personalizado main-form-box">
+                            <label class="main-form-label main-form-situation-label">Situação</label>
+                            <div class="cadastro">
+                            <input checked="checked" class="main-form-inputRadio" type="radio" value="i"  name="radio" id="tipo-cadastro1">
+                            <label for="tipo-cadastro1">Interno</label>
+                            <input class="main-form-inputRadio" type="radio" value="e" name="radio" id="tipo-cadastro2">
+                            <label for="tipo-cadastro2">Externo</label>
+                            </div>
                         </div>
-                        <div class="main-form-radioBox-second deficiencia-nao">
-                            <input class="main-form-inputRadio inputButtonNao" type="radio"
-                                name="radioDeficiencia" value="n">
-                            <p>não</p>
+
+            <div class="checkbox main-form-box">
+                            <label class="main-form-label main-form-dificiencia-label">Deficiência?</label>
+                            <div class="cadastro1">
+                            <input checked="checked" type="radio" value="s" name="radioDeficiencia" id="tipo-cadastroo1">
+                            <label for="tipo-cadastroo1">Sim</label>
+                            <input type="radio" value="n" name="radioDeficiencia" id="tipo-cadastroo2">
+                            <label for="tipo-cadastroo2">Não</label>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
 
 
             <div class="form-btns">
@@ -146,7 +133,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
                     <img class="main-form-iconButton"
                         src="../../../arquivosfixos/midia/setaDireita-icon.png" />
                 </button>
-                <a class="main-content-form-content-back" href="/admin/aluno/lista">Voltar</a>
+                
             </div>
         </form>
     </div>
