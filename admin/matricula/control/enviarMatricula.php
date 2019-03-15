@@ -5,7 +5,7 @@
     {
         $alunos = $_SESSION['alunos'];
         $turma = $_POST['idturma'];
-        echo $alunos[$i][0];
+        
         print_r($alunos);
         function conexaobd (){
             $conexao = mysqli_connect("localhost", "root", "", "celi_sistema");

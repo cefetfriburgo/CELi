@@ -63,9 +63,6 @@ if(isset($_POST['alunoid']) && isset($_POST['alunonome'])){
 						</tr>
 					</table>
 					
-					<h2>Selecionar Aluno</h2>
-					
-                        <a href="./buscaAluno.php?turma=<?php echo $idturma;?>">Buscar</a>
 						<table class="main-table">
         					<tr class="table-title">
         						<td class="select"> Alunos Selecionados </td>
@@ -85,11 +82,25 @@ if(isset($_POST['alunoid']) && isset($_POST['alunonome'])){
                                                  <img class="remove" src="../../../arquivosfixos/midia/lixeira.png"/>                 
                                             </button>
         					    		</form>
-        					    	</td>        					    </tr> 
+        					    	</td>
+                                </tr> 
         					<?php     
         					}}
         					
         					?>
+                             <tr>
+                           
+                                <td> 
+                                     <a class="a-select" href="./buscaAluno.php?turma=<?php echo $idturma;?>"> 
+                                    Selecionar Aluno </a>
+                                </td>  
+                           
+                             <td>      
+                            <a class="a-select" href="./buscaAluno.php?turma=<?php echo $idturma;?>">
+                              
+                                <img class="img-select" src="../../../arquivosfixos/midia/plus.png"/>  
+                            </a>
+                            </td>
     					</table>
     				<form action="../control/enviarMatricula.php" method="post">
         				<input type="hidden" name="idturma" value="<?php echo $idturma;?>"/>

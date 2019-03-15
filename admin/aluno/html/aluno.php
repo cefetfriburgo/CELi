@@ -116,7 +116,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
                             </div>
                         </div>
 
-            <div class="checkbox main-form-box">
+                        <div class="checkbox main-form-box">
                             <label class="main-form-label main-form-dificiencia-label">Deficiência?</label>
                             <div class="cadastro1">
                             <input checked="checked" type="radio" value="s" name="radioDeficiencia" id="tipo-cadastroo1">
