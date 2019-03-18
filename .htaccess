@@ -78,7 +78,11 @@ RewriteRule ^admin/aluno/erro$ admin/aluno/html/error.php
 RewriteRule ^admin/sorteio/$ admin/sorteio/html/sorteioedital.php
 RewriteRule ^admin/sorteio/edital$ admin/sorteio/html/sorteioedital.php
 RewriteRule ^admin/sorteio/curso$ admin/sorteio/html/sorteiocurso.php
+RewriteRule ^admin/sorteio/resultado$ admin/sorteio/html/mostraSorteio.php?edital=$1&curso=$2
 
+ErrorDocument 301 /wp-content/themes/oceanwp/404.php
+ErrorDocument 403 /wp-content/themes/oceanwp/404.php
+ErrorDocument 404 /wp-content/themes/oceanwp/404.php
 </IfModule>
 
 # BEGIN WordPress
