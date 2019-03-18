@@ -38,7 +38,7 @@ $complemento = $_SESSION['complemento'];
 $situacao = $_SESSION['radio'];
 $curso = $_SESSION['course'];
 
-$conexao = mysqli_connect("localhost", "celi", "celi123#", "celi_sistema");
+$conexao = mysqli_connect("localhost", "", "", "");
 if (!$conexao){
     echo "ERROR! failure to connect to the database.";
     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
