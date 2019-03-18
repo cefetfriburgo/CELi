@@ -1,7 +1,7 @@
 <?php
 // Função para estabelecer conexão com o BD
 function conexao(){
-    $conexao = mysqli_connect("localhost", "", "", "");
+    $conexao = mysqli_connect("localhost", "root", "", "celi_sistema");
     if (!$conexao){
         echo "ERROR! failure to connect to the database.";
         echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
@@ -13,6 +13,7 @@ function conexao(){
 //   Função para adicionar candidato no BD
 function insert ($nome,$rg,$orgaoemissor,$CPF,$nascimento,$logradouro,$complemento,$bairro,$cidade,$uf,$email,$telefone1,$telefone2,$situacao){
     $conexao = conexao();
+    mysqli_set_charset($conexao,"utf8");
     $qtd1=0;
     $qtd2=0;
     if(isset($CPF)){

@@ -20,54 +20,102 @@ if(isset($_POST['name']) && isset($_POST['course']) && isset($_POST['phone1']) &
         $deficiencia=$_POST['radioDeficiencia'];
         $obsDeficiencia=$_POST['descricaoDeficiencia'];
         
+        session_start();
+        $_SESSION['name'] = $nome;
+        $_SESSION['phone1'] = $telefone1;
+        $_SESSION['phone2'] = $telefone2;
+        $_SESSION['document1'] = $RG;
+        $_SESSION['OrgEmiRg'] = $orgRG;
+        $_SESSION['document2'] = $CPF;
+        $_SESSION['uf'] = $uf;
+        $_SESSION['cidade'] = $cidade;
+        $_SESSION['bairro'] = $bairro;
+        $_SESSION['logradouro'] = $logradouro;
+        $_SESSION['complemento'] = $complemento;
+        $_SESSION['radio'] = $situacao;
+        $_SESSION['course'] = $curso;
+        $_SESSION['email'] = $email;
+        $_SESSION['nascimento'] = $nasc;
+        $_SESSION['deficiencia'] = $deficiencia;
+        $_SESSION['obsDeficiencia'] = $obsDeficiencia;
+
         // Função que dispara todas as outras funções e, estando tudo certo, inseri no BD
-        
         $validnome = validarnome($nome);
+        if($validnome==1){
+            $_SESSION['erro_nome'] = "Verifique se seu nome foi digitado corretamente!";
+        }
         $validtelefone1 = validartelefone1($telefone1);
+        if($validtelefone1==1){
+            $_SESSION['erro_telefone1'] = "Verifique se seu primeiro telefone foi digitado corretamente!";
+        }
         $validtelefone2 = validartelefone2($telefone2);
+        if($validtelefone2==1){
+            $_SESSION['erro_telefone2'] = "Verifique se seu segundo telefone foi digitado corretamente!";
+        }
         $validemail = validaremail($email);
+        if($validemail==1){
+            $_SESSION['erro_email'] = "Verifique se seu email foi digitado corretamente!";
+        }
         $validsituacao = validarie($situacao);
+        if($validsituacao==1){
+            $_SESSION['erro_sit'] = "Verifique se sua situação foi selecionada!";
+        }
         $validCpfRg = cpf_rg($CPF, $RG);
+        if($validCpfRg==1){
+            $_SESSION['erro_cpfrg'] = "Digite pelo menos um dos documentos! (CPF ou RG)";
+        }
         $validCPF = validarCpf($CPF);
+        if($validCPF==1){
+            $_SESSION['erroCPF'] = "Verifique se seu CPF foi digitado corretamente!";
+        }
         $validNascimento = validarNascimento($nasc);
+        if($validNascimento==1){
+            $_SESSION['erro_nasc'] = "Digite uma data de nascimento válida!";
+        }
         $validOrgRG =  validarOrgRG($orgRG, $RG);
+        if($validOrgRG ==1){
+            $_SESSION['erro_orgRG'] = "Verifique se seu o orgão e/ou rg foram digitados corretamente!";    
+        }
         $validUf = validarUF($uf);
+        if($validUf ==1){
+            $_SESSION['erro_uf'] = "Verifique se sua UF foi selecionada!";
+        }
         $validCidade =  validarCidade($cidade);
+        if($validCidade ==1){
+            $_SESSION['erro_cidade'] = "Verifique se sua cidade foi digitada corretamente!";
+        }
         $validBairro =  validarBairro($bairro);
+        if($validBairro ==1){
+            $_SESSION['erro_bairro'] = "Verifique se seu bairro foi digitado corretamente!";
+        }
         $validLogradouro = validarLogradouro($logradouro);
+        if($validLogradouro ==1){
+            $_SESSION['erro_log'] = "Verifique se seu logradouro foi digitado corretamente!";
+        }
         $validCurso = validarCurso($curso);
+        if($validCurso ==1){
+            $_SESSION['erro_curso'] = "Verifique se o curso desejado foi selecionado!";
+        }
         $validDeficiencia = validarDeficiencia($deficiencia, $obsDeficiencia);
+        if($validDeficiencia ==1){
+            $_SESSION['erro_def'] = "Verifique se o campo de descrição da deficiência foi preenchido!";
+        }
+
+               
 
         if($validnome == 0 && $validtelefone1 == 0 && $validemail == 0 && $validsituacao == 0 && $validCpfRg == 0 && $validCPF == 0
             && $validNascimento==0 && $validOrgRG==0 && $validUf==0 && $validCidade==0 &&  $validBairro==0 && $validLogradouro==0 &&  $validCurso==0 && $validDeficiencia==0){
-                session_start();
-                $_SESSION['name'] = $nome;
-                $_SESSION['phone1'] = $telefone1;
-                $_SESSION['phone2'] = $telefone2;
-                $_SESSION['document1'] = $RG;
-                $_SESSION['OrgEmiRg'] = $orgRG;
-                $_SESSION['document2'] = $CPF;
-                $_SESSION['uf'] = $uf;
-                $_SESSION['cidade'] = $cidade;
-                $_SESSION['bairro'] = $bairro;
-                $_SESSION['logradouro'] = $logradouro;
-                $_SESSION['complemento'] = $complemento;
-                $_SESSION['radio'] = $situacao;
-                $_SESSION['course'] = $curso;
-                $_SESSION['email'] = $email;
-                $_SESSION['nascimento'] = $nasc;
-                $_SESSION['deficiencia'] = $deficiencia;
-                $_SESSION['obsDeficiencia'] = $obsDeficiencia;
-                
-                
-                header('location: /concursos/confirmar');
+ 
+               header('location: /concursos/confirmar');
         }
         else{
-            header('location: ../html/inscricao.php');
+            $_SESSION['erro']=2;
+            header('location: /concursos');
         }
         
 }else{
-    header('location: ../html/inscricao.php');
+    $_SESSION['erro']=1;
+    header('location: /concursos');
 }
 // Função para validar o nome
 function validarnome($nome){

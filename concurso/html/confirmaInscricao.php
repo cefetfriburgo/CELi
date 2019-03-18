@@ -38,7 +38,7 @@ $complemento = $_SESSION['complemento'];
 $situacao = $_SESSION['radio'];
 $curso = $_SESSION['course'];
 
-$conexao = mysqli_connect("localhost", "", "", "");
+$conexao = mysqli_connect("localhost", "root", "", "celi_sistema");
 if (!$conexao){
     echo "ERROR! failure to connect to the database.";
     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
@@ -46,9 +46,11 @@ if (!$conexao){
     exit();
 }
 $sql = "SELECT curso.nome FROM editalcurso JOIN curso ON editalcurso.idcurso=curso.idcurso WHERE editalcurso.ideditalcurso = $curso ";
+mysqli_set_charset($conexao,"utf8");
 $query = mysqli_query($conexao, $sql);
 $nomeCurso= mysqli_fetch_assoc($query);
-mysqli_set_charset($conexao,"utf8");
+$_SESSION['nomeCurso']=$nomeCurso;
+
 
 ?>
 <!DOCTYPE HTML>
@@ -57,13 +59,14 @@ mysqli_set_charset($conexao,"utf8");
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="./css/styleConfirmacao.css">
 	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/custom.css">
 	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/header/style.css">
 	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/footer/style.css">
 	</head>
 	<body>
     	<div class="content">
     		<?php
-				require_once "../../arquivosfixos/headerFooter/header.php";
+				
 			?>
     		<main id="main">
     			<div class="main-content">
@@ -196,8 +199,8 @@ mysqli_set_charset($conexao,"utf8");
                 </tr>
               </table>
 
-        			<a class="main-form-back" href="inscricao.php" >Voltar</a>
-        			<a class="main-form-send" href="/concursos/confirmado">Concluir</a>
+        			<a class="btn-back" href="inscricao.php" >Voltar</a>
+        			<a class="btn-save" href="/concursos/confirmado">Concluir</a>
         		</div>
         	</main>
     		<?php

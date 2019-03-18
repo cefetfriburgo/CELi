@@ -37,18 +37,18 @@ $logradouro = $_SESSION['logradouro'];
 $complemento = $_SESSION['complemento'];
 $situacao = $_SESSION['radio'];
 $curso = $_SESSION['course'];
-
-
+error_reporting(0);
 $conexao = conexao(); /*mysqli_connect("localhost", "root", "", "celi");
 if (!$conexao){
     echo "ERROR! failure to connect to the database.";
     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
     echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
     exit();
-}*/
+}
 $sql = "SELECT curso.nome FROM editalcurso JOIN curso ON editalcurso.idcurso=curso.idcurso WHERE editalcurso.ideditalcurso = $curso ";
 $query = mysqli_query($conexao, $sql);
-$nomeCurso= mysqli_fetch_assoc($query);
+*/
+$nomeCurso= $_SESSION['nomeCurso'];
 
 //inserir no bd
 insert ($nome,$rg,$orgaoEmissor,$cpf,$datNascimento,$logradouro,$complemento,$bairro,$cidade,$uf,$email,$telefone1,$telefone2,$situacao);
@@ -61,7 +61,6 @@ inserirCandidatocurso($curso);
 	<head>
   <title>Inscrição Confirmada | CELi</title>
 	<script type="text/javascript" src="../../arquivosfixos/js/jquery.min.js"></script>
-	<script src="./js/imprimir.js"></script>
 	<link rel="stylesheet" type="text/css" href="./css/styleConfirmacao.css">
 	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/header/style.css">
@@ -73,7 +72,7 @@ inserirCandidatocurso($curso);
 				require_once "../../arquivosfixos/headerFooter/header.php";
 			?>
     		<main id="main">
-          <div class="main-content">
+          <div id="main-content" class="main-content">
               <h1 class="main-title">Confirmação dos Dados</h1>
               <table class="main-table">
                 <tr class="main-table-lineNome">
@@ -202,15 +201,25 @@ inserirCandidatocurso($curso);
                   <td class="main-table-line-ctt"><?php echo $nomeCurso['nome']; ?></td>
                 </tr>
               </table>
+             
+        			<button id="imprimir" class="btn-save">Imprimir</button>
+              <script>
+               document.getElementById('imprimir').onclick = function() {
+               var conteudo = document.getElementById('main-content').innerHTML,
+                tela_impressao = window.open('about:blank');
 
-        			<input id="imprimir" class="main-form-imprimir" type="button"  value="Imprimir" />
-            <form action="../" method="GET">
-        			     <input class="main-form-enviar" type="button" value="Enviar por email" />
+              tela_impressao.document.write(conteudo);
+              tela_impressao.window.print();
+              tela_impressao.window.close();
+                  };  
+            </script>
+              <form action="../" method="GET">
+        			    
                    <form action="../contro/email.php" method="POST">
                       <input class="main-form-enviar" type="hidden" name="email" value="Enviar por email" />
                   </form>
             </form>
-        		</div>
+        	 </div>	
 				</div>
 			</main>
 			<?php

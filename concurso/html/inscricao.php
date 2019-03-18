@@ -41,20 +41,170 @@ foreach ($_POST as $key => $value) {
 								$query1 = mysqli_query($conexao, $sql1);
 
 								$idEdital = mysqli_fetch_assoc($query1);
-
+								session_start();
 								if($query1->num_rows != 0){
-					?>
+
+								
+						if(isset($_SESSION['erro'])){
+
+							echo $_SESSION['erroCPF'];
+							unset($_SESSION['erro']); ?>
+							<div class="main-form-box">
+								<label class="main-form-label main-form-labelNome">Nome</label>
+								<input  value="<?php echo $_SESSION['name']; ?>" class="main-form-input main-form-inputNome" type="text" name="name" placeholder="Digite seu nome completo" required>
+							</div>
+							<div class="main-form-box">
+								<label  class="main-form-label main-form-labelEmail">E-mail</label>
+								<input value="<?php echo $_SESSION['email']; ?>" class="main-form-input main-form-inputEmail" type="email" name="email" placeholder="Digite seu e-mail" required>
+							</div>
+							<div class="main-form-box">
+								<label class="main-form-label main-form-labelRG">RG</label>
+								<input value="<?php echo $_SESSION['document1']; ?>" class="main-form-input main-form-inputRG" type="text" name="document1" onkeyup="mascara('##.###.###-#',this,event,true)" placeholder="Digite seu RG" >
+							</div>
+							<div class="main-form-box">
+								<label  class="main-form-label main-form-labelOrgEmiRg">Órgão Emissor do RG</label>
+								<input  value="<?php echo $_SESSION['OrgEmiRg']; ?>" class="main-form-input main-form-inputOrgRG" type="text" name="OrgEmiRg" placeholder="Digite o órgão emissor ">
+							</div>
+							<div class="main-form-box">
+								<label  class="main-form-label main-form-labelCPF">CPF</label>
+								<input  value="<?php echo $_SESSION['document2']; ?>" class="main-form-input main-form-inputCPF" type="text" name="document2" placeholder="Digite seu CPF" onkeyup="mascara('###.###.###-##',this,event,true)" >
+							</div>
+							<div class="main-form-box">
+								<label  class="main-form-label main-form-labelNacimento">Nascimento</label>
+								<input  value="<?php echo $_SESSION['nascimento']; ?>" class="main-form-input main-form-inputNascimento" type="date" name="nascimento" placeholder="Digite sua data de nascimento"required>
+							</div>
+							<div class="main-form-box">
+								<label  class="main-form-label main-form-labelTelefone1">Telefone 1</label>
+								<input  value="<?php echo $_SESSION['phone1']; ?>" class="main-form-input main-form-inputTelefone1" type="text" name="phone1" placeholder="Digite seu telefone com DDD" onkeyup="mascara('(##) ####-#####',this,event,true)"required>
+							</div>
+							<div class="main-form-box">
+								<label  class="main-form-label main-form-labelTelefone2">Telefone 2</label>
+								<input  value="<?php echo $_SESSION['phone2']; ?>" class="main-form-input main-form-inputTelefone2" type="text" name="phone2" placeholder="Digite seu telefone com DDD" onkeyup="mascara('(##) ####-#####',this,event,true)"required>
+							</div>
+							<?php //Resolver o select! ?>
+							<div class="main-form-box">
+							<label  class="main-form-label main-form-labelUf">UF</label>
+							<select id="uf" ="<?php echo $_SESSION['uf']; ?>" class="main-form-input main-form-inputUf" name="uf">
+								<option value="AC">AC</option>
+								<option value="AL">AL</option>
+								<option value="AM">AM</option>
+								<option value="AP">AP</option>
+								<option value="BA">BA</option>
+								<option value="CE">CE</option>
+								<option value="DF">DF</option>
+								<option value="ES">ES</option>
+								<option value="GO">GO</option>
+								<option value="MA">MA</option>
+								<option value="MG">MG</option>
+								<option value="MS">MS</option>
+								<option value="MT">MT</option>
+								<option value="PA">PA</option>
+								<option value="PB">PB</option>
+								<option value="PE">PE</option>
+								<option value="PI">PI</option>
+								<option value="PR">PR</option>
+								<option value="RJ">RJ</option>
+								<option value="RN">RN</option>
+								<option value="RO">RO</option>
+								<option value="RR">RR</option>
+								<option value="RS">RS</option>
+								<option value="SC">SC</option>
+								<option value="SE">SE</option>
+								<option value="SP">SP</option>
+								<option value="TO">TO</option>
+							</select>
+						</div>
 						<div class="main-form-box">
+							<label  class="main-form-label main-form-labelCidade">Cidade</label>
+							<input  value="<?php echo $_SESSION['cidade']; ?>" class="main-form-input main-form-inputCidade" type="text" name="cidade" placeholder="Digite sua cidade " required>
+						</div>
+						<div class="main-form-box">
+							<label  class="main-form-label main-form-labelBairro">Bairro</label>
+							<input  value="<?php echo $_SESSION['bairro']; ?>" class="main-form-input main-form-inputBairro" type="text" name="bairro" placeholder="Digite seu bairro "required>
+						</div>
+						<div class="main-form-box">
+							<label  class="main-form-label main-form-labelLogradouro">Nome do logradouro</label>
+							<input  value="<?php echo $_SESSION['logradouro']; ?>" class="main-form-input main-form-inputLogradouro" type="text" name="logradouro" placeholder="Digite seu logradouro"required>
+						</div>
+						<div class="main-form-box">
+							<label  class="main-form-label main-form-labelComplemento">Complemento</label>
+							<input  value="<?php echo $_SESSION['complemento']; ?>" class="main-form-input main-form-inputComplemento" type="text" name="complemento" placeholder="Digite o complemento">
+						</div>
+						<div class="noticia-checkbox-personalizado main-form-box">
+                            <label class="main-form-label main-form-situation-label">Situação</label>
+                            <div class="cadastro">
+                            <?php
+                            if($_SESSION['radio']=="e"){ ?>
+                            <input class="main-form-inputRadio" type="radio" name="radio" value="i" id=tipo-cadastro1">
+                            <label for="tipo-cadastro1">Interno</label>
+                            <input checked="checked" class="main-form-inputRadio" type="radio" value="e" name="radio" id="tipo-cadastro2">
+                            <label for="tipo-cadastro2">Externo</label>
+                           <?php }else{ ?>
+                           	<input checked="checked" class="main-form-inputRadio" type="radio" name="radio" value="i" id=tipo-cadastro1">
+                            <label for="tipo-cadastro1">Interno</label>
+                            <input class="main-form-inputRadio" type="radio" value="e" name="radio" id="tipo-cadastro2">
+                            <label for="tipo-cadastro2">Externo</label>
+                            <?php } ?>
+                            </div>
+                        </div>
+                        <div class="main-form-box">
+							<label  class="main-form-label main-form-labelCurso">Cursos</label>
+							<select class="main-form-input main-form-selectCurso" name="course">
+							<?php
+							    $idEdital = $idEdital['idedital'];
+								$sql = "SELECT editalcurso.ideditalcurso, curso.nome FROM editalcurso JOIN curso ON editalcurso.idcurso=curso.idcurso JOIN edital ON editalcurso.idedital=edital.idedital WHERE editalcurso.idedital = $idEdital ";
+								$query = mysqli_query($conexao, $sql);
+								while($curso = mysqli_fetch_array($query)){?>	
+							 <option <?php if($_SESSION['course']==$curso['ideditalcurso']){ echo "selected='selected'";}?> class="selectCurso-option" value="<?php echo $curso['ideditalcurso'];?>"><?php echo $curso['nome'];?></option> 
+							<?php
+								}
+							
+							?>
+							</select>
+						</div>
+						<div class="checkbox main-form-box">
+                            <label class="main-form-label main-form-dificiencia-label">Deficiência?</label>
+                            <div class="cadastro1 main-form-radioBoxx ">
+							<div class="deficiencia-sim">
+                            <input class="main-form-inputRadio" checked="checked" type="radio" value="s" name="radioDeficiencia" id="tipo-cadastroo1">
+                            <label for="tipo-cadastroo1">Sim</label>
+                            </div>
+                            <div class="deficiencia-nao">
+                            <input class="main-form-inputRadio" checked type="radio" value="n" name="radioDeficiencia" id="tipo-cadastroo2">
+                            <label for="tipo-cadastroo2">Não</label>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="div-textareaDef">
+							<label class="main-form-label main-form-dificienciaTex-label">Descrição</label>
+							<textarea disabled="disabled" style="background-color: rgb(204, 204, 204);" id="descricaoDeficiencia" name="descricaoDeficiencia" placeholder = "Nos informe aqui a sua necessidade..."></textarea>
+						</div>
+						
+						<div class="main-form-submit">
+							<button class="main-form-inputButton" type="submit">
+								<p class="main-form-textButton">Inscrever-se</p>
+								<img class="main-form-iconButton" src="../../arquivosfixos/midia/setaDireita-icon.png" />
+							</button>
+						</div>
+					</form>
+					<?php
+						}else{ ?>
+
+
+
+					
+					<div class="main-form-box">
 							<label class="main-form-label main-form-labelNome">Nome</label>
 							<input  class="main-form-input main-form-inputNome" type="text" name="name" placeholder="Digite seu nome completo" required>
 						</div>
+	
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelEmail">E-mail</label>
-							<input  class="main-form-input main-form-inputEmail" type="text" name="email" placeholder="Digite seu e-mail" required>
+							<input  class="main-form-input main-form-inputEmail" type="email" name="email" placeholder="Digite seu e-mail" required>
 						</div>
 						<div class="main-form-box">
 							<label class="main-form-label main-form-labelRG">RG</label>
-							<input class="main-form-input main-form-inputRG" type="text" name="document1" placeholder="Digite seu RG" >
+							<input class="main-form-input main-form-inputRG" type="text" name="document1" placeholder="Digite seu RG" onkeyup="mascara('##.###.###-#',this,event,true)" >
 						</div>
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelOrgEmiRg">Órgão Emissor do RG</label>
@@ -135,18 +285,6 @@ foreach ($_POST as $key => $value) {
                             </div>
                         </div>
 						
-							<?php /*
-							<div class="main-form-radioBox main-form-situacao-radioBox">
-								<div class="main-form-radioBox-first situacao-interno">
-									<p>interno</p>
-									<input class="main-form-inputRadio inputButtonInterno" type="radio" name="radio" value="i">
-								</div>
-								<div class="main-form-radioBox-second situacao-externo">
-									<input class="main-form-inputRadio inputButtonExterno" type="radio" name="radio" value="e">
-									<p>externo</p>
-								</div>
-							</div>
-						*/ ?>
 
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelCurso">Cursos</label>
@@ -163,27 +301,7 @@ foreach ($_POST as $key => $value) {
 							?>
 							</select>
 						</div>
-
-						<?php /*
-						<div class="main-form-box">
-							<label class="main-form-label main-form-dificiencia-label">Deficiência?</label>
-							<div class="main-form-deficiencia-box">
-
-								<div class="main-form-radioBox main-form-deficiencia-radioBox">
-									<div class="main-form-radioBox-first deficiencia-sim">
-										<p>sim</p>
-										<input id="inputButtonSim" class="main-form-inputRadio main-form-inputRadioDef inputButtonSim" type="radio" name="radioDeficiencia" value="s">
-									</div>
-									<div class="main-form-radioBox-second deficiencia-nao">
-										<input id="inputButtonNao" class="main-form-inputRadio main-form-inputRadioDef inputButtonNao" type="radio" name="radioDeficiencia" value="n">
-										<p>não</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						*/ ?>
-						
-						  <div class="checkbox main-form-box">
+						<div class="checkbox main-form-box">
                             <label class="main-form-label main-form-dificiencia-label">Deficiência?</label>
                             <div class="cadastro1 main-form-radioBoxx ">
 							<div class="deficiencia-sim">
@@ -209,7 +327,9 @@ foreach ($_POST as $key => $value) {
 							</button>
 						</div>
 					</form>
-					
+					<?php	}
+					session_destroy();
+					?>
 					<?php
 						}else{ ?>
         			<p class="main-form-legend">Não há editais ativos.</p>
@@ -219,10 +339,7 @@ foreach ($_POST as $key => $value) {
 				</div>
 			</main>
 			</body>
-
-
-
-</html>
+		</html>
 			<?php
 				require_once "../../arquivosfixos/headerFooter/footer.php";
 			?>
