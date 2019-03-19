@@ -16,8 +16,8 @@ foreach ($_POST as $key => $value) {
     	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/custom.css">
     	<script type="text/javascript" src="../../arquivosfixos/js/jquery.min.js"></script>
     	<script src="../../arquivosfixos/js/mascaraJS/mascara.min.js"></script>
-          <script type="text/javascript" src="/concurso/html/js/script.js"></script>
-          <script type="text/javascript" src="../../arquivosfixos/js/mascaraJS/mascara.js"></script>
+        <script type="text/javascript" src="/concurso/html/js/script.js"></script>
+        <script type="text/javascript" src="../../arquivosfixos/js/mascaraJS/mascara.js"></script>
     	
     </head>
     <body>
@@ -45,46 +45,108 @@ foreach ($_POST as $key => $value) {
 								if($query1->num_rows != 0){
 
 								
-						if(isset($_SESSION['erro'])){
+						if(isset($_SESSION['erro'])||isset($_SESSION['voltar'])){
 
-							echo $_SESSION['erroCPF'];
-							unset($_SESSION['erro']); ?>
+							$count = 1;
+							if(isset($_SESSION['erro'])){
+							?> <div class="error"> <ul><?php
+							while($count<=16){
+								if(isset($_SESSION['erro_'.$count])){
+									?>
+										<li> <img  src="../../arquivosfixos/midia/error.png" /> <?php echo $_SESSION['erro_'.$count]."<br>";?>  </li>
+
+									 <?php
+
+									
+							} 
+							$count++;
+							}?></ul>
+							</div>
+						<?php } ?>
+							
+
+							
 							<div class="main-form-box">
 								<label class="main-form-label main-form-labelNome">Nome</label>
-								<input  value="<?php echo $_SESSION['name']; ?>" class="main-form-input main-form-inputNome" type="text" name="name" placeholder="Digite seu nome completo" required>
+								<input value="<?php echo $_SESSION['name']; ?>" class="main-form-input main-form-inputNome
+								<?php 
+								if(isset($_SESSION['erro_1'])){
+								echo 'teste1 "';}else{echo '"';}
+								?> 
+								type="text" name="name" placeholder="Digite seu nome completo" required>
 							</div>
 							<div class="main-form-box">
 								<label  class="main-form-label main-form-labelEmail">E-mail</label>
-								<input value="<?php echo $_SESSION['email']; ?>" class="main-form-input main-form-inputEmail" type="email" name="email" placeholder="Digite seu e-mail" required>
+								<input  value="<?php echo $_SESSION['email']; ?>" class="main-form-input main-form-inputEmail
+								<?php 
+								if(isset($_SESSION['erro_4'])){
+								echo 'teste1 "';}else{echo '"';}
+								?> 
+								type="email" name="email" placeholder="Digite seu e-mail" required>
 							</div>
 							<div class="main-form-box">
 								<label class="main-form-label main-form-labelRG">RG</label>
-								<input value="<?php echo $_SESSION['document1']; ?>" class="main-form-input main-form-inputRG" type="text" name="document1" onkeyup="mascara('##.###.###-#',this,event,true)" placeholder="Digite seu RG" >
+								<input value="<?php echo $_SESSION['document1']; ?>" class="main-form-input main-form-inputRG
+								<?php 
+								if(isset($_SESSION['erro_6'])||isset($_SESSION['erro_9'])){
+								echo 'teste1 "';}else{echo '"';}
+								?> 
+								 type="text" name="document1" onkeyup="mascara('##.###.###-#',this,event,true)" placeholder="Digite seu RG" >
 							</div>
 							<div class="main-form-box">
 								<label  class="main-form-label main-form-labelOrgEmiRg">Órgão Emissor do RG</label>
-								<input  value="<?php echo $_SESSION['OrgEmiRg']; ?>" class="main-form-input main-form-inputOrgRG" type="text" name="OrgEmiRg" placeholder="Digite o órgão emissor ">
+								<input  value="<?php echo $_SESSION['OrgEmiRg']; ?>" class="main-form-input main-form-inputOrgRG
+								<?php 
+								if(isset($_SESSION['erro_9'])){
+								echo 'teste1 "';}else{echo '"';}
+								?> 
+								type="text" name="OrgEmiRg" placeholder="Digite o órgão emissor ">
 							</div>
 							<div class="main-form-box">
 								<label  class="main-form-label main-form-labelCPF">CPF</label>
-								<input  value="<?php echo $_SESSION['document2']; ?>" class="main-form-input main-form-inputCPF" type="text" name="document2" placeholder="Digite seu CPF" onkeyup="mascara('###.###.###-##',this,event,true)" >
+								<input  value="<?php echo $_SESSION['document2']; ?>" class="main-form-input main-form-inputCPF
+								<?php 
+								if(isset($_SESSION['erro_7'])||isset($_SESSION['erro_6'])){
+								echo 'teste1 "';}else{echo '"';}
+								?> 
+								type="text" name="document2" placeholder="Digite seu CPF" onkeyup="mascara('###.###.###-##',this,event,true)" >
 							</div>
 							<div class="main-form-box">
 								<label  class="main-form-label main-form-labelNacimento">Nascimento</label>
-								<input  value="<?php echo $_SESSION['nascimento']; ?>" class="main-form-input main-form-inputNascimento" type="date" name="nascimento" placeholder="Digite sua data de nascimento"required>
+								<input  value="<?php echo $_SESSION['nascimento']; ?>" class="main-form-input main-form-inputNascimento
+								<?php 
+								if(isset($_SESSION['erro_8'])){
+								echo 'teste1 "';}else{echo '"';}
+								?> 
+								type="date" name="nascimento" placeholder="Digite sua data de nascimento"required>
 							</div>
 							<div class="main-form-box">
 								<label  class="main-form-label main-form-labelTelefone1">Telefone 1</label>
-								<input  value="<?php echo $_SESSION['phone1']; ?>" class="main-form-input main-form-inputTelefone1" type="text" name="phone1" placeholder="Digite seu telefone com DDD" onkeyup="mascara('(##) ####-#####',this,event,true)"required>
+								<input  value="<?php echo $_SESSION['phone1']; ?>" class="main-form-input main-form-inputTelefone1
+								<?php 
+								if(isset($_SESSION['erro_2'])){
+								echo 'teste1 "';}else{echo '"';}
+								?> 
+								type="text" name="phone1" placeholder="Digite seu telefone com DDD" onkeyup="mascara('(##) ####-#####',this,event,true)"required>
 							</div>
 							<div class="main-form-box">
 								<label  class="main-form-label main-form-labelTelefone2">Telefone 2</label>
-								<input  value="<?php echo $_SESSION['phone2']; ?>" class="main-form-input main-form-inputTelefone2" type="text" name="phone2" placeholder="Digite seu telefone com DDD" onkeyup="mascara('(##) ####-#####',this,event,true)"required>
+								<input  value="<?php echo $_SESSION['phone2']; ?>" class="main-form-input main-form-inputTelefone2
+								<?php 
+								if(isset($_SESSION['erro_3'])){
+								echo 'teste1 "';}else{echo '"';}
+								?> 
+								type="text" name="phone2" placeholder="Digite seu telefone com DDD" onkeyup="mascara('(##) ####-#####',this,event,true)"required>
 							</div>
 							<?php //Resolver o select! ?>
 							<div class="main-form-box">
 							<label  class="main-form-label main-form-labelUf">UF</label>
-							<select id="uf" ="<?php echo $_SESSION['uf']; ?>" class="main-form-input main-form-inputUf" name="uf">
+							<select id="uf" ="<?php echo $_SESSION['uf']; ?>" class="main-form-input main-form-inputUf
+							<?php 
+								if(isset($_SESSION['erro_10'])){
+								echo 'teste1 "';}else{echo '"';}
+								?> 	
+							name="uf">
 								<option value="AC">AC</option>
 								<option value="AL">AL</option>
 								<option value="AM">AM</option>
@@ -116,19 +178,39 @@ foreach ($_POST as $key => $value) {
 						</div>
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelCidade">Cidade</label>
-							<input  value="<?php echo $_SESSION['cidade']; ?>" class="main-form-input main-form-inputCidade" type="text" name="cidade" placeholder="Digite sua cidade " required>
+							<input  value="<?php echo $_SESSION['cidade']; ?>" class="main-form-input main-form-inputCidade
+							<?php 
+								if(isset($_SESSION['erro_11'])){
+								echo 'teste1 "';}else{echo '"';}
+								?> 
+							type="text" name="cidade" placeholder="Digite sua cidade " required>
 						</div>
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelBairro">Bairro</label>
-							<input  value="<?php echo $_SESSION['bairro']; ?>" class="main-form-input main-form-inputBairro" type="text" name="bairro" placeholder="Digite seu bairro "required>
+							<input  value="<?php echo $_SESSION['bairro']; ?>" class="main-form-input main-form-inputBairro
+							<?php 
+								if(isset($_SESSION['erro_12'])){
+								echo 'teste1 "';}else{echo '"';}
+								?> 
+							 type="text" name="bairro" placeholder="Digite seu bairro "required>
 						</div>
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelLogradouro">Nome do logradouro</label>
-							<input  value="<?php echo $_SESSION['logradouro']; ?>" class="main-form-input main-form-inputLogradouro" type="text" name="logradouro" placeholder="Digite seu logradouro"required>
+							<input  value="<?php echo $_SESSION['logradouro']; ?>" class="main-form-input main-form-inputLogradouro
+							<?php 
+								if(isset($_SESSION['erro_13'])){
+								echo 'teste1 "';}else{echo '"';}
+								?> 
+							 type="text" name="logradouro" placeholder="Digite seu logradouro"required>
 						</div>
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelComplemento">Complemento</label>
-							<input  value="<?php echo $_SESSION['complemento']; ?>" class="main-form-input main-form-inputComplemento" type="text" name="complemento" placeholder="Digite o complemento">
+							<input  value="<?php echo $_SESSION['complemento']; ?>" class="main-form-input main-form-inputComplemento
+							<?php 
+								if(isset($_SESSION['erro_16'])){
+								echo 'teste1 "';}else{echo '"';}
+								?> 
+							type="text" name="complemento" placeholder="Digite o complemento">
 						</div>
 						<div class="noticia-checkbox-personalizado main-form-box">
                             <label class="main-form-label main-form-situation-label">Situação</label>
@@ -149,7 +231,12 @@ foreach ($_POST as $key => $value) {
                         </div>
                         <div class="main-form-box">
 							<label  class="main-form-label main-form-labelCurso">Cursos</label>
-							<select class="main-form-input main-form-selectCurso" name="course">
+							<select class="main-form-input main-form-selectCurso 
+							<?php 
+								if(isset($_SESSION['erro_14'])){
+								echo 'teste1 "';}else{echo '"';}
+								?> 
+							name="course">
 							<?php
 							    $idEdital = $idEdital['idedital'];
 								$sql = "SELECT editalcurso.ideditalcurso, curso.nome FROM editalcurso JOIN curso ON editalcurso.idcurso=curso.idcurso JOIN edital ON editalcurso.idedital=edital.idedital WHERE editalcurso.idedital = $idEdital ";

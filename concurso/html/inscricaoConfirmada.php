@@ -63,18 +63,19 @@ inserirCandidatocurso($curso);
 	<script type="text/javascript" src="../../arquivosfixos/js/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="./css/styleConfirmacao.css">
 	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/custom.css">
 	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/header/style.css">
 	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/footer/style.css">
 	</head>
 	<body>
 		<div class="content">
     		<?php
-				require_once "../../arquivosfixos/headerFooter/header.php";
+				//require_once "../../arquivosfixos/headerFooter/header.php";
 			?>
     		<main id="main">
           <div id="main-content" class="main-content">
               <h1 class="main-title">Confirmação dos Dados</h1>
-              <table class="main-table">
+              <table class="custom-table">
                 <tr class="main-table-lineNome">
                   <td class="main-table-line-title">Nome</td>
                   <td class="main-table-line-ctt"><?php echo $nome; ?></td>
@@ -201,16 +202,11 @@ inserirCandidatocurso($curso);
                   <td class="main-table-line-ctt"><?php echo $nomeCurso['nome']; ?></td>
                 </tr>
               </table>
-             
+              <a class="btn-back" href="/concursos" >Página Inicial</a>
         			<button id="imprimir" class="btn-save">Imprimir</button>
               <script>
                document.getElementById('imprimir').onclick = function() {
-               var conteudo = document.getElementById('main-content').innerHTML,
-                tela_impressao = window.open('about:blank');
-
-              tela_impressao.document.write(conteudo);
-              tela_impressao.window.print();
-              tela_impressao.window.close();
+                window.print();
                   };  
             </script>
               <form action="../" method="GET">

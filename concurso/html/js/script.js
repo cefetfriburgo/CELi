@@ -8,7 +8,14 @@ $(function(){
 
 	});
 	
-	$(".main-form-radioBox > div").on("click", function(){
+	$(".main-form-box > input ").click(function(){
+   		$(this).removeClass('teste1');
+	});
+	$(".main-form-box > select ").click(function(){
+   		$(this).removeClass('teste1');
+	});
+	
+	$(".main-form-radioBoxx > div").on("click", function(){
 		// Pega o input do campo clickado
 		var element = $(this).find(".main-form-inputRadio");
 		var elementVal = element.val();
@@ -67,6 +74,9 @@ $(function(){
 		}
 	});
 });
+
+
+
 
 function validarNome(){
 	var nome = $(".main-form-inputNome").val() ;

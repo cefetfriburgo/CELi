@@ -71,7 +71,7 @@ $_SESSION['nomeCurso']=$nomeCurso;
     		<main id="main">
     			<div class="main-content">
               <h1 class="main-title">Confirmação dos Dados</h1>
-              <table class="main-table">
+              <table class="custom-table">
                 <tr class="main-table-lineNome">
                   <td class="main-table-line-title">Nome</td>
                   <td class="main-table-line-ctt"><?php echo $nome; ?></td>
@@ -198,8 +198,9 @@ $_SESSION['nomeCurso']=$nomeCurso;
                   <td class="main-table-line-ctt"><?php echo $nomeCurso['nome']; ?></td>
                 </tr>
               </table>
-
-        			<a class="btn-back" href="inscricao.php" >Voltar</a>
+              <?php
+              $_SESSION['voltar']='1'; ?>
+        			<a class="btn-back" href="/concursos" >Voltar</a>
         			<a class="btn-save" href="/concursos/confirmado">Concluir</a>
         		</div>
         	</main>
