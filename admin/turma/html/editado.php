@@ -9,7 +9,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 	<div class="main-content">
 		<h1 class="main-title">Editado</h1>
 		<p class="main-form-legend">Turma editada com sucesso!</p>
-		<a class="main-form-back" href="/admin/turma/lista">Voltar</a>
+		<a class="btn-back" href="/admin/turma/lista">Voltar</a>
 	</div>
 </div>
 <?php

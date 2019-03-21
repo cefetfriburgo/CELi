@@ -46,26 +46,26 @@ if ($conta->num_rows != 0) {
     if (isset($_GET['busca'])) {
         if ($pagina != 0) {
             ?>
-			<a class="main-form-inputButton button-anterior"
+			<a class="button-anterior"
 			href="?pagina=<?php echo $pagina-1; ?>&busca=<?php echo $_GET['busca']; ?>">Anterior</a>
 			<?php
         }
         if ($pagina < floor($div)) {
             ?>
-			<a class="main-form-inputButton button-proximo"
+			<a class="button-proximo"
 			href="?pagina=<?php echo $pagina+1; ?>&busca=<?php echo $_GET['busca']; ?>">Próximo</a>
 			<?php
         }
     } else {
         if ($pagina != 0) {
             ?>
-			<a class="main-form-inputButton button-anterior"
+			<a class="button-anterior"
 			href="?pagina=<?php echo $pagina-1; ?>">Anterior</a>
 			<?php
         }
         if ($pagina < floor($div)) {
             ?>
-			<a class="main-form-inputButton button-proximo"
+			<a class="button-proximo"
 			href="?pagina=<?php echo $pagina+1; ?>">Próximo</a>
 			<?php
         }

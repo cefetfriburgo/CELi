@@ -48,19 +48,28 @@ $sql = selecionarbd($campos, $tabela, NULL);
 								<td class="main-form-checkLabel"><span class="main-form-checkLabel-ctt"> </span></td>
 								<td class="main-form-cursosLabel"><p class="main-form-label">Cursos</p></td>
 
-							</tr>
-							<?php
+							</tr> </table>
+							<?php $h=1;
         while ($curso = mysqli_fetch_array($sql)) {
-            ?>
-							<tr class="main-form-cursoLine">
-								<td class="main-form-cursoLine-checkbox"><input class="main-form-cursoLine-checkbox-element" type="radio" name="curso" value="<?php echo $curso['idcurso']; ?>"></td>
-								<td class="main-form-cursoLine-nome"><p class="main-form-cursoLine-nome-text"><?php echo $curso['nome']; ?></p></td>
-
-							</tr>
-							<?php
+            ?><?php /*
+							
+								
+									<input class="main-form-cursoLine-checkbox-element" type="radio" name="curso" value="<?php echo $curso['idcurso']; ?>"></td>
+							  		<label for="campo-radio1">Opção</label>
+									<p class="main-form-cursoLine-nome-text"><?php echo $curso['nome']; ?></p></td>
+									*/ ?>
+									<div class="main-form-cursoTable">
+									<input id="checkboxCurso-<?php echo $h; ?>" class="main-form-cursoCTT cursoInput-checkbox" type="radio" name="curso" value="<?php echo $curso['idcurso']; ?>" >
+									<label class="main-form-cursoLine-checkbox-element" for="checkboxCurso-<?php echo $h; ?>">
+									<img class="main-form-cursoLine-checkbox-element-img" src="../../../arquivosfixos/midia/check-icon.png">    
+									<p class="pd main-form-cursoLine-nome-text"><?php echo $curso['nome'];?> </p>
+									
+									</label>
+									</div>
+							<?php $h++;
         }
         ?>
-						</table>
+						
 
 		<div class="main-form-submit">
 			<button class="main-form-inputButton" type="submit">
@@ -76,7 +85,7 @@ $sql = selecionarbd($campos, $tabela, NULL);
 			<p class="main-form-legend">Para registrar uma nova turma é
 				necessário antes possuir pelo menos um curso cadastrado no sistema.</p>
 			<p class="main-form-legend">Registre um curso e tente novamente.</p>
-			<a class="main-form-back" href="/admin/curso/adicionar">Adicionar um curso</a>
+			<a class="btn-back" href="/admin/curso/adicionar">Adicionar um curso</a>
 		</div>
 	</div>
 					 

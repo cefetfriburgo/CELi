@@ -20,10 +20,10 @@
 			</div>
 		</form>
 		<div class="main-table table-edital">
-			<div class="main-table-titles">
-				<p class="main-table-title">Início</p>
-				<p class="main-table-title">Término</p>
-				<p class="main-table-title"></p>
+			<div class="main-table-itens">
+				<p class="main-table-item">Início</p>
+				<p class="main-table-item">Término</p>
+				<p class="main-table-item"></p>
 			</div>
 			<?php
         			while ($edital = mysqli_fetch_array($conta)) {
@@ -52,12 +52,16 @@
     			<?php
         			if ($pagina != 0) {
             	?>
-    			<a class="main-form-inputButton button-anterior" href="?pagina=<?php echo $pagina-1; ?>&busca=<?php echo $_GET['busca']?>">Anterior</a>
+    			<a class="button-anterior" href="?pagina=<?php echo $pagina-1; ?>&busca=<?php echo $_GET['busca']?>">
+    				<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaEsquerda-icon.png" />Anterior
+    			</a>
     			<?php
         			}
         			if ($pagina < floor($div)) {
             	?>
-        		<a class="main-form-inputButton button-proximo" href="?pagina=<?php echo $pagina+1; ?>&busca=<?php echo $_GET['busca']?>">Próximo</a>
+        		<a class="button-proximo" href="?pagina=<?php echo $pagina+1; ?>&busca=<?php echo $_GET['busca']?>">Próximo
+        			<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
+        		</a>
         		<?php
         			}
         		?>
