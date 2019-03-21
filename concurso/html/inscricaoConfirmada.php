@@ -19,8 +19,7 @@ if((!isset ($_SESSION['nascimento']) == true) && (!isset ($_SESSION['course']) =
     unset($_SESSION['complemento']);
     unset($_SESSION['radio']);
     unset($_SESSION['course']);
-
-    header('location:inscricao.php');
+    header('location:/concursos');
 }
 $nome = $_SESSION['name'];
 $telefone1 = $_SESSION['phone1'];
@@ -49,30 +48,28 @@ $sql = "SELECT curso.nome FROM editalcurso JOIN curso ON editalcurso.idcurso=cur
 $query = mysqli_query($conexao, $sql);
 */
 $nomeCurso= $_SESSION['nomeCurso'];
-
 //inserir no bd
 insert ($nome,$rg,$orgaoEmissor,$cpf,$datNascimento,$logradouro,$complemento,$bairro,$cidade,$uf,$email,$telefone1,$telefone2,$situacao);
 inserirCandidatocurso($curso);
-
 ?>
 
 <!DOCTYPE HTML>
 <html>
-	<head>
+  <head>
   <title>Inscrição Confirmada | CELi</title>
-	<script type="text/javascript" src="../../arquivosfixos/js/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="./css/styleConfirmacao.css">
-	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/reset.css">
+  <script type="text/javascript" src="../../arquivosfixos/js/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/styleConfirmacao.css">
+  <link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/reset.css">
   <link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/custom.css">
-	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/header/style.css">
-	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/footer/style.css">
-	</head>
-	<body>
-		<div class="content">
-    		<?php
-				//require_once "../../arquivosfixos/headerFooter/header.php";
-			?>
-    		<main id="main">
+  <link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/header/style.css">
+  <link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/footer/style.css">
+  </head>
+  <body>
+    <div class="content">
+        <?php
+        //require_once "../../arquivosfixos/headerFooter/header.php";
+      ?>
+        <main id="main">
           <div id="main-content" class="main-content">
               <h1 class="main-title">Confirmação dos Dados</h1>
               <table class="custom-table">
@@ -89,8 +86,8 @@ inserirCandidatocurso($curso);
                   <td class="main-table-line-ctt">
                     <?php
                       if($telefone2 == null){
-        									echo'-';
-        							}
+                          echo'-';
+                      }
                       else{
                         echo$telefone2;
                       }
@@ -203,24 +200,24 @@ inserirCandidatocurso($curso);
                 </tr>
               </table>
               <a class="btn-back" href="/concursos" >Página Inicial</a>
-        			<button id="imprimir" class="btn-save">Imprimir</button>
+              <button id="imprimir" class="btn-save">Imprimir</button>
               <script>
                document.getElementById('imprimir').onclick = function() {
                 window.print();
                   };  
             </script>
               <form action="../" method="GET">
-        			    
+                  
                    <form action="../contro/email.php" method="POST">
                       <input class="main-form-enviar" type="hidden" name="email" value="Enviar por email" />
                   </form>
             </form>
-        	 </div>	
-				</div>
-			</main>
-			<?php
-				require_once "../../arquivosfixos/headerFooter/footer.php";
-			?>
-    	</div>
-	</body>
+           </div> 
+        </div>
+      </main>
+      <?php
+        require_once "../../arquivosfixos/headerFooter/footer.php";
+      ?>
+      </div>
+  </body>
 </html>
