@@ -176,9 +176,13 @@ background-color: #eaeaea;
 	width: 15px;
 	height: 15px;
 	margin: auto;
-	background-color: #eee;
+	/*background-color: #eee;*/
+	background-color: #d3e8e6;
 	/*border-radius: 2px;*/
 	/*border: 2px solid #eee;*/
+}
+.pd{
+	padding-left:25px;
 }
 .main-form-cursoLine-checkbox-element-img{
 	position: absolute;
@@ -192,7 +196,13 @@ background-color: #eaeaea;
 .main-form-cursoCTT[type=checkbox]{
 	display: none;
 }
+.main-form-cursoCTT[type=radio]{
+	display: none;
+}
 .main-form-cursoCTT[type=checkbox]:checked + .main-form-cursoLine-checkbox-element > img{
+	opacity: 1;
+}
+.main-form-cursoCTT[type=radio]:checked + .main-form-cursoLine-checkbox-element > img{
 	opacity: 1;
 }
 input[disabled=disabled]{
@@ -280,6 +290,25 @@ input[disabled=disabled]{
 	width: 100%;
     	height: 150px;
 }
+.exemplo1 input[type=radio]{
+    display:none; /* Esconde os inputs */
+}
+ 
+.exemplo1 input[type=radio] + label{
+    display:inline-block;
+    height:20px;
+    padding:0 0 0 25px;
+    margin:0 10px 0 0;
+    background-image:
+    background-repeat:no-repeat;
+    background-position:0 0;
+}
+ 
+.exemplo1 input[type=radio]:checked + label{
+    background-position:0 -30px;
+}
+ 
+
 .g-recaptcha{
 	display: block;
 	height: auto;
@@ -339,6 +368,15 @@ input[disabled=disabled]{
 	grid-row-gap: 15px;
 	margin: 10px 0;
 	padding: 0 10px;
+}
+.main-table-titles{
+	display: grid;
+	grid-template-columns: 160px 160px 180px;
+	grid-template-rows: 45px;
+	grid-column-gap: 25px;
+	/*margin: 10px 0;*/
+	padding: 0 10px;
+	background-color: #f0f0f0;
 }
 .custom-table{
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -1525,6 +1563,38 @@ li{
 	height: 18px;
 
     margin-left: 11px;
-
-
+}
+.button-proximo {
+	font-size: 17px;
+    text-decoration: none;
+    color: #ffffff;
+    border: 1px solid #49c66a;
+    margin-top: 35px;
+    padding: 10px 30px;
+    letter-spacing: 1px;
+    background-color: #49c66a;
+    cursor: pointer;
+    float: right;
+    justify-content: center;
+}
+.button-proximo img{
+	margin-top: 2px;
+}
+.button-anterior{
+	font-size: 17px;
+    text-decoration: none;
+    color: #ffffff;
+    border: 1px solid #49c66a;
+    margin-top: 35px;
+    padding: 10px 30px;
+    letter-spacing: 1px;
+    background-color: #49c66a;
+    cursor: pointer;
+    float: left;
+    float: bottom;
+    justify-content: center;
+}
+.button-anterior img{
+	margin-top: 2px;
+	margin-right: 5px;
 }
