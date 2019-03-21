@@ -38,7 +38,6 @@ if(isset($_POST['name']) && isset($_POST['course']) && isset($_POST['phone1']) &
         $_SESSION['nascimento'] = $nasc;
         $_SESSION['deficiencia'] = $deficiencia;
         $_SESSION['obsDeficiencia'] = $obsDeficiencia;
-
         // Função que dispara todas as outras funções e, estando tudo certo, inseri no BD
         $validnome = validarnome($nome);
         if($validnome==1){
@@ -105,7 +104,6 @@ if(isset($_POST['name']) && isset($_POST['course']) && isset($_POST['phone1']) &
             $_SESSION['erro_16'] = "Verifique se o campo de complemento foi preenchido corretamente!";
         }
               
-
         if($validnome == 0 && $validtelefone1 == 0 && $validemail == 0 && $validsituacao == 0 && $validCpfRg == 0 && $validCPF == 0
             && $validNascimento==0 && $validOrgRG==0 && $validUf==0 && $validCidade==0 &&  $validBairro==0 && $validLogradouro==0 &&  $validCurso==0 && $validDeficiencia==0 && $validComplemento==0){
  
@@ -146,7 +144,6 @@ function validarComplemento($complemento){
     }
     return $erroBairro;
     }
-
 // Função para validar o nome
 function validarnome($nome){
     $erronome = 0;
