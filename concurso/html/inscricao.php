@@ -2,7 +2,6 @@
 //$tagTitle = ' Inscrição';
 //requre_once "../../arquivosfixos/headerFooter/header.php";
 //recaptcha
-
 foreach ($_POST as $key => $value) {
     echo '<p><strong>' . $key.':</strong> '.$value.'</p>';
 }
@@ -12,7 +11,7 @@ foreach ($_POST as $key => $value) {
 <html>
     <head>
     	<meta charset="utf-8">
-    	<title>Inscrição</title>
+    	<title>Inscrição | CELi</title>
     	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/custom.css">
     	<script type="text/javascript" src="../../arquivosfixos/js/jquery.min.js"></script>
     	<script src="../../arquivosfixos/js/mascaraJS/mascara.min.js"></script>
@@ -29,7 +28,7 @@ foreach ($_POST as $key => $value) {
 					<form class="main-form" name="formulario" method="POST" action="/concursos/enviar">
 					<h1 class="main-title">Inscrição do CELi</h1>
 					<?php
-					$conexao = mysqli_connect("localhost", "root", "", "celi_sistema");
+					$conexao = mysqli_connect("localhost", "celi", "celi123#", "celi_sistema");
 								mysqli_set_charset($conexao,"utf8");
 								if (!$conexao){
 									echo "ERROR! failure to connect to the database.";
@@ -39,14 +38,11 @@ foreach ($_POST as $key => $value) {
 								}
 								$sql1 = "SELECT idedital FROM edital WHERE data_ini < now() and data_fim > now() ORDER BY idedital DESC LIMIT 1";
 								$query1 = mysqli_query($conexao, $sql1);
-
 								$idEdital = mysqli_fetch_assoc($query1);
 								session_start();
 								if($query1->num_rows != 0){
-
 								
 						if(isset($_SESSION['erro'])||isset($_SESSION['voltar'])){
-
 							$count = 1;
 							if(isset($_SESSION['erro'])){
 							?> <div class="error"> <ul><?php
@@ -56,7 +52,6 @@ foreach ($_POST as $key => $value) {
 										<li> <img  src="../../arquivosfixos/midia/error.png" /> <?php echo $_SESSION['erro_'.$count]."<br>";?>  </li>
 
 									 <?php
-
 									
 							} 
 							$count++;
@@ -73,7 +68,7 @@ foreach ($_POST as $key => $value) {
 								if(isset($_SESSION['erro_1'])){
 								echo 'teste1 "';}else{echo '"';}
 								?> 
-								type="text" name="name" placeholder="Digite seu nome completo" required>
+								type="text" name="name" placeholder="Digite o seu nome completo" required>
 							</div>
 							<div class="main-form-box">
 								<label  class="main-form-label main-form-labelEmail">E-mail</label>
@@ -183,7 +178,7 @@ foreach ($_POST as $key => $value) {
 								if(isset($_SESSION['erro_11'])){
 								echo 'teste1 "';}else{echo '"';}
 								?> 
-							type="text" name="cidade" placeholder="Digite sua cidade " required>
+							type="text" name="cidade" placeholder="Digite sua cidade" required>
 						</div>
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelBairro">Bairro</label>
@@ -195,7 +190,7 @@ foreach ($_POST as $key => $value) {
 							 type="text" name="bairro" placeholder="Digite seu bairro "required>
 						</div>
 						<div class="main-form-box">
-							<label  class="main-form-label main-form-labelLogradouro">Nome do logradouro</label>
+							<label  class="main-form-label main-form-labelLogradouro">Endereço</label>
 							<input  value="<?php echo $_SESSION['logradouro']; ?>" class="main-form-input main-form-inputLogradouro
 							<?php 
 								if(isset($_SESSION['erro_13'])){
@@ -204,7 +199,7 @@ foreach ($_POST as $key => $value) {
 							 type="text" name="logradouro" placeholder="Digite seu logradouro"required>
 						</div>
 						<div class="main-form-box">
-							<label  class="main-form-label main-form-labelComplemento">Complemento</label>
+							<label  class="main-form-label main-form-labelComplemento">Complemento de endereço</label>
 							<input  value="<?php echo $_SESSION['complemento']; ?>" class="main-form-input main-form-inputComplemento
 							<?php 
 								if(isset($_SESSION['erro_16'])){
@@ -264,7 +259,7 @@ foreach ($_POST as $key => $value) {
                         </div>
                         <div class="div-textareaDef">
 							<label class="main-form-label main-form-dificienciaTex-label">Descrição</label>
-							<textarea disabled="disabled" style="background-color: rgb(204, 204, 204);" id="descricaoDeficiencia" name="descricaoDeficiencia" placeholder = "Nos informe aqui a sua necessidade..."></textarea>
+							<textarea disabled="disabled" style="background-color: rgb(204, 204, 204);" id="descricaoDeficiencia" name="descricaoDeficiencia" placeholder = "Informe-nos a sua necessidade"></textarea>
 						</div>
 						
 						<div class="main-form-submit">
@@ -282,24 +277,24 @@ foreach ($_POST as $key => $value) {
 					
 					<div class="main-form-box">
 							<label class="main-form-label main-form-labelNome">Nome</label>
-							<input  class="main-form-input main-form-inputNome" type="text" name="name" placeholder="Digite seu nome completo" required>
+							<input  class="main-form-input main-form-inputNome" type="text" name="name" placeholder="Digite o seu nome completo" required>
 						</div>
 	
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelEmail">E-mail</label>
-							<input  class="main-form-input main-form-inputEmail" type="email" name="email" placeholder="Digite seu e-mail" required>
+							<input  class="main-form-input main-form-inputEmail" type="email" name="email" placeholder="Digite o seu e-mail" required>
 						</div>
 						<div class="main-form-box">
 							<label class="main-form-label main-form-labelRG">RG</label>
-							<input class="main-form-input main-form-inputRG" type="text" name="document1" placeholder="Digite seu RG" onkeyup="mascara('##.###.###-#',this,event,true)" >
+							<input class="main-form-input main-form-inputRG" type="text" name="document1" placeholder="Digite o seu RG" onkeyup="mascara('##.###.###-#',this,event,true)" >
 						</div>
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelOrgEmiRg">Órgão Emissor do RG</label>
-							<input  class="main-form-input main-form-inputOrgRG" type="text" name="OrgEmiRg" placeholder="Digite o órgão emissor ">
+							<input  class="main-form-input main-form-inputOrgRG" type="text" name="OrgEmiRg" placeholder="Digite o órgão emissor do seu RG ">
 						</div>
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelCPF">CPF</label>
-							<input  class="main-form-input main-form-inputCPF" type="text" name="document2" placeholder="Digite seu CPF" onkeyup="mascara('###.###.###-##',this,event,true)" >
+							<input  class="main-form-input main-form-inputCPF" type="text" name="document2" placeholder="Digite o seu CPF" onkeyup="mascara('###.###.###-##',this,event,true)" >
 						</div>
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelNacimento">Nascimento</label>
@@ -307,11 +302,11 @@ foreach ($_POST as $key => $value) {
 						</div>
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelTelefone1">Telefone 1</label>
-							<input class="main-form-input main-form-inputTelefone1" type="text" name="phone1" placeholder="Digite seu telefone com DDD" onkeyup="mascara('(##) ####-#####',this,event,true)"required>
+							<input class="main-form-input main-form-inputTelefone1" type="text" name="phone1" placeholder="Digite o seu DDD e telefone" onkeyup="mascara('(##) ####-#####',this,event,true)"required>
 						</div>
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelTelefone2">Telefone 2</label>
-							<input  class="main-form-input main-form-inputTelefone2" type="text" name="phone2" placeholder="Digite seu telefone com DDD" onkeyup="mascara('(##) ####-#####',this,event,true)"required>
+							<input  class="main-form-input main-form-inputTelefone2" type="text" name="phone2" placeholder="Digite o seu DDD e telefone" onkeyup="mascara('(##) ####-#####',this,event,true)"required>
 						</div>
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelUf">UF</label>
@@ -347,22 +342,22 @@ foreach ($_POST as $key => $value) {
 						</div>
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelCidade">Cidade</label>
-							<input  class="main-form-input main-form-inputCidade" type="text" name="cidade" placeholder="Digite sua cidade " required>
+							<input  class="main-form-input main-form-inputCidade" type="text" name="cidade" placeholder="Digite a sua cidade " required>
 						</div>
 						<div class="main-form-box">
 							<label  class="main-form-label main-form-labelBairro">Bairro</label>
-							<input  class="main-form-input main-form-inputBairro" type="text" name="bairro" placeholder="Digite seu bairro "required>
+							<input  class="main-form-input main-form-inputBairro" type="text" name="bairro" placeholder="Digite o seu bairro "required>
 						</div>
 						<div class="main-form-box">
-							<label  class="main-form-label main-form-labelLogradouro">Nome do logradouro</label>
-							<input  class="main-form-input main-form-inputLogradouro" type="text" name="logradouro" placeholder="Digite seu logradouro"required>
+							<label  class="main-form-label main-form-labelLogradouro">Endereço</label>
+							<input  class="main-form-input main-form-inputLogradouro" type="text" name="logradouro" placeholder="Digite o seu endereço"required>
 						</div>
 						<div class="main-form-box">
-							<label  class="main-form-label main-form-labelComplemento">Complemento</label>
-							<input  class="main-form-input main-form-inputComplemento" type="text" name="complemento" placeholder="Digite o complemento">
+							<label  class="main-form-label main-form-labelComplemento">Complemento de endereço</label>
+							<input  class="main-form-input main-form-inputComplemento" type="text" name="complemento" placeholder="Digite o complemento do seu endereço">
 						</div>
 						 <div class="noticia-checkbox-personalizado main-form-box">
-                            <label class="main-form-label main-form-situation-label">Situação</label>
+                            <label class="main-form-label main-form-situation-label">Comunidade</label>
 
                             <div class="cadastro">
                             <input checked="checked" class="main-form-inputRadio" type="radio" name="radio" value="i" id="tipo-cadastro1">
@@ -374,7 +369,7 @@ foreach ($_POST as $key => $value) {
 						
 
 						<div class="main-form-box">
-							<label  class="main-form-label main-form-labelCurso">Cursos</label>
+							<label  class="main-form-label main-form-labelCurso">Cursos disponíveis</label>
 							<select class="main-form-input main-form-selectCurso" name="course">
 							<?php
 							    $idEdital = $idEdital['idedital'];
@@ -389,7 +384,7 @@ foreach ($_POST as $key => $value) {
 							</select>
 						</div>
 						<div class="checkbox main-form-box">
-                            <label class="main-form-label main-form-dificiencia-label">Deficiência?</label>
+                            <label class="main-form-label main-form-dificiencia-label">Você possui algum tipo de deficiência?</label>
                             <div class="cadastro1 main-form-radioBoxx ">
 							<div class="deficiencia-sim">
                             <input class="main-form-inputRadio" checked="checked" type="radio" value="s" name="radioDeficiencia" id="tipo-cadastroo1">
@@ -403,8 +398,8 @@ foreach ($_POST as $key => $value) {
                         </div>
                    		
 						<div class="div-textareaDef">
-							<label class="main-form-label main-form-dificienciaTex-label">Descrição</label>
-							<textarea disabled="disabled" style="background-color: rgb(204, 204, 204);" id="descricaoDeficiencia" name="descricaoDeficiencia" placeholder = "Nos informe aqui a sua necessidade..."></textarea>
+							<label class="main-form-label main-form-dificienciaTex-label">Informe-nos sobre sua deficiência</label>
+							<textarea disabled="disabled" style="background-color: rgb(204, 204, 204);" id="descricaoDeficiencia" name="descricaoDeficiencia" placeholder = "Conte-nos sobre a sua deficiência e eventuais necessidades especiais para atendimento."></textarea>
 						</div>
 						
 						<div class="main-form-submit">
