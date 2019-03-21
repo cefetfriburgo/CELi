@@ -1,6 +1,5 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
-
 session_start();
 if((!isset ($_SESSION['nascimento']) == true) && (!isset ($_SESSION['course']) == true) && (!isset ($_SESSION['radio']) == true) && (!isset ($_SESSION['logradouro']) == true) && (!isset ($_SESSION['bairro']) == true) && (!isset ($_SESSION['cidade']) == true) && (!isset ($_SESSION['uf']) == true) && (!isset ($_SESSION['phone1']) == true) && (!isset ($_SESSION['name']) == true))
 {
@@ -19,8 +18,7 @@ if((!isset ($_SESSION['nascimento']) == true) && (!isset ($_SESSION['course']) =
     unset($_SESSION['complemento']);
     unset($_SESSION['radio']);
     unset($_SESSION['course']);
-
-    header('location:inscricao.php');
+    header('location:/concursos');
 }
 $nome = $_SESSION['name'];
 $telefone1 = $_SESSION['phone1'];
@@ -37,7 +35,6 @@ $logradouro = $_SESSION['logradouro'];
 $complemento = $_SESSION['complemento'];
 $situacao = $_SESSION['radio'];
 $curso = $_SESSION['course'];
-
 $conexao = mysqli_connect("localhost", "root", "", "celi_sistema");
 if (!$conexao){
     echo "ERROR! failure to connect to the database.";
@@ -50,26 +47,24 @@ mysqli_set_charset($conexao,"utf8");
 $query = mysqli_query($conexao, $sql);
 $nomeCurso= mysqli_fetch_assoc($query);
 $_SESSION['nomeCurso']=$nomeCurso;
-
-
 ?>
 <!DOCTYPE HTML>
 <html>
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href="./css/styleConfirmacao.css">
-	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/reset.css">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="./css/styleConfirmacao.css">
+  <link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/reset.css">
   <link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/custom.css">
-	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/header/style.css">
-	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/footer/style.css">
-	</head>
-	<body>
-    	<div class="content">
-    		<?php
-				
-			?>
-    		<main id="main">
-    			<div class="main-content">
+  <link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/header/style.css">
+  <link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/footer/style.css">
+  </head>
+  <body>
+      <div class="content">
+        <?php
+        
+      ?>
+        <main id="main">
+          <div class="main-content">
               <h1 class="main-title">Confirmação dos Dados</h1>
               <table class="custom-table">
                 <tr class="main-table-lineNome">
@@ -85,8 +80,8 @@ $_SESSION['nomeCurso']=$nomeCurso;
                   <td class="main-table-line-ctt">
                     <?php
                       if($telefone2 == null){
-        									echo'-';
-        							}
+                          echo'-';
+                      }
                       else{
                         echo$telefone2;
                       }
@@ -200,13 +195,13 @@ $_SESSION['nomeCurso']=$nomeCurso;
               </table>
               <?php
               $_SESSION['voltar']='1'; ?>
-        			<a class="btn-back" href="/concursos" >Voltar</a>
-        			<a class="btn-save" href="/concursos/confirmado">Concluir</a>
-        		</div>
-        	</main>
-    		<?php
-				require_once "../../arquivosfixos/headerFooter/footer.php";
-			?>
-    	</div>
-	</body>
+              <a class="btn-back" href="/concursos" >Voltar</a>
+              <a class="btn-save" href="/concursos/confirmado">Concluir</a>
+            </div>
+          </main>
+        <?php
+        require_once "../../arquivosfixos/headerFooter/footer.php";
+      ?>
+      </div>
+  </body>
 </html>
