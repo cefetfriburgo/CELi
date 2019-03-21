@@ -28,7 +28,7 @@ foreach ($_POST as $key => $value) {
 					<form class="main-form" name="formulario" method="POST" action="/concursos/enviar">
 					<h1 class="main-title">Inscrição do CELi</h1>
 					<?php
-					$conexao = mysqli_connect("localhost", "celi", "celi123#", "celi_sistema");
+					$conexao = mysqli_connect("localhost", "root", "", "celi_sistema");
 								mysqli_set_charset($conexao,"utf8");
 								if (!$conexao){
 									echo "ERROR! failure to connect to the database.";
