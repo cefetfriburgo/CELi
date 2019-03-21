@@ -208,7 +208,7 @@ foreach ($_POST as $key => $value) {
 							type="text" name="complemento" placeholder="Digite o complemento">
 						</div>
 						<div class="noticia-checkbox-personalizado main-form-box">
-                            <label class="main-form-label main-form-situation-label">Situação</label>
+                            <label class="main-form-label main-form-situation-label">Comunidade</label>
                             <div class="cadastro">
                             <?php
                             if($_SESSION['radio']=="e"){ ?>
