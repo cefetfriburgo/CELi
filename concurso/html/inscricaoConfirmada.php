@@ -36,6 +36,7 @@ $logradouro = $_SESSION['logradouro'];
 $complemento = $_SESSION['complemento'];
 $situacao = $_SESSION['radio'];
 $curso = $_SESSION['course'];
+//session_destroy();
 error_reporting(0);
 $conexao = conexao(); /*mysqli_connect("localhost", "root", "", "celi");
 if (!$conexao){

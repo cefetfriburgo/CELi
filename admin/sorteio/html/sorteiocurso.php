@@ -52,7 +52,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
   
   <?php }else{ ?>
               <p class="main-form-legend">Os cursos desse edital já foram sorteados.</p>
-  <a class="main-form-back" href="javascript:history.back();">Voltar</a>
+  <a class="btn-back" href="javascript:history.back();">Voltar</a>
    <?php }?>
    
    

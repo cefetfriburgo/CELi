@@ -13,6 +13,11 @@ if (! isset($_GET['edital']) or ! isset($_GET['curso']) or ($_GET['edital'] or $
 $idEdital = $_GET['edital'];
 $idCurso = $_GET['curso'];
 
+
+
+
+
+
 // Instanciando as variáveis que serão utilizadas para executar a função
 $campos = "idcurso, nome";
 $tabela = "curso";
@@ -30,7 +35,6 @@ $row1 = $row['ideditalcurso'];
 
 function selecionarqtd($row1)
 {
-
         $conexao = conexaobd();
         if($conexao){
             $sql = "SELECT idcandidatocurso FROM candidatocurso WHERE ideditalcurso = $row1";
@@ -45,6 +49,7 @@ function selecionarqtd($row1)
     }
 $selectQtdAluno = selecionarqtd($row1);
 
+
 $sorteioRealizado = $row['sorteioRealizado'];
 if ($sorteioRealizado == 0) {
     // Função atualizar editalcurso
@@ -55,24 +60,27 @@ if ($sorteioRealizado == 0) {
     ?>
 
     <script src="./js/script.js"></script>
-<main id="main">
-<div class="main-content">
+    <main id="main">
+    <div class="main-content">
 	<h1 class="main-title">Listagem do sorteio</h1>
 	<div class="main-table table-edital">
 		<div class="main-table-titles-sorteio">
 
-    			<td class="main-table-title nome">Posição</td>
-    			<td class="main-table-title nome">Nome</td>
-    			<td class="main-table-title">Situação</td>
+    			<p class="main-table-title nome">Posição</p>
+    			<p class="main-table-title nome">Nome</p>
+    			<p class="main-table-title nome">Situação</p>
     
-    		</tr>
+    	</div>
 	        <!-- chamar as informaçoes do banco de dados de acordo com o id sorteados --> 
 			<?php
         $max = count($arrayCandidatos);
         $ordenado = array();
         
-        for ($i = 0; $i < $max; $i ++) {
+        $int=0;
+        $ext=0;
+        for ($i=0; $i < $max; $i++) {
             $sorteio = array_rand($arrayCandidatos);
+            
             // var_dump($id[$sorteio]).'<br />' ;
             $k = 1;
             
@@ -84,16 +92,26 @@ if ($sorteioRealizado == 0) {
                     } else {
                         $k = 1;
                     }
+                
+                
                 }
             }
-            
-            if ($k == 0) {
-                // echo "Ja esta no array".'<br />';
-                $i --;
-            } elseif ($k == 1) {
-                // echo "gravo no array".'<br />';
+        if($k == 1){ 
+            if($arrayCandidatos[$sorteio][situacaoCandidato]=="i"){
+                if($vagaInt>$int){
                 $ordenado[$i] = $arrayCandidatos[$sorteio];
+                $int++;    
+                }
+            }else{
+                if($vagasExt>$Ext){
+                $ordenado[$i] = $arrayCandidatos[$sorteio];  
+                $ext++;
+                }
             }
+        }
+        if($k == 0){
+            $i--;
+        }     
         }
         
         for ($i = 0; $i < count($ordenado); $i ++) {
@@ -104,7 +122,7 @@ if ($sorteioRealizado == 0) {
             
             $id = mysqli_fetch_array($result);
             ?>	 
-			 <div class="main-table-itens main-table-itens-sorteio">
+			<div class="main-table-itens main-table-itens-sorteio">
 			<p class="main-table-item"><?php echo $i+1; ?></p>
 			<p class="main-table-item"><?php echo $id['nome']; ?></p>
 			<p class="main-table-item">
@@ -115,19 +133,13 @@ if ($sorteioRealizado == 0) {
                         echo "Externo";
                     }
                 ?>
-    			</p></td>
-    			</tr>
+    			</p>
+    			
 			</div> 
 			<?php
-                    $idCandidato = $id['idcandidato'];
-                    $idEditalCurso = $row['ideditalcurso'];
-                    $tabela = "sorteados";
-                    $elementos = " ordem, editalcurso, candidato, matriculaEfetuada";
-                    $conteudo = " $i+1 , $idEditalCurso, $idCandidato, 0";
                     
-                    $insereSorteados = inserirbd($tabela, $elementos, $conteudo, NULL);
                     ?>
-            </div>
+            
       
                   <?php
                 }
@@ -140,9 +152,9 @@ if ($sorteioRealizado == 0) {
        
 
 ?>
-    <input id="imprimir" class="main-form-inputButton" type="button"
+    <input id="imprimir" class="btn-save" type="button"
 		value="Imprimir" />
-    <a class="main-form-back" href="javascript:history.back();">Voltar</a>
+    <a class="btn-back" href="javascript:history.back();">Voltar</a>
     
      </div>
      

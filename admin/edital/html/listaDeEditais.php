@@ -34,12 +34,12 @@
 				<div class="main-table-item main-table-itemBTN">
 					<form action="/admin/edital/editar/" class="main-table-itemBTN" method="POST"> 
 						<input type="hidden" name=idEdital value="<?php echo $edital['idedital'];?>"/>
-						<button type="submit" class="btn-alterar" >editar</button>
+						<button type="submit" class="btn-alterar" >Editar</button>
 					</form>
 
 					<form action="/admin/edital/excluir/" class="main-table-itemBTN "method="POST"> 
 						<input type="hidden"  name=idEdital value="<?php echo $edital['idedital'];?>"/>
-						<button type="submit" class="btn-excluir">excluir</button>
+						<button type="submit" class="btn-excluir">Excluir</button>
 					</form>
 				</div>
             	</div>

@@ -35,9 +35,9 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 			<p class="main-table-item"><?php echo $turma['modulo']; ?></td>
 			<div class="main-table-item main-table-itemBTN">
 			<a class="btn-alterar"
-				href="/admin/turma/editar/<?php echo $turma['idturma'];?>">editar</a>
+				href="/admin/turma/editar/<?php echo $turma['idturma'];?>">Editar</a>
 			<a class="btn-excluir"
-				href="/admin/turma/excluir/<?php echo $turma['idturma'];?>">excluir</a>
+				href="/admin/turma/excluir/<?php echo $turma['idturma'];?>">Excluir</a>
 			</div>
 		</div>
 		<?php  }?>

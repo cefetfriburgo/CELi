@@ -13,7 +13,7 @@
       $vagaInt = $row[1];
       $vagaExt = $row[2];
     }
-
+    
     // Armazenando os dados sobre o edital e o curso recolhidos em um array
     $arrayEditalCurso = array(
       'idEditalCurso' => $idEditalCurso,
@@ -22,7 +22,7 @@
       'vagasInt' => $vagaInt,
       'vagasExt' => $vagaExt
     );
-
+  
     // Pegando os candidatos cadastrados no curso selecionado, naquele edital e sua situacao
     $selectCandidatoCurso = selectCandidatoCurso("idcandidato", "WHERE ideditalcurso = $idEditalCurso") or die(mysqli_error($conexao));
     $arrayCandidatos = array();
