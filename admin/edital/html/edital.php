@@ -65,8 +65,7 @@
 		?>
 		<div class="main-form-vazio">
 			<div class="main-form-vazio-ctt">
-				<p class="main-form-legend">Para registrar um novo edital é necessário antes possuir pelo menos um curso cadastrado no sistema.</p>
-				<p class="main-form-legend">Registre um curso e tente novamente.</p>
+				<p class="main-form-legend">Você deve registrar um curso antes de registrar um novo edital.</p>
 				<a class="main-form-button" href="/admin/curso/cadastrar">Registrar curso</a>
 			</div>
 		</div> 
