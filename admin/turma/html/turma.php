@@ -84,8 +84,7 @@ $sql = selecionarbd($campos, $tabela, NULL);
 		<div class="main-form-vazio-ctt">
 			<p class="main-form-legend">Para registrar uma nova turma é
 				necessário antes possuir pelo menos um curso cadastrado no sistema.</p>
-			<p class="main-form-legend">Registre um curso e tente novamente.</p>
-			<a class="btn-back" href="/admin/curso/adicionar">Adicionar um curso</a>
+			<a class="btn-back" href="/admin/curso/adicionar">Registrar um curso</a>
 		</div>
 	</div>
 					 
