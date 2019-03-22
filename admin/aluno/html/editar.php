@@ -1,7 +1,7 @@
 <?php
 
 if(!isset($_GET['aluno']) || $_GET['aluno']== null){
-    header('location:./listadealunos.php');
+    header('location: /admin/aluno/lista');
 }
 
 $idaluno= $_GET['aluno'];
