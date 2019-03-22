@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 
 require "../control/listadecurso.php";
 
-$tagTitle = 'Lista de cursos ';
+$tagTitle = "Lista de cursos";
 require_once "../../../arquivosfixos/headerFooter/header.php";
 ?>
 <main id="main">
