@@ -1,13 +1,13 @@
 <?php
 
 if(!isset($_GET['aluno']) || $_GET['aluno']== null){
-    header('location:./listadealunos.php');
+    header('location: /admin/aluno/lista');
 }
 $_GET['aluno'];
 $idaluno = $_GET['aluno'];
 
 
-require "../control/excluiraluno.php";
+require "../control/excluir.php";
     
     $tagTitle = "Excluir aluno";
 	require_once "../../../arquivosfixos/headerFooter/header.php";
