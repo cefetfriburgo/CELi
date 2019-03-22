@@ -32,7 +32,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 			
 			<div class="main-table-item main-table-itemBTN">
 				<a class="btn-alterar"
-					href="/admin/aluno/editar/<?php echo $aluno['idaluno']; ?>">alterar</a>
+					href="/admin/aluno/editar/<?php echo $aluno['idaluno']; ?>">editar</a>
 				<a class="btn-excluir"
 					href="/admin/aluno/excluir/<?php echo $aluno['idaluno']; ?>">excluir</a>
 			
@@ -62,7 +62,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
     		<p class="main-registro-text">Total de registros: <?php echo $conta3->num_rows; ?></p>
     	</div>
         <?php }else{ ?>
-        <p class="main-form-legend">Não há aluno registrado.</p>
+        <p class="main-form-legend">Não há alunos registrados.</p>
     	<a class="main-form-back" href="/admin/aluno/adicionar">Registrar</a>
         <?php }?>
 
