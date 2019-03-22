@@ -9,7 +9,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 ?>
 <main id="main">
 <div class="main-content">
-	<h1 class="main-title">Listar alunos</h1>
+	<h1 class="main-title">Lista de alunos</h1>
  	<?php if($conta3->num_rows != 0){?>
 		<form class="form-buscar" action="<?php echo $_SERVER['PHP_SELF']; ?>"
 		method="get">
@@ -62,7 +62,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
     		<p class="main-registro-text">Total de registros: <?php echo $conta3->num_rows; ?></p>
     	</div>
         <?php }else{ ?>
-        <p class="main-form-legend">Não há alunos registrados.</p>
+        <p class="main-form-legend">Você não possui alunos registrados.</p>
     	<a class="main-form-back" href="/admin/aluno/adicionar">Registrar</a>
         <?php }?>
 
