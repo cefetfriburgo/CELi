@@ -23,9 +23,10 @@ $tagTitle = "Sorteio Curso";
 ?>
 			<main id="main">
 				<div class="main-content">
-					<h1 class="main-title-escolher">Escolher Curso</h1>
+					<h1 class="main-title">Escolher Curso</h1>
         	<form method="get" action="mostraSorteioRealizado.php" name="sorteio">
-            	<input type="hidden" name="edital" value="<?php echo $idEdital ?>">
+				<input type="hidden" name="edital" value="<?php echo $idEdital ?>">
+				<center>
         		<select class="curso" name="curso">
         			<?php
           			$selectEditalCurso = selectEditalCurso("idedital, idcurso, vagainterna, vagaexterna", "WHERE idedital = $idEdital AND sorteioRealizado = 1");
@@ -38,9 +39,13 @@ $tagTitle = "Sorteio Curso";
                       }
                     }
         			?>
-        		</select>
-            <button class="button-proximo main-form-inputButton-proximo"  type="submit" name="send" value="send" class="main-form-send">Próximo</button>
-        	</form>
+				</select>
+				</center>
+            <button class="button-proximo-sort btn-alt"  type="submit" name="send" value="send" class="main-form-send">Próximo
+			<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
+			</button>
+			</form>
+			<a class="btn-back" href="javascript:history.back();">Voltar</a>
         </div>
       </main>
       <?php

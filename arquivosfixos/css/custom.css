@@ -551,6 +551,19 @@ input[disabled=disabled]{
 	margin: 10px 0;
 	padding: 0 10px;
 }
+.matricula{
+	background-color: transparent;
+	padding: 10px 5px;
+	border: 0;
+	font-size: 17px;
+	margin-top: 2px;
+}
+.matricula:hover{
+	background-color: #49c66a;
+	cursor: pointer;
+	transition: .5s;
+	color: white;
+}
 .editarTurma-table-titles input{
 	width: 90px;
 }
@@ -1321,7 +1334,7 @@ li{
     border: 0;
     font-size: 17px;
     text-decoration: none;
-    color: #ffffff;
+	color: #ffffff;
     border: 1px solid #49c66a;
     letter-spacing: 1px;
     background-color: #49c66a;
@@ -1580,6 +1593,18 @@ li{
 .button-proximo img{
 	margin-top: 2px;
 }
+.button-proximo-sort {
+	font-size: 17px;
+    text-decoration: none;
+    color: #ffffff;
+    border: 1px solid #49c66a;
+    padding: 10px 30px;
+    letter-spacing: 1px;
+    background-color: #49c66a;
+    cursor: pointer;
+    float: right;
+    justify-content: center;
+}
 .button-anterior{
 	font-size: 17px;
     text-decoration: none;
@@ -1597,4 +1622,10 @@ li{
 .button-anterior img{
 	margin-top: 2px;
 	margin-right: 5px;
+}
+.sorteio-edital{
+	background-color: #eee;
+	padding: 12px 5px 12px 5px;
+	border-radius: 6px;
+	text-align: center;
 }

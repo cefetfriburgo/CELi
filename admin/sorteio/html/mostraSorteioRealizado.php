@@ -1,3 +1,18 @@
+<style>
+    @media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable, #printable * {
+    visibility: visible;
+  }
+  #printable {
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+}
+</style>
 <?php
 $tagTitle = "Sorteados";
 
@@ -40,10 +55,10 @@ $selectSorteados = listarSorteados();
 require_once "../../../arquivosfixos/headerFooter/header.php";
 ?>
 <main id="main">
-	<div class="main-content">
+	<div id="printable" class="main-content">
 		<h1 class="main-title">Listagem do sorteio</h1>
-		<div class="main-table table-edital">
-			<div class="main-table-titles-realizado">
+		<div class="main-table table-edital table-sorteio">
+			<div class="main-table-itens main-table-itens-realizado">
 				<p class="main-table-title">Posição</p>
 				<p class="main-table-title">Nome</p>
 				<p class="main-table-title">Situação</p>
@@ -97,7 +112,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
                     ?>
                 </p>
                 <p class="main-table-title"> <?php echo $arrayCandidatos[$indice][16];?> </p>
-                <div class="main-table-title"> 
+               
                     <?php
                     
                         $conexao = conexaobd();
@@ -109,24 +124,24 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
                     <form method="POST" action="../control/matricula.php">
                     	<input type="hidden" name="idCandidato" value="<?php echo $arrayCandidatos[$indice][0];?>" /> 
                     	<input type="hidden" name="idcurso" value="<?php echo $arrayCandidatos[$indice][17];?>" />
-                    	<input class="" type="submit" value="Matricular" />
+                    	<input class="matricula" type="submit" value="Matricular" />
                     </form>
                 	<?php
                         }
                         else {
                     ?>
-    				<p class="main-table-title curso">Matriculado</p>
+    				<p class="main-table-title">Matriculado</p>
     				<?php
                         }
                     ?>
-				</div>
+				
 			</div>
 			<?php
                 $indice++;
                 }
 			?>
-        <input id="imprimir" class="main-form-inputButton" type="button" value="Imprimir" />
-        <a class="main-form-back" href="javascript:history.back();">Voltar</a>
+        <input id="imprimir" class="btn-save imp" type="button" onclick="window.print()" value="Imprimir" />
+        <a class="btn-back imp" href="javascript:history.back();">Voltar</a>
     </div>
 </main>
 <?php

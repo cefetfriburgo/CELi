@@ -14,9 +14,10 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 ?>
 			<main id="main">
 				<div class="main-content">
-					<h1 class="main-title-escolher">Escolher Edital</h1>
+					<h1 class="main-title">Escolher Edital</h1>
         	<form method="get" action="sorteioRealizadocurso.php" name="sorteio">
-        		<select class="edital" name="edital">
+					
+        		<select class="sorteio-edital" name="edital">
         			<?php
           			$selectEdital = selectEdital("idedital, data_ini, hora_ini, data_fim, hora_fim", NULL);
           			while($row = mysqli_fetch_array($selectEdital)){
@@ -26,7 +27,9 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
                 }
         			?>
         		</select>
-            <button class="button-proximo main-form-inputButton-proximo" type="submit" name="send" value="send" class="main-form-send">Próximo</button>
+            <button class="btn-save" type="submit" name="send" value="send" class="main-form-send">Próximo
+						<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
+						</button>
         	</form>
         </div>
       </main>

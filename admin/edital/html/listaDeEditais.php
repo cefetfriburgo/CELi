@@ -23,7 +23,7 @@
 			<div class="main-table-itens">
 				<p class="main-table-item">Início</p>
 				<p class="main-table-item">Término</p>
-				<p class="main-table-item"></p>
+				<p class="main-table-item">Ação</p>
 			</div>
 			<?php
         			while ($edital = mysqli_fetch_array($conta)) {

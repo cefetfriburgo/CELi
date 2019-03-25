@@ -1,21 +1,17 @@
- <?php
-
+<?php
 // Linka o arquivo pdao para pegar os cursos a fim de exibi-los
 require_once "../../../arquivosfixos/pdao/pdaoscript.php";
 require_once "../control/pdaosorteio.php";
-
 // Instanciando as variáveis que serão utilizadas para executar a função
 $campos = "idcurso, nome";
 $tabela = "curso";
 $sql = selecionarbd($campos, $tabela, NULL);
-
 if (isset($_POST['edital'])) {
     $idEdital = $_POST['edital'];
 }
 if (! isset($idEdital) or $idEdital == NULL) {
     header('location: /admin/sorteio/edital');
 }
-
 $tagTitle = "Sorteio Curso";
 require_once "../../../arquivosfixos/headerFooter/header.php";
 ?>
@@ -41,7 +37,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
         ?>
       </select>
     </center>
-    <button class="button-proximo btn-alt"
+    <button class="button-proximo-sort btn-alt"
       type="submit" class="main-form-send">Próximo
       
       <img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png">
@@ -52,7 +48,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
   
   <?php }else{ ?>
               <p class="main-form-legend">Os cursos desse edital já foram sorteados.</p>
-  <a class="btn-back" href="javascript:history.back();">Voltar</a>
+  <a class="main-form-back" href="javascript:history.back();">Voltar</a>
    <?php }?>
    
    

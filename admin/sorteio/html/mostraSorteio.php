@@ -5,7 +5,7 @@ require_once "../../../arquivosfixos/pdao/pdaoscript.php";
 require_once "../control/pdaosorteio.php";
 // require_once "./sorteiocurso.php";
 include_once '../control/sorteio.php';
-
+error_reporting(E_ERROR | E_PARSE | E_NOTICE);
 // Impedir usuário acessar página sem definir parâmetros
 if (! isset($_GET['edital']) or ! isset($_GET['curso']) or ($_GET['edital'] or $_GET['curso']) == NULL) {
     header('location: ./sorteioedital.php');
@@ -78,6 +78,7 @@ if ($sorteioRealizado == 0) {
         
         $int=0;
         $ext=0;
+        $idsorteado=1;
         for ($i=0; $i < $max; $i++) {
             $sorteio = array_rand($arrayCandidatos);
             
@@ -97,21 +98,20 @@ if ($sorteioRealizado == 0) {
                 }
             }
         if($k == 1){ 
-            if($arrayCandidatos[$sorteio][situacaoCandidato]=="i"){
-                if($vagaInt>$int){
                 $ordenado[$i] = $arrayCandidatos[$sorteio];
-                $int++;    
-                }
-            }else{
-                if($vagasExt>$Ext){
-                $ordenado[$i] = $arrayCandidatos[$sorteio];  
-                $ext++;
-                }
-            }
-        }
+
+                $idCandidato = $arrayCandidatos[$i]['idCandidato'];
+                $idEditalCurso = $row['ideditalcurso'];
+                $tabela = "sorteados";
+                $elementos = " idsorteado, editalcurso, candidato, matriculaEfetuada";
+                $conteudo = " NULL ,$idEditalCurso, $idCandidato, 0";
+                $insereSorteados = inserirbd($tabela, $elementos, $conteudo, NULL);
+                $idsorteado++;
+        }  
         if($k == 0){
             $i--;
-        }     
+        }  
+              
         }
         
         for ($i = 0; $i < count($ordenado); $i ++) {
