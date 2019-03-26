@@ -20,7 +20,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
   <h1 class="main-title">Escolher Curso</h1>
   <?php  $selectEditalCurso = selectEditalCurso("idedital, idcurso, vagainterna, vagaexterna", "WHERE idedital = $idEdital AND sorteioRealizado = 0");
   if($selectEditalCurso->num_rows != 0){?>
-  <form method="get" action="./html/mostraSorteio.php" name="sorteio">
+  <form method="post" action="./html/mostraSorteio.php" name="sorteio">
     <input type="hidden" name="edital" value="<?php echo $idEdital ?>"> 
     <center>
       <select class="curso" name="curso">

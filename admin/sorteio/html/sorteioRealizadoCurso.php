@@ -11,8 +11,8 @@ $tabela = "curso";
 $sql =  selecionarbd($campos, $tabela, NULL);
 
 
-if (isset($_GET['edital'])){
-    $idEdital = $_GET['edital'];
+if (isset($_POST['edital'])){
+    $idEdital = $_POST['edital'];
 }
 if(!isset($idEdital) OR $idEdital == NULL){
     header('location: ./sorteioedital.php');
@@ -24,7 +24,7 @@ $tagTitle = "Sorteio Curso";
 			<main id="main">
 				<div class="main-content">
 					<h1 class="main-title">Escolher Curso</h1>
-        	<form method="get" action="mostraSorteioRealizado.php" name="sorteio">
+        	<form method="POST" action="mostraSorteioRealizado.php" name="sorteio">
 				<input type="hidden" name="edital" value="<?php echo $idEdital ?>">
 				<center>
         		<select class="curso" name="curso">

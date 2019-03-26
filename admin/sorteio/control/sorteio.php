@@ -1,10 +1,10 @@
 <?php
 
-  if(isset($_GET['edital']) && isset($_GET['curso'])){
+  if(isset($_POST['edital']) && isset($_POST['curso'])){
 
     // Pegando o id do edital e do curso selecionados
-    $idEdital = $_GET['edital'];
-    $idCurso = $_GET['curso'];
+    $idEdital = $_POST['edital'];
+    $idCurso = $_POST['curso'];
 
     // Pegando a quantidade de vagas interno e externo
     $selectEditalCurso = selectEditalCurso("ideditalcurso, vagainterna, vagaexterna", "WHERE idcurso = $idCurso and idedital = $idEdital");

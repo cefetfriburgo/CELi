@@ -20,24 +20,24 @@ $tagTitle = "Sorteados";
 require_once "../../../arquivosfixos/pdao/pdaoscript.php";
 require_once "../control/pdaosorteio.php";
 
-if (isset($_GET['edital'])) {
-    $idEdital = $_GET['edital'];
+if (isset($_POST['edital'])) {
+    $idEdital = $_POST['edital'];
 }
-if (! isset($_GET['edital']) or $_GET['edital'] == NULL) {
+if (! isset($_POST['edital']) or $_POST['edital'] == NULL) {
     header('location: ./sorteioedital.php');
 }
 
-if (isset($_GET['curso'])) {
-    $idCurso = $_GET['curso'];
+if (isset($_POST['curso'])) {
+    $idCurso = $_POST['curso'];
 }
 
-if (! isset($_GET['curso']) or $_GET['curso'] == NULL) {
+if (! isset($_POST['curso']) or $_POST['curso'] == NULL) {
     header('location: ./sorteioRealizadoedital.php');
 }
 
 function  listarSorteados(){
-    $idCurso = $_GET['curso'];
-    $idEdital = $_GET['edital'];
+    $idCurso = $_POST['curso'];
+    $idEdital = $_POST['edital'];
     $conexao = conexaobd();
     if ($conexao) {
         $sql = "SELECT c.idcandidato as 'idCandidato', c.nome as 'nomeCandidato', c.rg as 'rgCandidato', c.orgaoemissor as 'orgaoEmissorCandidato', c.cpf as 'cpfCandidato', c.nascimento as 'nascimentoCandidato', c.logradouro as 'logradouroCandidato', c.complemento as 'complementoCandidato', c.bairro as 'bairroCandidato', c.cep as 'cepCandidato', c.cidade as 'cidadeCandidato', c.uf as 'ufCandidato', c.email as 'emailCandidato', c.telefone1 as 'telefone1Candidato', c.telefone2 as 'telefone2Candidato', c.situacao as 'situacaoCandidato', s.editalcurso as 'idEditalCurso', cur.nome as 'nomeCurso' FROM sorteados s JOIN candidato c ON s.candidato=c.idcandidato JOIN editalcurso e ON s.editalcurso=e.ideditalcurso JOIN curso cur ON e.idcurso=cur.idcurso where cur.idcurso=$idCurso and e.idedital=$idEdital";

@@ -7,11 +7,11 @@ require_once "../control/pdaosorteio.php";
 include_once '../control/sorteio.php';
 error_reporting(E_ERROR | E_PARSE | E_NOTICE);
 // Impedir usuário acessar página sem definir parâmetros
-if (! isset($_GET['edital']) or ! isset($_GET['curso']) or ($_GET['edital'] or $_GET['curso']) == NULL) {
+if (! isset($_POST['edital']) or ! isset($_POST['curso']) or ($_POST['edital'] or $_POST['curso']) == NULL) {
     header('location: ./sorteioedital.php');
 }
-$idEdital = $_GET['edital'];
-$idCurso = $_GET['curso'];
+$idEdital = $_POST['edital'];
+$idCurso = $_POST['curso'];
 
 
 
@@ -53,7 +53,7 @@ $selectQtdAluno = selecionarqtd($row1);
 $sorteioRealizado = $row['sorteioRealizado'];
 if ($sorteioRealizado == 0) {
     // Função atualizar editalcurso
-    sorteiorealizado($_GET['edital'], $_GET['curso']);
+    sorteiorealizado($_POST['edital'], $_POST['curso']);
     
     $tagTitle = "Sorteio";
     require_once "../../../arquivosfixos/headerFooter/header.php";
@@ -99,7 +99,6 @@ if ($sorteioRealizado == 0) {
             }
         if($k == 1){ 
                 $ordenado[$i] = $arrayCandidatos[$sorteio];
-
                 $idCandidato = $arrayCandidatos[$i]['idCandidato'];
                 $idEditalCurso = $row['ideditalcurso'];
                 $tabela = "sorteados";
