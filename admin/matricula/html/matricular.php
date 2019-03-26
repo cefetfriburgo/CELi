@@ -70,7 +70,7 @@ if(isset($_POST['alunoid']) && isset($_POST['alunonome'])){
         					<?php 
         					if(isset($_SESSION['alunos'])){
         					 $sessao = $_SESSION['alunos'];
-        					 
+        					 print_r($sessao);
         					foreach($sessao as $alunoSelecionado){?>
         					    <tr>
         					    	<td><?php echo $alunoSelecionado[1];?></td>

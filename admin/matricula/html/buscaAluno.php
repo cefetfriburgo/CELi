@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR | E_WARNING);
 session_start();
 
 if(!isset($_SESSION['usuario']) && !isset($_SESSION['senha'])){
@@ -42,11 +43,22 @@ include_once'../control/buscaralunoDAO.php';
         						<th colspan="2">Alunos Buscados </th>
         					</tr>
         					<?php 
-        			
+							$selecionados = $_SESSION['alunos'];
         					if(isset($_POST['nome'])){
         					    $nome = $_POST['nome'];
-        					    $alunos=selecionaAluno($nome);
+								$alunos=selecionaAluno($nome);
+								
+
+
+
         					foreach($alunos as $aluno){
+								$erro=0;
+								for($i=0; $i<count($selecionados);$i++){
+									if($aluno[1]==$selecionados[$i][1]){
+										$erro=1;
+									}
+								}
+							if($erro==0){
         					?> 
         					<tr>
             					<td>
@@ -63,7 +75,20 @@ include_once'../control/buscaralunoDAO.php';
         					</tr>
         					
         					<?php    
-        					}}
+							}else{?>
+								<tr>
+            					<td>
+            						<?php echo $aluno[1];?>
+            					</td>
+            					<td>
+            						<p>Adicionado</p>
+            						</form>
+            						
+            					</td>
+        					</tr>	
+							<?php
+							}
+						}}
         					
         					?>
     					</table>
