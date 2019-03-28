@@ -102,11 +102,11 @@
     }
   };
 
-  if(isset($_GET['edital'])){
-    $idEdital = $_GET['edital'];
+  if(isset($_POST['edital'])){
+    $idEdital = $_POST['edital'];
   }
-  if(isset($_GET['curso'])){
-    $idCurso = $_GET['curso'];
+  if(isset($_POST['curso'])){
+    $idCurso = $_POST['curso'];
   }
 function sorteiorealizado($edital,$curso) {
     $conexao = conexaobd();

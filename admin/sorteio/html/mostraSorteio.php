@@ -5,13 +5,18 @@ require_once "../../../arquivosfixos/pdao/pdaoscript.php";
 require_once "../control/pdaosorteio.php";
 // require_once "./sorteiocurso.php";
 include_once '../control/sorteio.php';
-
+error_reporting(E_ERROR | E_PARSE | E_NOTICE);
 // Impedir usuário acessar página sem definir parâmetros
-if (! isset($_GET['edital']) or ! isset($_GET['curso']) or ($_GET['edital'] or $_GET['curso']) == NULL) {
+if (! isset($_POST['edital']) or ! isset($_POST['curso']) or ($_POST['edital'] or $_POST['curso']) == NULL) {
     header('location: ./sorteioedital.php');
 }
-$idEdital = $_GET['edital'];
-$idCurso = $_GET['curso'];
+$idEdital = $_POST['edital'];
+$idCurso = $_POST['curso'];
+
+
+
+
+
 
 // Instanciando as variáveis que serão utilizadas para executar a função
 $campos = "idcurso, nome";
@@ -30,7 +35,6 @@ $row1 = $row['ideditalcurso'];
 
 function selecionarqtd($row1)
 {
-
         $conexao = conexaobd();
         if($conexao){
             $sql = "SELECT idcandidatocurso FROM candidatocurso WHERE ideditalcurso = $row1";
@@ -45,34 +49,39 @@ function selecionarqtd($row1)
     }
 $selectQtdAluno = selecionarqtd($row1);
 
+
 $sorteioRealizado = $row['sorteioRealizado'];
 if ($sorteioRealizado == 0) {
     // Função atualizar editalcurso
-    sorteiorealizado($_GET['edital'], $_GET['curso']);
+    sorteiorealizado($_POST['edital'], $_POST['curso']);
     
     $tagTitle = "Sorteio";
     require_once "../../../arquivosfixos/headerFooter/header.php";
     ?>
 
     <script src="./js/script.js"></script>
-<main id="main">
-<div class="main-content">
+    <main id="main">
+    <div class="main-content">
 	<h1 class="main-title">Listagem do sorteio</h1>
 	<div class="main-table table-edital">
 		<div class="main-table-titles-sorteio">
 
-    			<td class="main-table-title nome">Posição</td>
-    			<td class="main-table-title nome">Nome</td>
-    			<td class="main-table-title">Situação</td>
+    			<p class="main-table-title nome">Posição</p>
+    			<p class="main-table-title nome">Nome</p>
+    			<p class="main-table-title nome">Situação</p>
     
-    		</tr>
+    	</div>
 	        <!-- chamar as informaçoes do banco de dados de acordo com o id sorteados --> 
 			<?php
         $max = count($arrayCandidatos);
         $ordenado = array();
         
-        for ($i = 0; $i < $max; $i ++) {
+        $int=0;
+        $ext=0;
+        $idsorteado=1;
+        for ($i=0; $i < $max; $i++) {
             $sorteio = array_rand($arrayCandidatos);
+            
             // var_dump($id[$sorteio]).'<br />' ;
             $k = 1;
             
@@ -84,16 +93,24 @@ if ($sorteioRealizado == 0) {
                     } else {
                         $k = 1;
                     }
+                
+                
                 }
             }
-            
-            if ($k == 0) {
-                // echo "Ja esta no array".'<br />';
-                $i --;
-            } elseif ($k == 1) {
-                // echo "gravo no array".'<br />';
+        if($k == 1){ 
                 $ordenado[$i] = $arrayCandidatos[$sorteio];
-            }
+                $idCandidato = $arrayCandidatos[$i]['idCandidato'];
+                $idEditalCurso = $row['ideditalcurso'];
+                $tabela = "sorteados";
+                $elementos = " idsorteado, editalcurso, candidato, matriculaEfetuada";
+                $conteudo = " NULL ,$idEditalCurso, $idCandidato, 0";
+                $insereSorteados = inserirbd($tabela, $elementos, $conteudo, NULL);
+                $idsorteado++;
+        }  
+        if($k == 0){
+            $i--;
+        }  
+              
         }
         
         for ($i = 0; $i < count($ordenado); $i ++) {
@@ -104,7 +121,7 @@ if ($sorteioRealizado == 0) {
             
             $id = mysqli_fetch_array($result);
             ?>	 
-			 <div class="main-table-itens main-table-itens-sorteio">
+			<div class="main-table-itens main-table-itens-sorteio">
 			<p class="main-table-item"><?php echo $i+1; ?></p>
 			<p class="main-table-item"><?php echo $id['nome']; ?></p>
 			<p class="main-table-item">
@@ -115,19 +132,13 @@ if ($sorteioRealizado == 0) {
                         echo "Externo";
                     }
                 ?>
-    			</p></td>
-    			</tr>
+    			</p>
+    			
 			</div> 
 			<?php
-                    $idCandidato = $id['idcandidato'];
-                    $idEditalCurso = $row['ideditalcurso'];
-                    $tabela = "sorteados";
-                    $elementos = " ordem, editalcurso, candidato, matriculaEfetuada";
-                    $conteudo = " $i+1 , $idEditalCurso, $idCandidato, 0";
                     
-                    $insereSorteados = inserirbd($tabela, $elementos, $conteudo, NULL);
                     ?>
-            </div>
+            
       
                   <?php
                 }
@@ -140,9 +151,9 @@ if ($sorteioRealizado == 0) {
        
 
 ?>
-    <input id="imprimir" class="main-form-inputButton" type="button"
+    <input id="imprimir" class="btn-save" type="button"
 		value="Imprimir" />
-    <a class="main-form-back" href="javascript:history.back();">Voltar</a>
+    <a class="btn-back" href="javascript:history.back();">Voltar</a>
     
      </div>
      

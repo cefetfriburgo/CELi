@@ -36,7 +36,6 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
         <p class="main-form-textButton">Próximo</p>
         <img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
       </button>
-
   </form>
   <?php }else{ ?>
               <p class="main-form-legend">Não existem editais, favor registrar um.</p>

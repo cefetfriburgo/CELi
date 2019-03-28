@@ -92,7 +92,7 @@
                                                             <a class="header-subItem-content" href="/admin/sorteio/edital">Novo sorteio</a>
                                                        </li>
                                                        <li class="header-subItem">
-                                                            <a class="header-subItem-content" href="/admin/sorteio/edital/realizado">Sorteios anteriores</a>
+                                                            <a class="header-subItem-content" href="/admin/sorteio/html/sorteioRealizadoEdital.php">Sorteios anteriores</a>
                                                        </li>
                                                   </ul>
                                              </div>

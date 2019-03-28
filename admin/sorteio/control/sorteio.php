@@ -1,10 +1,10 @@
 <?php
 
-  if(isset($_GET['edital']) && isset($_GET['curso'])){
+  if(isset($_POST['edital']) && isset($_POST['curso'])){
 
     // Pegando o id do edital e do curso selecionados
-    $idEdital = $_GET['edital'];
-    $idCurso = $_GET['curso'];
+    $idEdital = $_POST['edital'];
+    $idCurso = $_POST['curso'];
 
     // Pegando a quantidade de vagas interno e externo
     $selectEditalCurso = selectEditalCurso("ideditalcurso, vagainterna, vagaexterna", "WHERE idcurso = $idCurso and idedital = $idEdital");
@@ -13,7 +13,7 @@
       $vagaInt = $row[1];
       $vagaExt = $row[2];
     }
-
+    
     // Armazenando os dados sobre o edital e o curso recolhidos em um array
     $arrayEditalCurso = array(
       'idEditalCurso' => $idEditalCurso,
@@ -22,7 +22,7 @@
       'vagasInt' => $vagaInt,
       'vagasExt' => $vagaExt
     );
-
+  
     // Pegando os candidatos cadastrados no curso selecionado, naquele edital e sua situacao
     $selectCandidatoCurso = selectCandidatoCurso("idcandidato", "WHERE ideditalcurso = $idEditalCurso") or die(mysqli_error($conexao));
     $arrayCandidatos = array();

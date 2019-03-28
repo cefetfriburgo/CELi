@@ -63,14 +63,14 @@ if(isset($_POST['alunoid']) && isset($_POST['alunonome'])){
 						</tr>
 					</table>
 					
-						<table class="main-table">
+						<table class="custom-table">
         					<tr class="table-title">
         						<td class="select"> Alunos Selecionados </td>
+								<td class="td-action"> Ação </td>
         					</tr>
         					<?php 
         					if(isset($_SESSION['alunos'])){
         					 $sessao = $_SESSION['alunos'];
-        					 
         					foreach($sessao as $alunoSelecionado){?>
         					    <tr>
         					    	<td><?php echo $alunoSelecionado[1];?></td>
@@ -102,7 +102,7 @@ if(isset($_POST['alunoid']) && isset($_POST['alunonome'])){
                             </a>
                             </td>
     					</table>
-    				<form action="../control/enviarMatricula.php" method="post">
+    					<form action="../control/enviarMatricula.php" method="post">
         				<input type="hidden" name="idturma" value="<?php echo $idturma;?>"/>
         				<button class="btn-save" type="submit">Matricular
                             <img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />

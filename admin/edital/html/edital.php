@@ -65,8 +65,13 @@
 		?>
 		<div class="main-form-vazio">
 			<div class="main-form-vazio-ctt">
-				<p class="main-form-legend">Você deve registrar um curso antes de registrar um novo edital.</p>
-				<a class="main-form-button" href="/admin/curso/cadastrar">Registrar curso</a>
+				<p class="main-form-legend">Para registrar um novo edital é necessário antes possuir pelo menos um curso cadastrado no sistema.</p>
+				<p class="main-form-legend">Registre um curso e tente novamente.</p>
+				<a class="btn-save" href="/admin/curso/adicionar">Registrar curso
+					<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
+				</a> 
+
+				
 			</div>
 		</div> 
 		<?php 

@@ -49,7 +49,7 @@ if(isset($_POST['name']) && isset($_POST['course']) && isset($_POST['phone1']) &
         }
         $validtelefone2 = validartelefone2($telefone2);
         if($validtelefone2==1){
-            $_SESSION['erro_3'] = "Verifique se seu segundo telefone foi preenchidopreenchido corretamente!";
+            $_SESSION['erro_3'] = "Verifique se seu segundo telefone foi preenchido corretamente!";
         }
         $validemail = validaremail($email);
         if($validemail==1){
@@ -120,14 +120,10 @@ if(isset($_POST['name']) && isset($_POST['course']) && isset($_POST['phone1']) &
 }
 function validarComplemento($complemento){
     $errocomp = 0;
-    if(trim($complemento)== ""){
-        $errocomp = 1;
-    }
-    else{
+    
         $arrayComp= str_split($complemento);
         $lengthComp= strlen($complemento);
         $erroespecial=0;
-        $erroletra=0;
         for($i=0;$i<$lengthComp;$i++){
             $caracasciicode=ord($arrayComp[$i]);
             if($caracasciicode==32 || ($caracasciicode>=45 && $caracasciicode<=47) || ($caracasciicode>=65 && $caracasciicode<=90) || ($caracasciicode>=97 && $caracasciicode<=122) || ($caracasciicode>=128 && $caracasciicode<=155) || $caracasciicode>=157 || ($caracasciicode>=160 && $caracasciicode<=165)){}
@@ -135,14 +131,11 @@ function validarComplemento($complemento){
                 $erroespecial=1;
             }
         }
-        if($erroletra==1){
-            $erroBairro = 1;
-        }
         if($erroespecial==1){
-            $erroBairro = 1;
+            $errocomp = 1;
         }
-    }
-    return $erroBairro;
+    
+    return $errocomp;
     }
 // Função para validar o nome
 function validarnome($nome){
@@ -179,7 +172,8 @@ function validarnome($nome){
 // Função para validar o telefone
 function validartelefone1($telefone){
     $errotelefone = 0;
-    if( trim($telefone)=="" ){
+    $caracteres = strlen($telefone);
+    if(trim($telefone)==""||$caracteres<14|| $caracteres>15 ){
         $errotelefone = 1;
     }
     else{
@@ -201,7 +195,11 @@ function validartelefone1($telefone){
 };
 function validartelefone2($telefone){
     $errotelefone = 0;
-    if( trim($telefone)!="" ){
+    $caracteres = strlen($telefone);
+    if(trim($telefone)==""||$caracteres<14|| $caracteres>15 ){
+        $errotelefone = 1;
+    }
+    else{
         $arraytelefone= str_split($telefone);
         $lengthtelefone= strlen($telefone);
         $erroespecial=0;
@@ -218,6 +216,7 @@ function validartelefone2($telefone){
     }
     return $errotelefone;
 };
+
 // Função para validar o email
 function validaremail($email){
     $erroemail = 0;
