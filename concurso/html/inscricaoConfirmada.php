@@ -218,6 +218,7 @@ inserirCandidatocurso($curso);
       </main>
       <?php
         require_once "../../arquivosfixos/headerFooter/footer.php";
+        session_destroy();
       ?>
       </div>
   </body>

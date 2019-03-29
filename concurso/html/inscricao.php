@@ -416,8 +416,11 @@ foreach ($_POST as $key => $value) {
 						}else{ ?>
         			<p class="main-form-legend">Não há editais ativos.</p>
 	
-   <?php }?>
-					
+   <?php }
+				if(isset($_SESSION['voltar'])){
+					session_destroy();
+				}
+				?>
 				</div>
 			</main>
 			</body>

@@ -19,7 +19,6 @@ if(isset($_POST['name']) && isset($_POST['course']) && isset($_POST['phone1']) &
         $situacao=$_POST['radio'];
         $deficiencia=$_POST['radioDeficiencia'];
         $obsDeficiencia=$_POST['descricaoDeficiencia'];
-        echo 'alo';
         session_start();
         $_SESSION['name'] = $nome;
         $_SESSION['phone1'] = $telefone1;
