@@ -1,21 +1,17 @@
- <?php
-
+<?php
 // Linka o arquivo pdao para pegar os cursos a fim de exibi-los
 require_once "../../../arquivosfixos/pdao/pdaoscript.php";
 require_once "../control/pdaosorteio.php";
-
 // Instanciando as variáveis que serão utilizadas para executar a função
 $campos = "idcurso, nome";
 $tabela = "curso";
 $sql = selecionarbd($campos, $tabela, NULL);
-
 if (isset($_POST['edital'])) {
     $idEdital = $_POST['edital'];
 }
 if (! isset($idEdital) or $idEdital == NULL) {
     header('location: /admin/sorteio/edital');
 }
-
 $tagTitle = "Sorteio Curso";
 require_once "../../../arquivosfixos/headerFooter/header.php";
 ?>
@@ -24,7 +20,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
   <h1 class="main-title">Escolher Curso</h1>
   <?php  $selectEditalCurso = selectEditalCurso("idedital, idcurso, vagainterna, vagaexterna", "WHERE idedital = $idEdital AND sorteioRealizado = 0");
   if($selectEditalCurso->num_rows != 0){?>
-  <form method="get" action="./html/mostraSorteio.php" name="sorteio">
+  <form method="post" action="./html/mostraSorteio.php" name="sorteio">
     <input type="hidden" name="edital" value="<?php echo $idEdital ?>"> 
     <center>
       <select class="curso" name="curso">
@@ -41,7 +37,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
         ?>
       </select>
     </center>
-    <button class="button-proximo btn-alt"
+    <button class="button-proximo-sort btn-alt"
       type="submit" class="main-form-send">Próximo
       
       <img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png">

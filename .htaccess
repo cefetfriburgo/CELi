@@ -63,11 +63,11 @@ RewriteRule ^admin/turma/registrado$ admin/turma/html/registrado.php
 
 
 #Alunos
-RewriteRule ^admin/aluno/$ admin/aluno/html/registrar.php
-RewriteRule ^admin/aluno/adicionar$ admin/aluno/html/registrar.php
-RewriteRule ^admin/aluno/lista$ admin/aluno/html/listar.php
-RewriteRule ^admin/aluno/editar/([0-9]*)$ admin/aluno/html/editar.php?aluno=$1
-RewriteRule ^admin/aluno/excluir/([0-9]*)$ admin/aluno/html/excluir.php?aluno=$1
+RewriteRule ^admin/aluno/$ admin/aluno/html/aluno.php
+RewriteRule ^admin/aluno/adicionar$ admin/aluno/html/aluno.php
+RewriteRule ^admin/aluno/lista$ admin/aluno/html/listadealunos.php
+RewriteRule ^admin/aluno/editar/([0-9]*)$ admin/aluno/html/editaralunos.php?aluno=$1
+RewriteRule ^admin/aluno/excluir/([0-9]*)$ admin/aluno/html/excluiraluno.php?aluno=$1
 RewriteRule ^admin/aluno/registrado$ admin/aluno/html/registrado.php
 RewriteRule ^admin/aluno/editado$ admin/aluno/html/editado.php
 RewriteRule ^admin/aluno/invalido$ admin/aluno/html/invalido.php

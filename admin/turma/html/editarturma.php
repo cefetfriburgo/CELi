@@ -68,11 +68,11 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 		<?php 
 		  }else{
 		?>
-			<table class="main-table editarTurma-table">
-				<tr class="editarTurma-table-titles">
-					<td class="editarTurma-table-title">Nome do Aluno</td>
-					<td class="editarTurma-table-title">Média escrita</td>
-					<td class="editarTurma-table-title">Média oral</td>
+			<table class="custom-table">
+				<tr class="">
+					<td class="title-name">Nome do Aluno</td>
+					<td class="">Média escrita</td>
+					<td class="">Média oral</td>
 				</tr>
 				<?php 
 			
@@ -83,10 +83,10 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 				    while($result = mysqli_fetch_assoc($query)){
 				    
 				    ?>
-					<tr class="editarTurma-table-titles">
-						<td class="editarTurma-table-title"> <?php echo $result['nome']?> </td>
-    					<td class=""><input class="main-form-input main-form-cursoCTT" type="decimal" max=10 min=0 name="medesc<?php echo $i; ?>" value=<?php echo $result['medesc'] ?>></td> 
-    					<td class=""><input class="main-form-input main-form-cursoCTT" type="decimal" max=10 min=0 name="medoral<?php echo $i; ?>" value=<?php echo $result['medoral'] ?>></td>
+					<tr class="">
+						<td class=""> <?php echo $result['nome']?> </td>
+    					<td class="n"><input class="notas" type="number" step="any" max=10 min=0 name="medesc<?php echo $i; ?>" value=<?php echo $result['medesc'] ?>></td> 
+    					<td class="n"><input class="notas" type="number" step="any" max=10 min=0 name="medoral<?php echo $i; ?>" value=<?php echo $result['medoral'] ?>></td>
     					<input type="hidden" name="idaluno<?php echo $i; ?>" value=<?php echo $result['idaluno'] ?>>
 					<?php 
 					$i++;

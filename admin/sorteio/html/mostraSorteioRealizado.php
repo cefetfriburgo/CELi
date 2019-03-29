@@ -1,3 +1,18 @@
+<style>
+    @media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable, #printable * {
+    visibility: visible;
+  }
+  #printable {
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+}
+</style>
 <?php
 $tagTitle = "Sorteados";
 
@@ -5,24 +20,24 @@ $tagTitle = "Sorteados";
 require_once "../../../arquivosfixos/pdao/pdaoscript.php";
 require_once "../control/pdaosorteio.php";
 
-if (isset($_GET['edital'])) {
-    $idEdital = $_GET['edital'];
+if (isset($_POST['edital'])) {
+    $idEdital = $_POST['edital'];
 }
-if (! isset($_GET['edital']) or $_GET['edital'] == NULL) {
+if (! isset($_POST['edital']) or $_POST['edital'] == NULL) {
     header('location: ./sorteioedital.php');
 }
 
-if (isset($_GET['curso'])) {
-    $idCurso = $_GET['curso'];
+if (isset($_POST['curso'])) {
+    $idCurso = $_POST['curso'];
 }
 
-if (! isset($_GET['curso']) or $_GET['curso'] == NULL) {
+if (! isset($_POST['curso']) or $_POST['curso'] == NULL) {
     header('location: ./sorteioRealizadoedital.php');
 }
 
 function  listarSorteados(){
-    $idCurso = $_GET['curso'];
-    $idEdital = $_GET['edital'];
+    $idCurso = $_POST['curso'];
+    $idEdital = $_POST['edital'];
     $conexao = conexaobd();
     if ($conexao) {
         $sql = "SELECT c.idcandidato as 'idCandidato', c.nome as 'nomeCandidato', c.rg as 'rgCandidato', c.orgaoemissor as 'orgaoEmissorCandidato', c.cpf as 'cpfCandidato', c.nascimento as 'nascimentoCandidato', c.logradouro as 'logradouroCandidato', c.complemento as 'complementoCandidato', c.bairro as 'bairroCandidato', c.cep as 'cepCandidato', c.cidade as 'cidadeCandidato', c.uf as 'ufCandidato', c.email as 'emailCandidato', c.telefone1 as 'telefone1Candidato', c.telefone2 as 'telefone2Candidato', c.situacao as 'situacaoCandidato', s.editalcurso as 'idEditalCurso', cur.nome as 'nomeCurso' FROM sorteados s JOIN candidato c ON s.candidato=c.idcandidato JOIN editalcurso e ON s.editalcurso=e.ideditalcurso JOIN curso cur ON e.idcurso=cur.idcurso where cur.idcurso=$idCurso and e.idedital=$idEdital";
@@ -40,10 +55,10 @@ $selectSorteados = listarSorteados();
 require_once "../../../arquivosfixos/headerFooter/header.php";
 ?>
 <main id="main">
-	<div class="main-content">
+	<div id="printable" class="main-content">
 		<h1 class="main-title">Listagem do sorteio</h1>
-		<div class="main-table table-edital">
-			<div class="main-table-titles-realizado">
+		<div class="main-table table-edital table-sorteio">
+			<div class="main-table-itens main-table-itens-realizado">
 				<p class="main-table-title">Posição</p>
 				<p class="main-table-title">Nome</p>
 				<p class="main-table-title">Situação</p>
@@ -97,7 +112,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
                     ?>
                 </p>
                 <p class="main-table-title"> <?php echo $arrayCandidatos[$indice][16];?> </p>
-                <div class="main-table-title"> 
+               
                     <?php
                     
                         $conexao = conexaobd();
@@ -109,24 +124,24 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
                     <form method="POST" action="../control/matricula.php">
                     	<input type="hidden" name="idCandidato" value="<?php echo $arrayCandidatos[$indice][0];?>" /> 
                     	<input type="hidden" name="idcurso" value="<?php echo $arrayCandidatos[$indice][17];?>" />
-                    	<input class="" type="submit" value="Matricular" />
+                    	<input class="matricula" type="submit" value="Matricular" />
                     </form>
                 	<?php
                         }
                         else {
                     ?>
-    				<p class="main-table-title curso">Matriculado</p>
+    				<p class="main-table-title">Matriculado</p>
     				<?php
                         }
                     ?>
-				</div>
+				
 			</div>
 			<?php
                 $indice++;
                 }
 			?>
-        <input id="imprimir" class="main-form-inputButton" type="button" value="Imprimir" />
-        <a class="main-form-back" href="javascript:history.back();">Voltar</a>
+        <input id="imprimir" class="btn-save imp" type="button" onclick="window.print()" value="Imprimir" />
+        <a class="btn-back imp" href="javascript:history.back();">Voltar</a>
     </div>
 </main>
 <?php

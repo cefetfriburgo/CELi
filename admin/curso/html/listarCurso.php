@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 
 require "../control/listadecurso.php";
 
-$tagTitle = "Lista de cursos";
+$tagTitle = 'Lista de cursos ';
 require_once "../../../arquivosfixos/headerFooter/header.php";
 ?>
 <main id="main">
@@ -80,7 +80,10 @@ if ($conta->num_rows != 0) {
 } else {
     ?>
 	<p class="main-form-legend">Não há cursos registrados.</p>
-<a class="main-form-back" href="/admin/curso/adicionar">Registrar</a>
+	<a class="btn-save" href="/admin/curso/adicionar">Registrar
+		<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
+	</a> 
+
 	<?php
 }
 ?>
