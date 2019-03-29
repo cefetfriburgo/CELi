@@ -80,7 +80,7 @@ $insertInfo = inserirbd ($tabela2, $elementos, $conteudo, NULL);
 				<div class="main-content">
 					<h1 class="main-title">Registrado</h1>
 						<p class="main-form-legend">Os alunos selecionados foram matriculados com sucesso.</p>
-						<a class="main-form-back" href="./sorteioRealizadoEdital.php">Voltar</a>
+						<a class="main-form-back" href="../html/sorteioRealizadoEdital.php">Voltar</a>
 				</div>
 			</div>
 			<?php

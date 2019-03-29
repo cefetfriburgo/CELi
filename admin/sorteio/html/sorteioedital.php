@@ -39,7 +39,9 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
   </form>
   <?php }else{ ?>
               <p class="main-form-legend">Não existem editais, favor registrar um.</p>
-  <a class="main-form-back" href="/admin/edital/adicionar">Registrar</a>
+  <a class="btn-save" href="/admin/edital/adicionar">Registrar
+  <img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
+  </a>
    <?php }?>
 </div>
 </main>

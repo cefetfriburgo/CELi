@@ -7,7 +7,7 @@ $_GET['aluno'];
 $idaluno = $_GET['aluno'];
 
 
-require "../control/excluir.php";
+require "../control/excluiraluno.php";
     
     $tagTitle = "Excluir aluno";
 	require_once "../../../arquivosfixos/headerFooter/header.php";

@@ -153,7 +153,7 @@ if ($sorteioRealizado == 0) {
 ?>
     <input id="imprimir" class="btn-save" type="button"
 		value="Imprimir" />
-    <a class="btn-back" href="javascript:history.back();">Voltar</a>
+    <a class="btn-back" href=" ./admin/sorteio/edital">Voltar</a>
     
      </div>
      

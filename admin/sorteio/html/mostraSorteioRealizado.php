@@ -3,6 +3,9 @@
   body * {
     visibility: hidden;
   }
+  #printhide{
+    visibility: hidden;
+  }
   #printable, #printable * {
     visibility: visible;
   }
@@ -140,8 +143,8 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
                 $indice++;
                 }
 			?>
-        <input id="imprimir" class="btn-save imp" type="button" onclick="window.print()" value="Imprimir" />
-        <a class="btn-back imp" href="javascript:history.back();">Voltar</a>
+        <input id="imprimir printhide" class="btn-save imp" type="button" onclick="window.print()" value="Imprimir" />
+        <a id="printhide" class="btn-back imp" href="./sorteioRealizadoEdital.php">Voltar</a>
     </div>
 </main>
 <?php
