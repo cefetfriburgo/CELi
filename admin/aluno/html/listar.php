@@ -2,7 +2,7 @@
 ini_set('display_errors', 0);
 error_reporting(E_ALL);
 
-require "../control/listar.php";
+require "../control/listaalunos.php";
 
 $tagTitle = "Lista de alunos";
 require_once "../../../arquivosfixos/headerFooter/header.php";
