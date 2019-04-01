@@ -259,7 +259,7 @@ foreach ($_POST as $key => $value) {
                         </div>
                         <div class="div-textareaDef">
 							<label class="main-form-label main-form-dificienciaTex-label">Descrição</label>
-							<textarea disabled="disabled" style="background-color: rgb(204, 204, 204);" id="descricaoDeficiencia" name="descricaoDeficiencia" placeholder = "Informe-nos a sua necessidade"></textarea>
+							<textarea disabled="disabled" style="background-color: rgb(204, 204, 204);" id="descricaoDeficiencia" name="descricaoDeficiencia" placeholder = "Conte-nos sobre a sua deficiência e eventuais necessidades específicas para atendimento."></textarea>
 						</div>
 						
 						<div class="main-form-submit">
