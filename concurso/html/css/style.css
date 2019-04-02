@@ -1,1 +1,17 @@
-@import url('../../../arquivosfixos/css/main/custom.css');
+.clr{
+    background-color: #3d5564;
+    height: 100px;
+}
+.custom-logo-link img{
+    width: 150px;
+    height: 76px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: left;
+}
+.container{
+    width: 1200px;
+    max-width: 90%;
+    margin: 0 auto;
+    background-color: #3d5564;
+}

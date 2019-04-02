@@ -5,9 +5,9 @@
 foreach ($_POST as $key => $value) {
     echo '<p><strong>' . $key.':</strong> '.$value.'</p>';
 }
+error_reporting(E_ERROR);
 ?>
-
-			
+		
 <html>
     <head>
     	<meta charset="utf-8">
@@ -17,11 +17,50 @@ foreach ($_POST as $key => $value) {
     	<script src="../../arquivosfixos/js/mascaraJS/mascara.min.js"></script>
         <script type="text/javascript" src="/concurso/html/js/script.js"></script>
         <script type="text/javascript" src="../../arquivosfixos/js/mascaraJS/mascara.js"></script>
-    	
-    </head>
-    <body>
-    
+		<header id="site-header" class="minimal-header clr" data-height="95" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+		<link rel="stylesheet" type="text/css" href="../concurso/html/css/style.css">
+	
 			
+			<div id="site-header-inner" class="clr container">
+
+				
+				
+
+<div id="site-logo" class="clr has-responsive-logo" itemscope itemtype="http://schema.org/Brand">
+
+	
+	<div id="site-logo-inner" class="clr">
+
+		<a href="http://celi.cefet-rj.br/" class="custom-logo-link" rel="home" itemprop="url"><img width="200" height="102" src="http://celi.cefet-rj.br/wp-content/uploads/2018/08/logo-white-e1535748387518.png" class="custom-logo" alt="CELi" itemprop="logo" /></a><a href="http://celi.cefet-rj.br/" class="responsive-logo-link" rel="home"><img src="http://localhost/wordpress/wp-content/uploads/2018/08/logo-white.png" class="responsive-logo" width="" height="" alt="" /></a>
+	</div><!-- #site-logo-inner -->
+
+	
+	
+</div><!-- #site-logo -->
+
+			<div id="site-navigation-wrap" class="no-top-border clr">
+		
+		
+	
+
+
+		
+		
+	
+
+			</div><!-- #site-header-inner -->
+
+			
+			
+		
+				
+	
+</header><!-- #site-header -->
+
+
+	
+
+		
 			<main id="main">
 				<div class="main-content">
 				
@@ -212,7 +251,7 @@ foreach ($_POST as $key => $value) {
                             <div class="cadastro">
                             <?php
                             if($_SESSION['radio']=="e"){ ?>
-                            <input class="main-form-inputRadio" type="radio" name="radio" value="i" id=tipo-cadastro1">
+                            <input class="main-form-inputRadio" type="radio" name="radio" value="i" id="tipo-cadastro1">
                             <label for="tipo-cadastro1">Interno</label>
                             <input checked="checked" class="main-form-inputRadio" type="radio" value="e" name="radio" id="tipo-cadastro2">
                             <label for="tipo-cadastro2">Externo</label>
@@ -223,6 +262,10 @@ foreach ($_POST as $key => $value) {
                             <label for="tipo-cadastro2">Externo</label>
                             <?php } ?>
                             </div>
+
+
+
+
                         </div>
                         <div class="main-form-box">
 							<label  class="main-form-label main-form-labelCurso">Cursos</label>
@@ -358,7 +401,6 @@ foreach ($_POST as $key => $value) {
 						</div>
 						 <div class="noticia-checkbox-personalizado main-form-box">
                             <label class="main-form-label main-form-situation-label">Comunidade</label>
-
                             <div class="cadastro">
                             <input checked="checked" class="main-form-inputRadio" type="radio" name="radio" value="i" id="tipo-cadastro1">
                             <label for="tipo-cadastro1">Interno</label>
