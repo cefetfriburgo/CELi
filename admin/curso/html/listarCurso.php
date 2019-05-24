@@ -31,7 +31,7 @@ if ($conta->num_rows != 0) {
 			<p class="main-table-item-nome"><?php echo $curso['nome']; ?></p>
 			<div class="main-table-item main-table-itemBTN">
 				<a class="btn-alterar"
-					href="/admin/curso/editar/<?php echo $curso['idcurso']; ?>">alterar</a>
+					href="/admin/curso/editar/<?php echo $curso['idcurso']; ?>">editar</a>
 				<a class="btn-excluir"
 					href="/admin/curso/excluir/<?php echo $curso['idcurso']; ?>">excluir</a>
 				
