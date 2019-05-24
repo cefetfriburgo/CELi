@@ -27,7 +27,7 @@ if (isset($_POST['edital'])) {
     $idEdital = $_POST['edital'];
 }
 if (! isset($_POST['edital']) or $_POST['edital'] == NULL) {
-    header('location: ./sorteioedital.php');
+    header('location:/admin/sorteio/arquivo');
 }
 
 if (isset($_POST['curso'])) {
@@ -35,7 +35,7 @@ if (isset($_POST['curso'])) {
 }
 
 if (! isset($_POST['curso']) or $_POST['curso'] == NULL) {
-    header('location: ./sorteioRealizadoedital.php');
+    header('location:/admin/sorteio/arquivo');
 }
 
 function  listarSorteados(){
@@ -144,7 +144,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
                 }
 			?>
         <input id="imprimir printhide" class="btn-save imp" type="button" onclick="window.print()" value="Imprimir" />
-        <a id="printhide" class="btn-back imp" href="./sorteioRealizadoEdital.php">Voltar</a>
+        <a id="printhide" class="btn-back imp" href="javascript:history.back();">Voltar</a>
     </div>
 </main>
 <?php
