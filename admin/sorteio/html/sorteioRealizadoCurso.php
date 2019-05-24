@@ -15,7 +15,7 @@ if (isset($_POST['edital'])){
     $idEdital = $_POST['edital'];
 }
 if(!isset($idEdital) OR $idEdital == NULL){
-    header('location: ./sorteioedital.php');
+    header('location:/admin/sorteio/arquivo');
 }
 
 $tagTitle = "Sorteio Curso";
@@ -24,7 +24,7 @@ $tagTitle = "Sorteio Curso";
 			<main id="main">
 				<div class="main-content">
 					<h1 class="main-title">Escolher Curso</h1>
-        	<form method="POST" action="mostraSorteioRealizado.php" name="sorteio">
+        	<form method="POST" action="/admin/sorteio/arquivo/resultado" name="sorteio">
 				<input type="hidden" name="edital" value="<?php echo $idEdital ?>">
 				<center>
         		<select class="curso" name="curso">
