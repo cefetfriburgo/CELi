@@ -8,7 +8,7 @@ include_once '../control/sorteio.php';
 error_reporting(E_ERROR | E_PARSE | E_NOTICE);
 // Impedir usuário acessar página sem definir parâmetros
 if (! isset($_POST['edital']) or ! isset($_POST['curso']) or ($_POST['edital'] or $_POST['curso']) == NULL) {
-    header('location: ./sorteioedital.php');
+    header('location:/admin/sorteio');
 }
 $idEdital = $_POST['edital'];
 $idCurso = $_POST['curso'];
