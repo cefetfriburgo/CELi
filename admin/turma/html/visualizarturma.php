@@ -3,7 +3,7 @@
 $idturma=$_GET['turma'];
 
 if(!isset($idturma) || $idturma==null){
-    header('Location: ./listarturma.php');
+    header('Location:/admin/turma/lista');
   
 }
 require_once'../../../arquivosfixos/pdao/pdaoscript.php';
