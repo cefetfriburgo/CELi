@@ -144,7 +144,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
                 }
 			?>
         <input id="imprimir printhide" class="btn-save imp" type="button" onclick="window.print()" value="Imprimir" />
-        <a id="printhide" class="btn-back imp" href="javascript:history.back();">Voltar</a>
+        <a id="printhide" class="btn-back imp" href="/admin/sorteio/arquivo">Voltar</a>
     </div>
 </main>
 <?php
