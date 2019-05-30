@@ -63,7 +63,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
     	</div>
         <?php }else{ ?>
         <p class="main-form-legend">Você não possui alunos registrados.</p>
-    	<a class="btn-save" href="/admin/aluno/adicionar">Registrar
+    	<a class="main-form-back btn-save" href="/admin/aluno/adicionar">Registrar
 		<img class="main-form-iconButton" src="../../../arquivosfixos/midia/setaDireita-icon.png" />
 		</a>
         <?php }?>
