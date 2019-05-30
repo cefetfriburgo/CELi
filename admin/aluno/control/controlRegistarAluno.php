@@ -4,13 +4,13 @@ include_once '../../../arquivosfixos/pdao/pdaoscript.php';
 if(isset($_POST['nomealuno']) && ((isset($_POST['rgaluno'])  && isset($_POST['orgaoemissoraluno']))  || isset($_POST['cpfaluno']))
     && isset($_POST['nascimentoaluno']) && isset($_POST['logradouroaluno']) && isset($_POST['complementoaluno']) && isset($_POST['bairroaluno'])
     && isset($_POST['cepaluno']) && isset($_POST['cidadealuno']) && isset($_POST['ufaluno']) && isset($_POST['emailaluno']) && isset($_POST['telefone1aluno'])
-    && isset($_POST['telefone2aluno']) && isset($_POST['radio']) && isset($_POST['radioDeficiencia'])){
+    && isset($_POST['radio']) && isset($_POST['radioDeficiencia'])){
     
         
      if(trim($_POST['nomealuno'])!=NULL && ((trim($_POST['rgaluno'])!=NULL && trim($_POST['orgaoemissoraluno'])!=NULL) || trim($_POST['cpfaluno'])!=NULL)  
         && trim($_POST['nascimentoaluno'])!=NULL  && trim($_POST['logradouroaluno'])!=NULL && trim($_POST['complementoaluno'])!=NULL && trim($_POST['bairroaluno'])!=NULL
         && trim($_POST['cepaluno'])!=NULL && trim($_POST['cidadealuno'])!=NULL && trim($_POST['ufaluno'])!=NULL && trim($_POST['emailaluno'])!=NULL
-        && trim($_POST['telefone1aluno'])!=NULL && trim($_POST['telefone2aluno']) && trim($_POST['radio'])!=NULL && trim($_POST['radioDeficiencia'])!=NULL){
+        && trim($_POST['telefone1aluno'])!=NULL && trim($_POST['radio'])!=NULL && trim($_POST['radioDeficiencia'])!=NULL){
    
         // Sendo setado, pega os dados do formulário e armazena em variáveis
         $nome = $_POST['nomealuno'];
