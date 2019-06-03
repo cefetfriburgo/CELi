@@ -15,7 +15,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 <main id="main">
 <div class="main-content">
   <h1 class="main-title">Escolher Edital</h1>
-  <?php $selectEdital = selectEdital("idedital, data_ini, hora_ini, data_fim, hora_fim", NULL);
+  <?php $selectEdital = selectEdital("idedital, data_ini, hora_ini, data_fim, hora_fim", "WHERE now() > data_fim");
   if($selectEdital->num_rows != 0){?>
   <form method="post" action="/admin/sorteio/curso" name="sorteio">
     <center> 
