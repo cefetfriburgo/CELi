@@ -14,7 +14,7 @@ require_once "../../../arquivosfixos/headerFooter/header.php";
 ?>
 			<main id="main">
 				<div class="main-content">
-					<h1 class="main-title">Escolher Edital</h1>
+					<h1 class="main-title">Selecionar edital</h1>
         	<form method="POST" action="/admin/sorteio/arquivo/curso" name="sorteio">
 					
         		<select class="sorteio-edital" name="edital">
